@@ -28,7 +28,7 @@ export function JournalTease() {
                 {feature.title}
               </h3>
             </div>
-            <p className="mt-8 max-w-md text-sm leading-relaxed text-white/70 md:text-base">{feature.dek}</p>
+            <p className="mt-8 max-w-md text-base leading-relaxed text-white/80">{feature.dek}</p>
           </Link>
           <div className="grid gap-5 lg:col-span-5">
             {rest.map((essay) => (

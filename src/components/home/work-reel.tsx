@@ -64,7 +64,7 @@ export function WorkReel() {
         <div className="mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="display max-w-xl text-[clamp(2.6rem,5vw,4.6rem)]">Selected studies.</h2>
           <div className="max-w-sm">
-            <p className="text-sm leading-relaxed text-stone md:text-base">
+            <p className="text-base leading-relaxed text-charcoal">
               Representative engagements, written so you can see how a project is framed, designed, and judged.
             </p>
             <Link href="/work" className="mt-4 inline-flex text-sm font-medium underline decoration-lime decoration-2 underline-offset-4">
@@ -117,11 +117,11 @@ function StudyCard({
       </div>
       <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
         <div>
-          <p className="eyebrow text-white/50">
+          <p className="eyebrow text-white/70">
             {study.index} / {study.sector}
           </p>
           <h3 className="mt-3 text-3xl font-bold tracking-[-0.045em] md:text-4xl">{study.name}</h3>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70">{study.summary}</p>
+          <p className="mt-3 max-w-md text-base leading-relaxed text-white/80">{study.summary}</p>
         </div>
         <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-lime">
           View case study

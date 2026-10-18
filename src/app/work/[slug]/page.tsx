@@ -63,7 +63,7 @@ export default async function StudyPage({
           {study.outcomes.map((outcome) => (
             <div key={outcome.label} className="rounded-[28px] bg-ink p-7 text-white">
               <p className="text-4xl font-bold tracking-[-0.05em] text-lime">{outcome.value}</p>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">{outcome.label}</p>
+              <p className="mt-3 text-base leading-relaxed text-white/80">{outcome.label}</p>
             </div>
           ))}
         </div>

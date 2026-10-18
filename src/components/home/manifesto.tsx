@@ -63,7 +63,7 @@ export function Manifesto() {
           {principles.map((principle) => (
             <article key={principle.title} className="principle-card rounded-3xl border border-white/10 bg-white/5 p-5">
               <h2 className="text-2xl font-semibold tracking-[-0.04em]">{principle.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/65">{principle.body}</p>
+              <p className="mt-2 text-base leading-relaxed text-white/80">{principle.body}</p>
             </article>
           ))}
         </div>

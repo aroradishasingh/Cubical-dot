@@ -8,14 +8,14 @@ export function MarkStory() {
       <div className="relative min-h-[420px] lg:min-h-[720px]">
         <FieldArt variant="split" tone="ink" />
       </div>
-      <div className="flex flex-col justify-center px-5 py-16 md:px-12 lg:px-16 lg:py-24">
+      <div className="flex flex-col justify-center px-5 py-16 md:px-10 lg:px-16 lg:py-24">
         <Chapter index="06" label="The mark" />
         <h2 className="display mt-6 text-[clamp(2.5rem,4.5vw,4.4rem)]">
           Simple forms.
           <br />
           Bigger ideas.
         </h2>
-        <div className="mt-6 max-w-md space-y-4 text-sm leading-relaxed text-stone md:text-base">
+        <div className="mt-6 max-w-md space-y-4 text-base leading-relaxed text-charcoal">
           <p>
             A cube is structure. A dot is the idea in motion. Together they are the smallest complete mark we know, and the way the studio works.
           </p>

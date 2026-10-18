@@ -12,7 +12,7 @@ export function Close() {
         <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
           {studio.line} Tell us the market you are entering and the standard the website has to hold.
         </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
           <BrandButton href="/contact" variant="lime" size="pillLg" magnetic>
             Start a project
           </BrandButton>

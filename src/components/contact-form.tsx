@@ -84,7 +84,7 @@ export function ContactForm() {
       <div className="rounded-[28px] bg-ink p-8 text-white md:p-10" role="status">
         <p className="eyebrow text-lime">Brief ready</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The note is written.</h2>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
+        <p className="mt-4 max-w-md text-base leading-relaxed text-white/80">
           Open it in your email app and send. A producer replies within two business days, on your clock. If the draft does not open, write {studio.email} directly.
         </p>
         <a
@@ -183,7 +183,7 @@ export function ContactForm() {
         <span className="size-2 rounded-full bg-lime group-hover/button:bg-ink" aria-hidden />
         Prepare the email
       </Button>
-      <p className="mt-4 text-xs leading-relaxed text-stone">
+      <p className="mt-4 text-sm leading-relaxed text-charcoal">
         Nothing is stored on a server. Preparing the email opens a draft to {studio.email} so you can send it yourself.
       </p>
     </form>

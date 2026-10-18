@@ -37,7 +37,7 @@ export default function ContactPage() {
                   <span className="text-sm font-semibold text-violet">{index}</span>
                   <div>
                     <h3 className="font-semibold tracking-[-0.03em]">{title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-stone">{body}</p>
+                    <p className="mt-1 text-base leading-relaxed text-charcoal">{body}</p>
                   </div>
                 </li>
               ))}
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <a href={`mailto:${studio.email}`} className="mt-10 block text-xl font-semibold tracking-[-0.04em] underline decoration-lime decoration-2 underline-offset-4">
               {studio.email}
             </a>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-stone">
+            <p className="mt-3 max-w-sm text-base leading-relaxed text-charcoal">
               Independent studio. Clients across Europe, North America, the Gulf, and Asia-Pacific.
             </p>
           </div>

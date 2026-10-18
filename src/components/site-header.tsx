@@ -57,13 +57,14 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", solid ? "px-3 pt-3 md:px-5" : "px-4 md:px-8 lg:px-12")}>
+    <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={cn(
-          "relative z-50 flex h-16 items-center justify-between gap-4 text-white md:h-[4.5rem]",
-          solid && "rounded-full border border-white/10 bg-ink/90 px-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-md md:px-5"
+          "transition-colors duration-500",
+          solid && "border-b border-white/10 bg-ink/90 backdrop-blur-md"
         )}
       >
+      <div className="shell relative z-50 flex h-16 items-center justify-between gap-6 text-white md:h-[4.5rem]">
         <Link href="/" aria-label="Cubical Dot, home" className="relative z-10 inline-flex text-white">
           <Logo />
         </Link>
@@ -75,13 +76,13 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative text-sm font-medium tracking-[-0.01em] text-white/75 transition-colors hover:text-white",
+                  "relative text-sm font-medium text-white/80 transition-colors hover:text-white",
                   active && "text-white"
                 )}
                 aria-current={active ? "page" : undefined}
               >
                 {active ? (
-                  <span className="mr-2 inline-block size-1.5 translate-y-[-1px] rounded-full bg-lime" aria-hidden />
+                  <span className="absolute top-1/2 -left-3.5 size-1.5 -translate-y-1/2 rounded-full bg-lime" aria-hidden />
                 ) : null}
                 {item.label}
               </Link>
@@ -107,17 +108,18 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+      </div>
       {open ? (
-        <div id="mobile-nav" className="fixed inset-0 z-40 bg-ink px-6 pt-28 text-white lg:hidden">
-          <nav className="flex flex-col gap-2" aria-label="Mobile">
-            <Link href="/" className="menu-link display text-5xl" onClick={() => setOpen(false)}>
+        <div id="mobile-nav" className="fixed inset-0 z-40 bg-ink px-5 pt-28 text-white md:px-10 lg:hidden">
+          <nav className="flex flex-col" aria-label="Mobile">
+            <Link href="/" className="menu-link flex min-h-14 items-center text-5xl leading-none font-bold tracking-[-0.04em]" onClick={() => setOpen(false)}>
               Home
             </Link>
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="menu-link display text-5xl"
+                className="menu-link flex min-h-14 items-center text-5xl leading-none font-bold tracking-[-0.04em]"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

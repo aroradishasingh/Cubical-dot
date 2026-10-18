@@ -43,7 +43,7 @@ export function Method() {
                   {step.index}
                 </span>
                 <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em]">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">{step.body}</p>
+                <p className="mt-2 text-base leading-relaxed text-white/80">{step.body}</p>
               </li>
             ))}
           </ol>

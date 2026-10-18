@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="relative min-h-[420px]">
           <FieldArt variant="orbit" tone="dusk" />
         </div>
-        <div className="bg-white px-5 py-16 md:px-12 lg:px-16 lg:py-20">
+        <div className="bg-white px-5 py-16 md:px-10 lg:px-16 lg:py-20">
           <p className="eyebrow text-stone">How it feels</p>
           <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em]">Written work. Live reviews. One story.</h2>
           <ul className="mt-8 space-y-6">
@@ -64,7 +64,7 @@ export default function AboutPage() {
             ].map(([title, body]) => (
               <li key={title}>
                 <h3 className="text-lg font-semibold tracking-[-0.03em]">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone md:text-base">{body}</p>
+                <p className="mt-2 text-base leading-relaxed text-charcoal">{body}</p>
               </li>
             ))}
           </ul>
@@ -78,7 +78,7 @@ export default function AboutPage() {
             {principles.map((principle) => (
               <article key={principle.title} className="rounded-[28px] border border-white/10 p-7">
                 <h2 className="text-3xl font-bold tracking-[-0.045em]">{principle.title}</h2>
-                <p className="mt-4 text-sm leading-relaxed text-white/70">{principle.body}</p>
+                <p className="mt-4 text-base leading-relaxed text-white/80">{principle.body}</p>
               </article>
             ))}
           </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16">
           <p className="eyebrow text-stone">The palette</p>
           <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-[-0.045em]">Four colors. One signal.</h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-stone md:text-base">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal">
             Black and ivory are the fields. Violet carries the form. Lime is the only signal — the thing a buyer is meant to do next. If everything signals, nothing does.
           </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -100,7 +100,7 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-xs text-stone">Type is Inter. Display is bold and tight. UI is medium. Long reading is regular.</p>
+          <p className="mt-6 text-sm leading-relaxed text-charcoal">Type is Inter. Display is bold and tight. UI is medium. Long reading is regular.</p>
           <div className="mt-12">
             <BrandButton href="/contact" variant="lime">
               Start a project

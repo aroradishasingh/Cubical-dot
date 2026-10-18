@@ -57,11 +57,11 @@ export function PageHero({
           <Chapter index={index} label={label} tone="light" />
         </div>
         <h1 className="display mt-6 max-w-4xl text-[clamp(3rem,7vw,6.2rem)]">
-          <span className="block overflow-hidden">
+          <span className="block overflow-hidden pt-[0.02em] pb-[0.12em]">
             <span className="page-hero-line block">{title}</span>
           </span>
         </h1>
-        <p className="page-hero-fade mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+        <p className="page-hero-fade mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
           {lede}
         </p>
         {children ? <div className="page-hero-fade mt-8">{children}</div> : null}

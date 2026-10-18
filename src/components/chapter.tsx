@@ -15,7 +15,7 @@ export function Chapter({
     <p
       className={cn(
         "eyebrow flex items-center gap-3",
-        tone === "light" ? "text-white/65" : "text-stone",
+        tone === "light" ? "text-white/75" : "text-stone",
         className
       )}
     >

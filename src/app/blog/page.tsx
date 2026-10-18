@@ -39,7 +39,7 @@ export default function BlogPage() {
                 <h2 className="text-3xl font-bold tracking-[-0.045em] transition-transform duration-500 group-hover/button:-translate-y-0.5 md:text-4xl">
                   {essay.title}
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-stone md:text-base">{essay.dek}</p>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-charcoal">{essay.dek}</p>
               </div>
             </Link>
           ))}

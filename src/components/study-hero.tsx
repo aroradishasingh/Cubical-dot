@@ -59,7 +59,7 @@ export function StudyHero({ study }: { study: Study }) {
           {study.index} / {study.sector}
         </p>
         <h1 className="display mt-4 max-w-4xl text-[clamp(2.8rem,6vw,5.6rem)]">
-          <span className="block overflow-hidden pb-1">
+          <span className="block overflow-hidden pt-[0.02em] pb-[0.12em]">
             <span className="study-line block">{study.headline}</span>
           </span>
         </h1>
@@ -71,7 +71,7 @@ export function StudyHero({ study }: { study: Study }) {
             ["Services", study.services.join(", ")],
           ].map(([label, value]) => (
             <div key={label}>
-              <dt className="eyebrow text-white/45">{label}</dt>
+              <dt className="eyebrow text-white/70">{label}</dt>
               <dd className="mt-2 text-sm leading-snug text-white">{value}</dd>
             </div>
           ))}

@@ -18,7 +18,7 @@ export function Practice() {
         <div className="lg:col-span-4">
           <Chapter index="04" label="Practice" />
           <h2 className="display mt-6 text-[clamp(2.4rem,4vw,3.8rem)]">Design beyond boundaries.</h2>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-stone md:text-base">
+          <p className="mt-5 max-w-sm text-base leading-relaxed text-charcoal">
             Website design and redesign for companies that charge a premium and intend to look like it. Hover a practice. The field on the right is the temperament of the work.
           </p>
           <Link href="/services" className="mt-6 inline-flex text-sm font-medium underline decoration-lime decoration-2 underline-offset-4">
@@ -33,19 +33,21 @@ export function Practice() {
                 <li key={service.id} className="border-b border-ink/10">
                   <button
                     type="button"
-                    className="flex w-full items-baseline gap-4 py-4 text-left"
+                    className="flex w-full items-start gap-4 py-4 text-left"
                     aria-pressed={selected}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
                     onClick={() => setActive(index)}
                   >
-                    <span className={cn("text-xs font-medium", selected ? "text-violet" : "text-stone")}>{service.index}</span>
-                    <span>
-                      <span className={cn("block text-xl font-semibold tracking-[-0.04em] md:text-2xl", selected && "text-ink")}>
+                    <span className={cn("pt-1.5 text-sm font-medium tabular-nums", selected ? "text-violet" : "text-stone")}>{service.index}</span>
+                    <span className="min-w-0">
+                      <span className={cn("block text-xl font-semibold tracking-[-0.03em] md:text-2xl", selected && "text-ink")}>
                         {service.title}
                       </span>
-                      <span className={cn("mt-1 block text-sm leading-relaxed text-stone transition-all", selected ? "max-h-24 opacity-100" : "max-h-0 overflow-hidden opacity-0")}>
-                        {service.line}
+                      <span className={cn("grid transition-[grid-template-rows,opacity] duration-300", selected ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}>
+                        <span className="overflow-hidden">
+                          <span className="mt-1 block text-base leading-relaxed text-charcoal">{service.line}</span>
+                        </span>
                       </span>
                     </span>
                   </button>

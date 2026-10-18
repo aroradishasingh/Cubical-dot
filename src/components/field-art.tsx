@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { cn } from "cn";
 import type { Composition, Tone } from "@/lib/content";
 
@@ -30,31 +31,7 @@ export function FieldArt({
       aria-hidden
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(99,24,255,0.45),transparent_46%)]" />
-      {variant === "orbit" ? (
-        <>
-          <div
-            className={cn(
-              "absolute -bottom-[22%] -left-[8%] aspect-square w-[46%] rounded-full bg-[radial-gradient(circle_at_32%_30%,#b7c4ff,#4a3cff_42%,#140b4a_78%)]",
-              hero && "hero-sphere-blue will-change-transform",
-              idle && "float-b"
-            )}
-          />
-          <div
-            className={cn(
-              "absolute top-[10%] right-[6%] h-[58%] w-[48%] rounded-[18%] bg-[linear-gradient(165deg,#b49bff_0%,#6318ff_40%,#240a78_100%)] shadow-[0_30px_80px_rgba(99,24,255,0.35)]",
-              hero && "hero-slab will-change-transform",
-              idle && "float-c"
-            )}
-          />
-          <div
-            className={cn(
-              "absolute right-[14%] bottom-[16%] aspect-square w-[24%] rounded-full bg-[radial-gradient(circle_at_32%_28%,#f7ffc4,#d7ff3f_38%,#8fbe00_74%)] shadow-[0_0_70px_rgba(215,255,63,0.45)]",
-              hero && "hero-sphere-lime will-change-transform",
-              idle && "float-a"
-            )}
-          />
-        </>
-      ) : null}
+      {variant === "orbit" ? <OrbitField hero={hero} idle={idle} /> : null}
       {variant === "eclipse" ? (
         <>
           <div
@@ -117,5 +94,84 @@ export function FieldArt({
         </>
       ) : null}
     </div>
+  );
+}
+
+function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
+  const id = useId().replace(/:/g, "");
+  const slab = `${id}-slab`;
+  const orb = `${id}-orb`;
+  const lime = `${id}-lime`;
+  const shade = `${id}-shade`;
+
+  return (
+    <>
+      <div
+        className={cn(
+          "absolute top-[52%] left-[24%] aspect-square w-[62%] md:top-auto md:bottom-[-2%] md:left-auto md:right-[4%] md:w-[34%]",
+          hero && "hero-sphere-blue will-change-transform",
+          idle && "float-b"
+        )}
+      >
+        <svg viewBox="0 0 200 200" className="size-full overflow-visible">
+          <defs>
+            <radialGradient id={orb} cx="42%" cy="38%" r="70%">
+              <stop offset="0%" stopColor="#8A7CFF" />
+              <stop offset="52%" stopColor="#4E3AF2" />
+              <stop offset="100%" stopColor="#2A16C8" />
+            </radialGradient>
+            <filter id={`${shade}-orb`} x="-35%" y="-35%" width="170%" height="180%">
+              <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#0c0624" floodOpacity="0.38" />
+            </filter>
+          </defs>
+          <circle cx="100" cy="100" r="84" fill={`url(#${orb})`} filter={`url(#${shade}-orb)`} />
+        </svg>
+      </div>
+      <div
+        className={cn(
+          "absolute top-[9%] left-[5%] aspect-square w-[26%] md:top-[10%] md:left-auto md:right-[34%] md:w-[24%]",
+          hero && "hero-slab will-change-transform",
+          idle && "float-a"
+        )}
+      >
+        <svg viewBox="0 0 200 200" className="size-full overflow-visible">
+          <defs>
+            <linearGradient id={slab} x1="8%" y1="92%" x2="92%" y2="6%">
+              <stop offset="0%" stopColor="#2C5CF6" />
+              <stop offset="46%" stopColor="#6846FF" />
+              <stop offset="100%" stopColor="#D5C6FF" />
+            </linearGradient>
+            <filter id={`${shade}-slab`} x="-40%" y="-40%" width="180%" height="190%">
+              <feDropShadow dx="8" dy="16" stdDeviation="9" floodColor="#140830" floodOpacity="0.4" />
+            </filter>
+          </defs>
+          <g transform="rotate(-16 100 100)">
+            <rect x="32" y="32" width="136" height="136" rx="34" fill={`url(#${slab})`} filter={`url(#${shade}-slab)`} />
+          </g>
+        </svg>
+      </div>
+      <div
+        className={cn(
+          "absolute top-[6%] right-[5%] aspect-square w-[30%] md:top-[8%] md:right-[5%] md:w-[20%]",
+          hero && "hero-sphere-lime will-change-transform",
+          idle && "float-a [animation-delay:-3.2s]"
+        )}
+      >
+        <svg viewBox="0 0 200 200" className="size-full overflow-visible">
+          <defs>
+            <radialGradient id={lime} cx="36%" cy="32%" r="68%">
+              <stop offset="0%" stopColor="#F7FFD6" />
+              <stop offset="24%" stopColor="#E7FF78" />
+              <stop offset="58%" stopColor="#C6F034" />
+              <stop offset="100%" stopColor="#7EAE00" />
+            </radialGradient>
+            <filter id={`${shade}-lime`} x="-40%" y="-40%" width="180%" height="190%">
+              <feDropShadow dx="0" dy="12" stdDeviation="8" floodColor="#3d5200" floodOpacity="0.28" />
+            </filter>
+          </defs>
+          <circle cx="100" cy="100" r="82" fill={`url(#${lime})`} filter={`url(#${shade}-lime)`} />
+        </svg>
+      </div>
+    </>
   );
 }

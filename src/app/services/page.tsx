@@ -37,7 +37,7 @@ export default function ServicesPage() {
               <li key={step.index} className="rounded-3xl border border-ink/10 bg-white p-5">
                 <p className="text-xs font-semibold text-violet">{step.index}</p>
                 <h2 className="mt-3 text-lg font-semibold tracking-[-0.03em]">{step.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-stone">{step.body}</p>
+                <p className="mt-2 text-base leading-relaxed text-charcoal">{step.body}</p>
               </li>
             ))}
           </ol>
@@ -54,11 +54,11 @@ export default function ServicesPage() {
             <div className={`relative min-h-[320px] lg:min-h-[460px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
               <FieldArt variant={service.composition} tone={service.tone} />
             </div>
-            <div className="flex flex-col justify-center px-5 py-14 md:px-12 lg:px-16">
+            <div className="flex flex-col justify-center px-5 py-14 md:px-10 lg:px-16">
               <p className="eyebrow text-stone">{service.index}</p>
               <h2 className="mt-3 text-4xl font-bold tracking-[-0.045em] md:text-5xl">{service.title}</h2>
               <p className="mt-4 text-lg font-medium tracking-[-0.03em]">{service.line}</p>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-stone md:text-base">{service.detail}</p>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-charcoal">{service.detail}</p>
             </div>
           </div>
         </section>
@@ -66,9 +66,9 @@ export default function ServicesPage() {
 
       <section className="bg-ink text-white">
         <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16">
-          <p className="eyebrow text-white/50">Investment</p>
+          <p className="eyebrow text-white/70">Investment</p>
           <h2 className="display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.4rem)]">A range, before the first call.</h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80">
             Premium work has a floor. Publishing it protects both calendars. The final number follows the page map, the markets, and whether we are designing, building, or both.
           </p>
           <div className="mt-12 grid gap-4 lg:grid-cols-3">
@@ -76,7 +76,7 @@ export default function ServicesPage() {
               <article key={tier.title} className="rounded-[28px] border border-white/10 p-7">
                 <p className="text-sm font-medium text-lime">{tier.range}</p>
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{tier.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/65">{tier.body}</p>
+                <p className="mt-3 text-base leading-relaxed text-white/80">{tier.body}</p>
               </article>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function ServicesPage() {
                     +
                   </span>
                 </summary>
-                <p className="max-w-2xl pt-4 text-sm leading-relaxed text-stone md:text-base">{faq.a}</p>
+                <p className="max-w-2xl pt-4 text-base leading-relaxed text-charcoal">{faq.a}</p>
               </details>
             ))}
             <div className="mt-10">

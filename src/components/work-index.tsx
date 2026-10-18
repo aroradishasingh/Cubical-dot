@@ -48,11 +48,11 @@ export function WorkIndex() {
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6 md:p-8">
-                  <p className="eyebrow text-white/50">
+                  <p className="eyebrow text-white/70">
                     {study.index} / {study.sector} / {study.year}
                   </p>
                   <h2 className="mt-3 text-3xl font-bold tracking-[-0.045em]">{study.name}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/70">{study.summary}</p>
+                  <p className="mt-3 text-base leading-relaxed text-white/80">{study.summary}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-lime">
                     View case study
                     <ArrowIcon />
