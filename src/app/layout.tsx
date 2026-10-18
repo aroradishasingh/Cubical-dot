@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { LogoIntro } from "@/components/home/logo-intro";
 import { MotionRoot } from "@/components/motion-root";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -61,6 +62,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <LogoIntro />
         <MotionRoot />
         <SiteHeader />
         <main id="content">{children}</main>
