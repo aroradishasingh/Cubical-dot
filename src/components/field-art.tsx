@@ -105,10 +105,11 @@ function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
   const shade = `${id}-shade`;
 
   return (
-    <>
+    <div className="absolute top-[4.25rem] right-[var(--page-margin)] w-[min(40%,156px)] sm:top-[11%] sm:w-[min(32%,360px)] lg:top-[10%] lg:w-[min(28vw,520px)]">
+      <div className="relative aspect-square w-full">
       <div
         className={cn(
-          "absolute top-[52%] left-[24%] aspect-square w-[62%] md:top-auto md:bottom-[-2%] md:left-auto md:right-[4%] md:w-[34%]",
+          "absolute top-[30%] left-[20%] z-0 aspect-square w-[78%]",
           hero && "hero-sphere-blue will-change-transform",
           idle && "float-b"
         )}
@@ -129,7 +130,7 @@ function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
       </div>
       <div
         className={cn(
-          "absolute top-[9%] left-[5%] aspect-square w-[26%] md:top-[10%] md:left-auto md:right-[34%] md:w-[24%]",
+          "absolute top-[8%] left-[1%] z-10 aspect-square w-[66%]",
           hero && "hero-slab will-change-transform",
           idle && "float-a"
         )}
@@ -145,14 +146,14 @@ function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
               <feDropShadow dx="8" dy="16" stdDeviation="9" floodColor="#140830" floodOpacity="0.4" />
             </filter>
           </defs>
-          <g transform="rotate(-16 100 100)">
+          <g transform="rotate(-18 100 100)">
             <rect x="32" y="32" width="136" height="136" rx="34" fill={`url(#${slab})`} filter={`url(#${shade}-slab)`} />
           </g>
         </svg>
       </div>
       <div
         className={cn(
-          "absolute top-[6%] right-[5%] aspect-square w-[30%] md:top-[8%] md:right-[5%] md:w-[20%]",
+          "absolute top-[12%] right-[1%] z-20 aspect-square w-[40%]",
           hero && "hero-sphere-lime will-change-transform",
           idle && "float-a [animation-delay:-3.2s]"
         )}
@@ -172,6 +173,7 @@ function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
           <circle cx="100" cy="100" r="82" fill={`url(#${lime})`} filter={`url(#${shade}-lime)`} />
         </svg>
       </div>
-    </>
+      </div>
+    </div>
   );
 }

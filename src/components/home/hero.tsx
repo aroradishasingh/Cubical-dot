@@ -30,10 +30,10 @@ export function Hero() {
         })
           .from(
             ".hero-sphere-lime",
-            { x: 90, scale: 0.4, autoAlpha: 0, duration: 0.95, ease: "back.out(1.5)" },
+            { x: 28, scale: 0.72, autoAlpha: 0, duration: 0.95, ease: "back.out(1.4)" },
             "-=0.72"
           )
-          .from(".hero-sphere-blue", { y: 70, autoAlpha: 0, duration: 1.05 }, "-=0.85")
+          .from(".hero-sphere-blue", { y: 24, autoAlpha: 0, duration: 1.05 }, "-=0.85")
           .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.08 }, "-=0.55")
           .from(
             ".hero-rule",
@@ -43,8 +43,8 @@ export function Hero() {
           .from(".hero-fade", { y: 18, autoAlpha: 0, duration: 0.65, stagger: 0.07 }, "-=0.35");
 
         gsap.to(".hero-slab", {
-          y: -16,
-          rotation: 6,
+          y: -8,
+          rotation: 3,
           duration: 7.5,
           delay: 2.7,
           repeat: -1,
@@ -52,7 +52,7 @@ export function Hero() {
           ease: "sine.inOut",
         });
         gsap.to(".hero-sphere-lime", {
-          y: -14,
+          y: -7,
           duration: 5.2,
           delay: 2.7,
           repeat: -1,
@@ -60,7 +60,7 @@ export function Hero() {
           ease: "sine.inOut",
         });
         gsap.to(".hero-sphere-blue", {
-          y: 14,
+          y: 8,
           duration: 6.6,
           delay: 2.7,
           repeat: -1,

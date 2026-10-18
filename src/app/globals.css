@@ -44,7 +44,7 @@
 }
 
 :root {
-  --page-margin: max(1.25rem, calc((100% - 1004px) / 2));
+  --page-margin: clamp(1.25rem, 4vw, 5rem);
   --grid-gutter: 16px;
   --background: #f9f9f7;
   --foreground: #0a0a0a;
