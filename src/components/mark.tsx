@@ -93,7 +93,6 @@ export function Logo({
       {wordmark ? (
         <span className="font-logo ml-[0.42em] translate-y-[0.157em] text-[0.95em] leading-none font-medium tracking-[-0.02em] text-[#F6F5F2]">
           Cubical Dot
-          <sup className="ml-[0.14em] text-[0.38em] font-medium">™</sup>
         </span>
       ) : null}
     </span>

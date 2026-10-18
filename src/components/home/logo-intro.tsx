@@ -105,7 +105,6 @@ export function LogoIntro() {
       stagger: 0.03,
       ease: "power3.out",
     }, "<0.14");
-    tl.to(".build-tm", { autoAlpha: 1, duration: 0.28 }, "-=0.12");
 
     tl.addLabel("grid", "+=0.22");
     tl.set(".build-grid", { autoAlpha: 1 });
@@ -189,7 +188,6 @@ export function LogoIntro() {
                   </span>
                 )
               )}
-              <sup className="build-tm ml-[0.12em] align-super text-[0.34em] font-medium opacity-0">™</sup>
               <span className="inline-block" style={{ width: `${wordTail}em` }} />
             </div>
           </div>
