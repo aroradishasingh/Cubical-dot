@@ -13,7 +13,7 @@ export function Mark({ className, variant = "mono", title }: MarkProps) {
 
   return (
     <svg
-      viewBox="0 0 90 64"
+      viewBox="0 0 100 64"
       className={cn("h-8 w-auto", className)}
       role={title ? "img" : "presentation"}
       aria-hidden={title ? undefined : true}
@@ -29,12 +29,12 @@ export function Mark({ className, variant = "mono", title }: MarkProps) {
             </linearGradient>
           </defs>
           <rect width="64" height="64" rx="18" fill={`url(#${id}-slab)`} />
-          <circle cx="77" cy="32" r="13" fill="#d7ff3f" />
+          <circle cx="86" cy="32" r="12" fill="#d7ff3f" />
         </>
       ) : (
         <>
           <rect width="64" height="64" rx="18" fill="currentColor" />
-          <circle cx="77" cy="32" r="13" fill="currentColor" />
+          <circle cx="86" cy="32" r="12" fill="currentColor" />
         </>
       )}
     </svg>
