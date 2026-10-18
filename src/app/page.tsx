@@ -1,6 +1,6 @@
 import { Close } from "@/components/home/close";
 import { Hero } from "@/components/home/hero";
-import { LogoBuild } from "@/components/home/logo-build";
+import { LogoIntro } from "@/components/home/logo-intro";
 import { JournalTease } from "@/components/home/journal-tease";
 import { Manifesto } from "@/components/home/manifesto";
 import { MarkStory } from "@/components/home/mark-story";
@@ -12,7 +12,7 @@ import { WorkReel } from "@/components/home/work-reel";
 export default function HomePage() {
   return (
     <>
-      <LogoBuild />
+      <LogoIntro />
       <Hero />
       <Marquee />
       <Manifesto />

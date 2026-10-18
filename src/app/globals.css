@@ -9,6 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-logo: var(--font-poppins), "Poppins", sans-serif;
   --color-ink: #0a0a0a;
   --color-ivory: #f9f9f7;
   --color-violet: #6318ff;
@@ -177,38 +178,9 @@
   display: none;
 }
 
-.logo-build .build-word {
-  --stroke: 1.35;
-  color: transparent;
-  -webkit-text-stroke: calc(var(--stroke) * 1px) rgba(249, 249, 247, 0.95);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .logo-build .build-grid,
-  .logo-build .build-stroke-dot {
-    opacity: 0;
-  }
-  .logo-build .build-progress {
-    transform: scaleX(0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .logo-build .build-word {
-    color: #f9f9f7;
-    -webkit-text-stroke: 0;
-  }
-  .logo-build .build-letter {
-    transform: none;
-  }
-  .logo-build .build-grid,
-  .logo-build .build-stroke-rect,
-  .logo-build .build-stroke-dot {
+  .logo-intro {
     display: none;
-  }
-  .logo-build .build-fill-rect,
-  .logo-build .build-fill-dot {
-    opacity: 1;
   }
 }
 
