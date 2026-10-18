@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-ink text-white">
       <div className="grid gap-12 px-5 py-16 md:grid-cols-12 md:px-10 md:py-20 lg:px-16">
         <div className="md:col-span-5">
-          <Link href="/" aria-label="Cubical Dot, home" className="text-white">
+          <Link href="/" aria-label="Cubical Dot, home" className="inline-flex text-white">
             <Logo />
           </Link>
           <p className="mt-6 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-white">

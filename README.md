@@ -2,7 +2,7 @@
 
 Portfolio site for Cubical Dot, an independent digital design studio. The site designs and redesigns websites for premium brands selling across borders.
 
-The visual system follows the studio brand: Inter for the site, Poppins Medium for the wordmark, brand black `#0A0A0A`, ivory `#F9F9F7`, electric violet `#6318FF`, and neon lime `#D7FF3F`. The mark is a blue rounded square with a lime dot on the baseline. Opening the site shows a loading screen: the mark is stroked, filled, and rounded, the dot travels into place, the Poppins wordmark arrives, then a white construction grid draws across the finished lockup and clears.
+The visual system follows the studio brand: Inter for the site, Poppins Medium for the wordmark, brand black `#0A0A0A`, ivory `#F9F9F7`, electric violet `#6318FF`, and neon lime `#D7FF3F`. The mark is a blue square with a rounded top-left corner, a rounded bottom-right corner, and a lime dot on the same bottom edge as the Poppins wordmark. Opening the site shows a loading screen: the mark is stroked, filled, and the two corners round into the final slab, the dot travels out along the baseline, the wordmark arrives on that baseline, then a white construction grid draws the radii and clears.
 
 ## Run locally
 

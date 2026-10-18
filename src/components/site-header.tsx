@@ -64,7 +64,7 @@ export function SiteHeader() {
           solid && "rounded-full border border-white/10 bg-ink/90 px-4 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur-md md:px-5"
         )}
       >
-        <Link href="/" aria-label="Cubical Dot, home" className="relative z-10 text-white">
+        <Link href="/" aria-label="Cubical Dot, home" className="relative z-10 inline-flex text-white">
           <Logo />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
