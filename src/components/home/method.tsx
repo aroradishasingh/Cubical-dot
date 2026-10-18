@@ -39,7 +39,7 @@ export function Method() {
           <ol className="grid gap-y-8 gap-x-[var(--grid-gutter)] md:grid-cols-5">
             {method.map((step) => (
               <li key={step.index} className="method-step relative">
-                <span className="relative z-10 inline-flex size-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-ink">
+                <span className="relative z-10 inline-flex size-7 items-center justify-center rounded-[16px] bg-lime text-xs font-semibold text-ink">
                   {step.index}
                 </span>
                 <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em]">{step.title}</h3>

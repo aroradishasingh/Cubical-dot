@@ -81,7 +81,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-[28px] bg-ink p-8 text-white md:p-10" role="status">
+      <div className="rounded-[16px] bg-ink p-8 text-white md:p-10" role="status">
         <p className="eyebrow text-lime">Brief ready</p>
         <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The note is written.</h2>
         <p className="mt-4 max-w-md text-base leading-relaxed text-white/80">
@@ -89,7 +89,7 @@ export function ContactForm() {
         </p>
         <a
           href={mailtoHref(fields)}
-          className="mt-8 inline-flex h-12 items-center rounded-full bg-lime px-5 text-sm font-medium text-ink"
+          className="mt-8 inline-flex h-12 items-center rounded-[16px] bg-lime px-5 text-sm font-medium text-ink"
         >
           Open the email
         </a>
@@ -108,7 +108,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-[28px] border border-ink/10 bg-white p-6 md:p-8">
+    <form onSubmit={onSubmit} noValidate className="rounded-[16px] border border-ink/10 bg-white p-6 md:p-8">
       {Object.values(errors).some(Boolean) ? (
         <p role="alert" className="mb-6 rounded-2xl bg-[#fff4f0] px-4 py-3 text-sm text-[#9a3412]">
           A few fields need another look before this can be sent.
@@ -234,7 +234,7 @@ function Choice({
       aria-pressed={pressed}
       onClick={onClick}
       className={cn(
-        "h-10 rounded-full border px-4 text-sm font-medium transition-colors",
+        "h-10 rounded-[16px] border px-4 text-sm font-medium transition-colors",
         pressed ? "border-ink bg-ink text-white" : "border-ink/15 bg-ivory text-ink hover:border-ink"
       )}
     >

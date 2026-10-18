@@ -76,7 +76,7 @@ export default function AboutPage() {
           <p className="eyebrow text-lime">Bold. Creative. Different.</p>
           <div className="mt-10 grid gap-[var(--grid-gutter)] md:grid-cols-3">
             {principles.map((principle) => (
-              <article key={principle.title} className="rounded-[28px] border border-white/10 p-7">
+              <article key={principle.title} className="rounded-[16px] border border-white/10 p-7">
                 <h2 className="text-3xl font-bold tracking-[-0.045em]">{principle.title}</h2>
                 <p className="mt-4 text-base leading-relaxed text-white/80">{principle.body}</p>
               </article>
@@ -94,7 +94,7 @@ export default function AboutPage() {
           </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {swatches.map((swatch) => (
-              <li key={swatch.hex} className={`flex min-h-40 flex-col justify-between rounded-[28px] p-5 ${swatch.className}`}>
+              <li key={swatch.hex} className={`flex min-h-40 flex-col justify-between rounded-[16px] p-5 ${swatch.className}`}>
                 <span className="text-sm font-medium">{swatch.name}</span>
                 <span className="font-mono text-xs tracking-wide">{swatch.hex}</span>
               </li>

@@ -20,7 +20,7 @@ export function JournalTease() {
         <div className="mt-12 grid gap-[var(--grid-gutter)] lg:grid-cols-12">
           <Link
             href={`/blog/${feature.slug}`}
-            className="group/button flex flex-col justify-between rounded-[28px] bg-ink p-7 text-white lg:col-span-7 lg:min-h-[420px] lg:p-10"
+            className="group/button flex flex-col justify-between rounded-[16px] bg-ink p-7 text-white lg:col-span-7 lg:min-h-[420px] lg:p-10"
           >
             <div>
               <p className="eyebrow text-lime">{feature.kicker}</p>
@@ -35,7 +35,7 @@ export function JournalTease() {
               <Link
                 key={essay.slug}
                 href={`/blog/${essay.slug}`}
-                className="group/button flex flex-1 flex-col justify-between rounded-[28px] border border-ink/10 bg-white p-7 transition-colors hover:border-ink"
+                className="group/button flex flex-1 flex-col justify-between rounded-[16px] border border-ink/10 bg-white p-7 transition-colors hover:border-ink"
               >
                 <p className="eyebrow text-stone">{essay.kicker}</p>
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] group-hover/button:text-violet">

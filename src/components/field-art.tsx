@@ -36,7 +36,7 @@ export function FieldArt({
         <>
           <div
             className={cn(
-              "absolute top-[14%] left-[8%] h-[70%] w-[58%] rounded-[18%] bg-[linear-gradient(160deg,#7d5cff,#2a0f86)]",
+              "absolute top-[14%] left-[8%] h-[70%] w-[58%] rounded-[16px] bg-[linear-gradient(160deg,#7d5cff,#2a0f86)]",
               idle && "float-c"
             )}
           />
@@ -52,10 +52,10 @@ export function FieldArt({
       {variant === "stack" ? (
         <>
           <div className="absolute top-[12%] right-[18%] flex w-[46%] flex-col gap-3">
-            <div className={cn("h-24 rounded-[1.6rem] bg-[linear-gradient(135deg,#8d6bff,#6318ff)]", idle && "float-a")} />
-            <div className="h-20 rounded-[1.6rem] bg-lime" />
-            <div className="h-20 rounded-[1.6rem] bg-ivory" />
-            <div className={cn("h-20 rounded-[1.6rem] bg-ink ring-1 ring-white/10", idle && "float-b")} />
+            <div className={cn("h-24 rounded-[16px] bg-[linear-gradient(135deg,#8d6bff,#6318ff)]", idle && "float-a")} />
+            <div className="h-20 rounded-[16px] bg-lime" />
+            <div className="h-20 rounded-[16px] bg-ivory" />
+            <div className={cn("h-20 rounded-[16px] bg-ink ring-1 ring-white/10", idle && "float-b")} />
           </div>
           <div className="absolute bottom-[8%] left-[8%] aspect-square w-[34%] rounded-full bg-[radial-gradient(circle_at_30%_30%,#9aa8ff,#2c1d88_70%)]" />
         </>
@@ -68,9 +68,9 @@ export function FieldArt({
               idle && "float-b"
             )}
           />
-          <div className={cn("absolute top-[16%] left-[18%] size-24 rounded-[1.4rem] bg-ivory", idle && "float-a")} />
+          <div className={cn("absolute top-[16%] left-[18%] size-24 rounded-[16px] bg-ivory", idle && "float-a")} />
           <div className="absolute top-[22%] left-[38%] size-8 rounded-full bg-lime" />
-          <div className="absolute top-[42%] right-[16%] size-28 rounded-[1.6rem] bg-violet" />
+          <div className="absolute top-[42%] right-[16%] size-28 rounded-[16px] bg-violet" />
           <div className="absolute top-[48%] right-[8%] size-10 rounded-full bg-lime" />
           <div className={cn("absolute bottom-[22%] right-[28%] size-16 rounded-2xl bg-ink ring-1 ring-white/15", idle && "float-c")} />
           <div className="absolute right-[22%] bottom-[16%] size-6 rounded-full bg-ivory" />
@@ -78,10 +78,10 @@ export function FieldArt({
       ) : null}
       {variant === "split" ? (
         <>
-          <div className="absolute inset-y-[12%] left-[8%] w-[42%] rounded-[2rem] bg-ivory" />
+          <div className="absolute inset-y-[12%] left-[8%] w-[42%] rounded-[16px] bg-ivory" />
           <div
             className={cn(
-              "absolute inset-y-[18%] right-[10%] w-[38%] rounded-[2rem] bg-[linear-gradient(180deg,#7a4dff,#2a0d86)]",
+              "absolute inset-y-[18%] right-[10%] w-[38%] rounded-[16px] bg-[linear-gradient(180deg,#7a4dff,#2a0d86)]",
               idle && "float-a"
             )}
           />

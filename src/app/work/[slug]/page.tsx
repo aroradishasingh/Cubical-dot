@@ -61,7 +61,7 @@ export default async function StudyPage({
         </div>
         <div className="shell grid gap-[var(--grid-gutter)] pb-20 md:grid-cols-3">
           {study.outcomes.map((outcome) => (
-            <div key={outcome.label} className="rounded-[28px] bg-ink p-7 text-white">
+            <div key={outcome.label} className="rounded-[16px] bg-ink p-7 text-white">
               <p className="text-4xl font-bold tracking-[-0.05em] text-lime">{outcome.value}</p>
               <p className="mt-3 text-base leading-relaxed text-white/80">{outcome.label}</p>
             </div>

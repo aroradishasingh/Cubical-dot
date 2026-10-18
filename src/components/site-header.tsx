@@ -95,7 +95,7 @@ export function SiteHeader() {
           </BrandButton>
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-white/20 lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-[16px] border border-white/20 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}

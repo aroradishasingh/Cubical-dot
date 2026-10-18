@@ -63,7 +63,7 @@ export default async function EssayPage({
         </div>
         <div className="shell pb-20">
           <div className="mx-auto max-w-3xl">
-            <Link href={`/blog/${next.slug}`} className="block rounded-[28px] bg-ink p-8 text-white">
+            <Link href={`/blog/${next.slug}`} className="block rounded-[16px] bg-ink p-8 text-white">
               <p className="eyebrow text-lime">Next note</p>
               <p className="mt-3 text-3xl font-bold tracking-[-0.045em]">{next.title}</p>
             </Link>
