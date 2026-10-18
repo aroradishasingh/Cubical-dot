@@ -8,6 +8,13 @@ const letters = "Cubical Dot".split("");
 const { viewBox, square, corners, dot, blue, lime, word } = markGeometry;
 const dotStart = { cx: square - 3.5, cy: square - 3.5, r: 3.5 };
 const sharp = slabPath(0, 0, 0, 0, square);
+const wordSize = 0.95;
+const wordGap = 0.42;
+const wordTail = 0.24;
+const markEm = 101.67 / square;
+const topBand = (corners.tl * 2) / square;
+const wordLeft = markEm + wordGap * wordSize;
+const gridLine = "bg-white/40";
 
 export function LogoIntro() {
   const root = useRef<HTMLDivElement>(null);
@@ -33,13 +40,13 @@ export function LogoIntro() {
     const dotLength = strokeDot.getTotalLength();
     gsap.set(strokeRect, { strokeDasharray: rectLength, strokeDashoffset: rectLength });
     gsap.set(strokeDot, { strokeDasharray: dotLength, strokeDashoffset: dotLength, autoAlpha: 0 });
-    node.querySelectorAll(".grid-shape").forEach((shape) => {
+    node.querySelectorAll(".grid-dashed").forEach((shape) => {
       const length = (shape as SVGGeometryElement).getTotalLength();
-      gsap.set(shape, { strokeDasharray: length, strokeDashoffset: length });
+      gsap.set(shape, { strokeDasharray: "3 2.2", strokeDashoffset: length });
     });
-    gsap.set(".grid-line", { strokeDasharray: 100, strokeDashoffset: 100 });
     gsap.set(".build-grid", { autoAlpha: 0 });
-    gsap.set(".build-guide", { scaleX: 0, transformOrigin: "left center" });
+    gsap.set(".grid-h", { scaleX: 0, transformOrigin: "left center" });
+    gsap.set(".grid-v", { scaleY: 0, transformOrigin: "center top" });
     gsap.set(".build-word-slot", { width: 0 });
     gsap.set(".build-letter", { yPercent: 110 });
     gsap.set(".build-mark", {
@@ -102,16 +109,12 @@ export function LogoIntro() {
 
     tl.addLabel("grid", "+=0.22");
     tl.set(".build-grid", { autoAlpha: 1 });
-    tl.to(".grid-line, .grid-shape", {
-      strokeDashoffset: 0,
-      duration: 0.9,
-      stagger: 0.045,
-      ease: "power1.out",
-    });
-    tl.to(".build-guide", { scaleX: 1, duration: 0.75, ease: "power2.out" }, "<");
+    tl.to(".grid-h", { scaleX: 1, duration: 0.8, stagger: 0.04, ease: "power2.out" });
+    tl.to(".grid-v", { scaleY: 1, duration: 0.8, stagger: 0.04, ease: "power2.out" }, "<");
+    tl.to(".grid-dashed", { strokeDashoffset: 0, duration: 0.95, stagger: 0.08, ease: "power1.out" }, "<");
 
     tl.addLabel("clear", "+=0.28");
-    tl.to(".build-grid, .build-guide", { autoAlpha: 0, duration: 0.5 });
+    tl.to(".build-grid", { autoAlpha: 0, duration: 0.5 });
     tl.to({}, { duration: 0.7 });
     tl.to(node, { autoAlpha: 0, duration: 0.65, ease: "power2.inOut" });
 
@@ -135,28 +138,6 @@ export function LogoIntro() {
     >
       <div className="intro-lockup relative inline-flex items-end text-[clamp(2.55rem,11.5vw,9.25rem)]">
         <svg viewBox={viewBox} className="build-mark h-[1em] w-auto overflow-visible" aria-hidden>
-          <g className="build-grid" stroke="rgba(255,255,255,0.2)" fill="none" strokeWidth="1.15">
-            <rect className="grid-shape" x="0" y="0" width={square} height={square} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1={square / 2} y1="0" x2={square / 2} y2={square} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1="0" y1={square / 2} x2={square} y2={square / 2} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1={corners.tl} y1="0" x2={corners.tl} y2={square} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1="0" y1={corners.tl} x2={square} y2={corners.tl} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1={brX} y1="0" x2={brX} y2={square} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1="0" y1={brY} x2={square} y2={brY} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <path className="grid-shape" d={`M ${corners.tl} 0 A ${corners.tl} ${corners.tl} 0 0 1 0 ${corners.tl}`} vectorEffect="non-scaling-stroke" />
-            <path className="grid-shape" d={`M ${square} ${brY} A ${corners.br} ${corners.br} 0 0 1 ${brX} ${square}`} vectorEffect="non-scaling-stroke" />
-            <rect
-              className="grid-shape"
-              x={dot.cx - dot.r}
-              y={dot.cy - dot.r}
-              width={dot.r * 2}
-              height={dot.r * 2}
-              vectorEffect="non-scaling-stroke"
-            />
-            <line className="grid-line" x1={dot.cx} y1={dot.cy - dot.r} x2={dot.cx} y2={dot.cy + dot.r} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-            <line className="grid-line" x1={dot.cx - dot.r} y1={dot.cy} x2={dot.cx + dot.r} y2={dot.cy} pathLength={100} strokeDasharray={100} strokeDashoffset={100} vectorEffect="non-scaling-stroke" />
-          </g>
-
           <path className="build-fill-slab opacity-0" d={sharp} fill={blue} />
           <circle className="build-fill-dot opacity-0" cx={dotStart.cx} cy={dotStart.cy} r={dotStart.r} fill={lime} />
           <rect
@@ -185,29 +166,48 @@ export function LogoIntro() {
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
+          <g className="build-grid" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.6">
+            <circle className="grid-dashed" cx={corners.tl} cy={corners.tl} r={corners.tl} vectorEffect="non-scaling-stroke" />
+            <circle className="grid-dashed" cx={brX} cy={brY} r={corners.br} vectorEffect="non-scaling-stroke" />
+            <circle className="grid-dashed" cx={dot.cx} cy={dot.cy} r={dot.r} vectorEffect="non-scaling-stroke" />
+          </g>
         </svg>
 
-        <div className="build-word-slot w-0 overflow-x-clip text-[0.95em] leading-none [translate:0_0.157em]">
-          <div
-            className="intro-word font-logo ml-[0.42em] inline-block w-max leading-none font-medium tracking-[-0.02em] whitespace-nowrap"
-            style={{ color: word }}
-          >
-            {letters.map((letter, index) =>
-              letter === " " ? (
-                <span key={index} className="inline-block w-[0.28em]" />
-              ) : (
-                <span key={index} className="inline-block overflow-hidden align-bottom">
-                  <span className="build-letter inline-block">{letter}</span>
-                </span>
-              )
-            )}
-            <sup className="build-tm ml-[0.12em] align-super text-[0.34em] font-medium opacity-0">™</sup>
+        <div className="flex items-end text-[0.95em] leading-none [translate:0_0.157em]">
+          <div className="w-[0.42em] shrink-0" />
+          <div className="build-word-slot w-0 overflow-x-clip">
+            <div
+              className="intro-word font-logo inline-block w-max leading-none font-medium tracking-[-0.02em] whitespace-nowrap"
+              style={{ color: word }}
+            >
+              {letters.map((letter, index) =>
+                letter === " " ? (
+                  <span key={index} className="inline-block w-[0.28em]" />
+                ) : (
+                  <span key={index} className="inline-block overflow-x-visible overflow-y-clip align-bottom">
+                    <span className="build-letter inline-block">{letter}</span>
+                  </span>
+                )
+              )}
+              <sup className="build-tm ml-[0.12em] align-super text-[0.34em] font-medium opacity-0">™</sup>
+              <span className="inline-block" style={{ width: `${wordTail}em` }} />
+            </div>
           </div>
         </div>
 
-        <div className="build-guide pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-white/20" />
-        <div className="build-guide pointer-events-none absolute inset-x-0 top-[27%] h-px origin-left scale-x-0 bg-white/20" />
-        <div className="build-guide pointer-events-none absolute inset-x-0 top-1/2 h-px origin-left scale-x-0 bg-white/20" />
+        <div
+          className="build-grid pointer-events-none absolute inset-x-0 z-10"
+          style={{ top: `-${topBand}em`, bottom: 0 }}
+        >
+          {[0, topBand, topBand + 0.27, topBand + 0.5].map((top) => (
+            <div key={top} className={`grid-h absolute right-0 left-0 h-px ${gridLine}`} style={{ top: `${top}em` }} />
+          ))}
+          <div className={`grid-h absolute inset-x-0 bottom-0 h-px ${gridLine}`} />
+          {[0, 1, (dot.cx - dot.r) / square, (dot.cx + dot.r) / square, wordLeft].map((left) => (
+            <div key={left} className={`grid-v absolute top-0 bottom-0 w-px ${gridLine}`} style={{ left: `${left}em` }} />
+          ))}
+          <div className={`grid-v absolute top-0 right-0 bottom-0 w-px ${gridLine}`} />
+        </div>
       </div>
 
       <div className="absolute bottom-10 left-1/2 h-px w-28 -translate-x-1/2 bg-white/15">
