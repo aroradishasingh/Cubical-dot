@@ -16,14 +16,14 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20",
         link: "text-primary underline-offset-4 hover:underline",
-        lime: "rounded-[16px] border-transparent bg-lime text-ink hover:bg-white",
-        ink: "rounded-[16px] border-transparent bg-ink text-white hover:bg-lime hover:text-ink",
+        lime: "rounded-[8px] border-transparent bg-lime text-ink hover:bg-white",
+        ink: "rounded-[8px] border-transparent bg-ink text-white hover:bg-lime hover:text-ink",
         violet:
-          "rounded-[16px] border-transparent bg-violet text-white hover:bg-[#7c3dff]",
+          "rounded-[8px] border-transparent bg-violet text-white hover:bg-[#7c3dff]",
         ghostLight:
-          "rounded-[16px] border-white/30 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink",
+          "rounded-[8px] border-white/30 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink",
         ghostDark:
-          "rounded-[16px] border-ink/15 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white",
+          "rounded-[8px] border-ink/15 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white",
       },
       size: {
         default: "h-8 gap-1.5 px-2.5",
@@ -31,9 +31,9 @@ const buttonVariants = cva(
         sm: "h-7 gap-1 px-2.5 text-[0.8rem]",
         lg: "h-9 gap-1.5 px-2.5",
         icon: "size-8",
-        pill: "h-12 gap-2.5 rounded-[16px] px-5 text-sm font-medium tracking-[-0.01em]",
+        pill: "h-12 gap-2.5 rounded-[8px] px-5 text-sm font-medium tracking-[-0.01em]",
         pillLg:
-          "h-14 gap-3 rounded-[16px] px-6 text-base font-medium tracking-[-0.01em]",
+          "h-14 gap-3 rounded-[8px] px-6 text-base font-medium tracking-[-0.01em]",
       },
     },
     defaultVariants: {

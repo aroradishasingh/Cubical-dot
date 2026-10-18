@@ -25,7 +25,7 @@ export default function BlogPage() {
             <Link
               key={essay.slug}
               href={`/blog/${essay.slug}`}
-              className="group/button grid gap-6 rounded-[16px] border border-ink/10 bg-white p-7 transition-colors hover:border-ink md:grid-cols-12 md:p-10"
+              className="group/button grid gap-6 rounded-[8px] border border-ink/10 bg-white p-7 transition-colors hover:border-ink md:grid-cols-12 md:p-10"
             >
               <div className="md:col-span-3">
                 <p className="eyebrow text-violet">{essay.kicker}</p>

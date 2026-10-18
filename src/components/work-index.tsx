@@ -26,7 +26,7 @@ export function WorkIndex() {
                 aria-selected={selected}
                 onClick={() => setSector(item)}
                 className={cn(
-                  "h-10 shrink-0 rounded-[16px] border px-4 text-sm font-medium transition-colors",
+                  "h-10 shrink-0 rounded-[8px] border px-4 text-sm font-medium transition-colors",
                   selected ? "border-ink bg-ink text-white" : "border-ink/15 bg-white text-ink hover:border-ink"
                 )}
               >
@@ -40,7 +40,7 @@ export function WorkIndex() {
             <li key={study.slug}>
               <Link
                 href={`/work/${study.slug}`}
-                className="group/button flex h-full flex-col overflow-hidden rounded-[16px] bg-ink text-white"
+                className="group/button flex h-full flex-col overflow-hidden rounded-[8px] bg-ink text-white"
               >
                 <div className="relative h-64 overflow-hidden sm:h-72">
                   <div className="absolute inset-[-6%] transition-transform duration-700 ease-out group-hover/button:scale-105">

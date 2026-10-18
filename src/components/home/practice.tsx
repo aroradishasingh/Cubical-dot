@@ -59,7 +59,7 @@ export function Practice() {
         <Reveal className="lg:col-span-4">
           <Link
             href={`/services#${current.id}`}
-            className="group/button relative block h-[420px] overflow-hidden rounded-[16px] lg:h-full lg:min-h-[520px]"
+            className="group/button relative block h-[420px] overflow-hidden rounded-[8px] lg:h-full lg:min-h-[520px]"
           >
             <FieldArt key={current.id} variant={current.composition} tone={current.tone} />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/70 to-transparent p-6 text-white">

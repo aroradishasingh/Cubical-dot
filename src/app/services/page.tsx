@@ -79,7 +79,7 @@ export default function ServicesPage() {
           </p>
           <div className="mt-12 grid gap-4 lg:grid-cols-3">
             {investment.map((tier) => (
-              <article key={tier.title} className="rounded-[16px] border border-white/10 p-7">
+              <article key={tier.title} className="rounded-[8px] border border-white/10 p-7">
                 <p className="text-sm font-medium text-lime">{tier.range}</p>
                 <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{tier.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-white/80">{tier.body}</p>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
               <details key={faq.q} className="group border-b border-ink/10 py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold tracking-[-0.03em] [&::-webkit-details-marker]:hidden">
                   {faq.q}
-                  <span className="grid size-8 shrink-0 place-items-center rounded-[16px] bg-ink text-lg text-lime transition-transform group-open:rotate-45" aria-hidden>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-[8px] bg-ink text-lg text-lime transition-transform group-open:rotate-45" aria-hidden>
                     +
                   </span>
                 </summary>
