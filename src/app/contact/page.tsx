@@ -27,7 +27,7 @@ export default function ContactPage() {
         tone="dusk"
       />
       <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:px-10 lg:grid-cols-12 lg:px-16 lg:py-20">
+        <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-16 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-5">
             <p className="eyebrow text-stone">The desk</p>
             <h2 className="mt-4 text-3xl font-bold tracking-[-0.045em]">What happens after you write.</h2>

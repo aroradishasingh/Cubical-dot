@@ -45,7 +45,7 @@ export function StudyHero({ study }: { study: Study }) {
         <FieldArt variant={study.composition} tone={study.tone} />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
       </div>
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-5 pt-32 pb-14 md:px-10 lg:px-16">
+      <div className="shell relative z-10 flex min-h-[100svh] flex-col justify-end pt-32 pb-14">
         <div className="study-fade">
           <Breadcrumb
             items={[
@@ -63,7 +63,7 @@ export function StudyHero({ study }: { study: Study }) {
             <span className="study-line block">{study.headline}</span>
           </span>
         </h1>
-        <dl className="study-fade mt-10 grid gap-5 border-t border-white/15 pt-6 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="study-fade mt-10 grid gap-[var(--grid-gutter)] border-t border-white/15 pt-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["Client", study.name],
             ["Markets", study.markets],

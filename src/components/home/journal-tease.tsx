@@ -7,7 +7,7 @@ export function JournalTease() {
 
   return (
     <section className="bg-ivory">
-      <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16 lg:py-28">
+      <div className="shell py-20 lg:py-28">
         <div className="flex items-end justify-between gap-6">
           <div>
             <Chapter index="07" label="Blog" />
@@ -17,7 +17,7 @@ export function JournalTease() {
             All notes
           </Link>
         </div>
-        <div className="mt-12 grid gap-5 lg:grid-cols-12">
+        <div className="mt-12 grid gap-[var(--grid-gutter)] lg:grid-cols-12">
           <Link
             href={`/blog/${feature.slug}`}
             className="group/button flex flex-col justify-between rounded-[28px] bg-ink p-7 text-white lg:col-span-7 lg:min-h-[420px] lg:p-10"
@@ -30,7 +30,7 @@ export function JournalTease() {
             </div>
             <p className="mt-8 max-w-md text-base leading-relaxed text-white/80">{feature.dek}</p>
           </Link>
-          <div className="grid gap-5 lg:col-span-5">
+          <div className="grid gap-[var(--grid-gutter)] lg:col-span-5">
             {rest.map((essay) => (
               <Link
                 key={essay.slug}

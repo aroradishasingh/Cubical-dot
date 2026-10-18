@@ -32,7 +32,8 @@ export default async function EssayPage({
   return (
     <article>
       <header className="bg-ink text-white">
-        <div className="mx-auto max-w-3xl px-5 pt-32 pb-16 md:px-8 md:pt-40 md:pb-20">
+        <div className="shell pt-32 pb-16 md:pt-40 md:pb-20">
+          <div className="mx-auto max-w-3xl">
           <Breadcrumb
             items={[
               { href: "/", label: "Home" },
@@ -49,19 +50,24 @@ export default async function EssayPage({
           </p>
           <h1 className="display mt-5 text-[clamp(2.6rem,6vw,4.8rem)]">{essay.title}</h1>
           <p className="mt-6 text-lg leading-relaxed text-white/70">{essay.dek}</p>
+          </div>
         </div>
       </header>
       <div className="bg-ivory">
-        <div className="mx-auto max-w-3xl space-y-6 px-5 py-14 text-base leading-8 text-charcoal md:px-8 md:py-20 md:text-lg">
-          {essay.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+        <div className="shell py-14 md:py-20">
+          <div className="mx-auto max-w-3xl space-y-6 text-base leading-8 text-charcoal md:text-lg">
+            {essay.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
-        <div className="mx-auto max-w-3xl px-5 pb-20 md:px-8">
-          <Link href={`/blog/${next.slug}`} className="block rounded-[28px] bg-ink p-8 text-white">
-            <p className="eyebrow text-lime">Next note</p>
-            <p className="mt-3 text-3xl font-bold tracking-[-0.045em]">{next.title}</p>
-          </Link>
+        <div className="shell pb-20">
+          <div className="mx-auto max-w-3xl">
+            <Link href={`/blog/${next.slug}`} className="block rounded-[28px] bg-ink p-8 text-white">
+              <p className="eyebrow text-lime">Next note</p>
+              <p className="mt-3 text-3xl font-bold tracking-[-0.045em]">{next.title}</p>
+            </Link>
+          </div>
         </div>
       </div>
     </article>

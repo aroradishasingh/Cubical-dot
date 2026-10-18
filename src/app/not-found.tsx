@@ -3,7 +3,7 @@ import { Mark } from "@/components/mark";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[100svh] flex-col justify-end bg-ink px-5 pt-32 pb-16 text-white md:px-10 lg:px-16">
+    <section className="shell flex min-h-[100svh] flex-col justify-end bg-ink pt-32 pb-16 text-white">
       <Mark variant="color" className="h-16" title="Cubical Dot" />
       <p className="eyebrow mt-10 text-white/55">404</p>
       <h1 className="display mt-4 max-w-3xl text-[clamp(3rem,7vw,6rem)]">This page left the grid.</h1>

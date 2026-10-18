@@ -8,7 +8,7 @@ export function MarkStory() {
       <div className="relative min-h-[420px] lg:min-h-[720px]">
         <FieldArt variant="split" tone="ink" />
       </div>
-      <div className="flex flex-col justify-center px-5 py-16 md:px-10 lg:px-16 lg:py-24">
+      <div className="flex flex-col justify-center px-[var(--page-margin)] py-16 lg:py-24 lg:pr-[var(--page-margin)] lg:pl-[var(--grid-gutter)]">
         <Chapter index="06" label="The mark" />
         <h2 className="display mt-6 text-[clamp(2.5rem,4.5vw,4.4rem)]">
           Simple forms.

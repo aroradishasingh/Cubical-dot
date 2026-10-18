@@ -14,7 +14,7 @@ export function WorkIndex() {
 
   return (
     <section className="bg-ivory">
-      <div className="mx-auto max-w-[1440px] px-5 py-12 md:px-10 lg:px-16 lg:py-16">
+      <div className="shell py-12 lg:py-16">
         <div className="flex gap-2 overflow-x-auto pb-2" role="tablist" aria-label="Filter studies by sector">
           {sectors.map((item) => {
             const selected = item === sector;
@@ -35,7 +35,7 @@ export function WorkIndex() {
             );
           })}
         </div>
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
+        <ul className="mt-8 grid gap-[var(--grid-gutter)] md:grid-cols-2">
           {visible.map((study) => (
             <li key={study.slug}>
               <Link

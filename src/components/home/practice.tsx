@@ -14,7 +14,7 @@ export function Practice() {
 
   return (
     <section className="bg-ivory text-ink">
-      <div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 md:px-10 lg:grid-cols-12 lg:px-16 lg:py-28">
+      <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-10 py-20 lg:grid-cols-12 lg:py-28">
         <div className="lg:col-span-4">
           <Chapter index="04" label="Practice" />
           <h2 className="display mt-6 text-[clamp(2.4rem,4vw,3.8rem)]">Design beyond boundaries.</h2>

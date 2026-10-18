@@ -65,7 +65,7 @@ export function SiteHeader() {
         )}
       >
       <div className="shell relative z-50 flex h-16 items-center justify-between gap-6 text-white md:h-[4.5rem]">
-        <Link href="/" aria-label="Cubical Dot, home" className="relative z-10 inline-flex text-white">
+        <Link href="/" data-site-logo aria-label="Cubical Dot, home" className="relative z-10 inline-flex text-white">
           <Logo />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
@@ -110,7 +110,7 @@ export function SiteHeader() {
       </div>
       </div>
       {open ? (
-        <div id="mobile-nav" className="fixed inset-0 z-40 bg-ink px-5 pt-28 text-white md:px-10 lg:hidden">
+        <div id="mobile-nav" className="shell fixed inset-0 z-40 bg-ink pt-28 text-white lg:hidden">
           <nav className="flex flex-col" aria-label="Mobile">
             <Link href="/" className="menu-link flex min-h-14 items-center text-5xl leading-none font-bold tracking-[-0.04em]" onClick={() => setOpen(false)}>
               Home

@@ -38,7 +38,7 @@ export default async function StudyPage({
     <article>
       <StudyHero study={study} />
       <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[1440px] gap-16 px-5 py-16 md:px-10 lg:grid-cols-12 lg:px-16 lg:py-24">
+        <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-16 py-16 lg:grid-cols-12 lg:py-24">
           <div className="lg:col-span-4">
             <p className="eyebrow text-stone">The story</p>
             <p className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{study.summary}</p>
@@ -59,7 +59,7 @@ export default async function StudyPage({
             ))}
           </div>
         </div>
-        <div className="mx-auto grid max-w-[1440px] gap-4 px-5 pb-20 md:grid-cols-3 md:px-10 lg:px-16">
+        <div className="shell grid gap-[var(--grid-gutter)] pb-20 md:grid-cols-3">
           {study.outcomes.map((outcome) => (
             <div key={outcome.label} className="rounded-[28px] bg-ink p-7 text-white">
               <p className="text-4xl font-bold tracking-[-0.05em] text-lime">{outcome.value}</p>
@@ -73,7 +73,7 @@ export default async function StudyPage({
           <FieldArt variant={next.composition} tone={next.tone} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
-        <div className="relative z-10 flex min-h-[420px] flex-col justify-end px-5 py-14 md:px-10 lg:px-16">
+        <div className="shell relative z-10 flex min-h-[420px] flex-col justify-end py-14">
           <p className="eyebrow text-lime">Next study</p>
           <p className="mt-4 text-4xl font-bold tracking-[-0.05em] md:text-6xl">{next.name}</p>
           <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium">

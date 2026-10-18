@@ -59,7 +59,7 @@ export function WorkReel() {
 
   return (
     <section className="bg-ivory text-ink">
-      <div className="mx-auto max-w-[1440px] px-5 pt-20 pb-8 md:px-10 lg:px-16 lg:pt-24">
+      <div className="shell pt-20 pb-8 lg:pt-24">
         <Chapter index="03" label="Work" />
         <div className="mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="display max-w-xl text-[clamp(2.6rem,5vw,4.6rem)]">Selected studies.</h2>
@@ -74,7 +74,7 @@ export function WorkReel() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 px-5 pb-20 md:px-10 lg:hidden">
+      <div className="shell flex flex-col gap-[var(--grid-gutter)] pb-20 lg:hidden">
         {studies.map((study) => (
           <StudyCard key={study.slug} study={study} />
         ))}
@@ -82,7 +82,7 @@ export function WorkReel() {
 
       <section ref={root} className="relative hidden lg:block">
         <div className="flex h-[100svh] items-center overflow-hidden">
-          <div ref={track} className="flex h-[74vh] items-stretch gap-5 pr-[12vw] pl-16 will-change-transform">
+          <div ref={track} className="flex h-[74vh] items-stretch gap-[var(--grid-gutter)] pr-[12vw] pl-[var(--page-margin)] will-change-transform">
             {studies.map((study) => (
               <StudyCard key={study.slug} study={study} wide />
             ))}

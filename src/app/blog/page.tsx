@@ -20,7 +20,7 @@ export default function BlogPage() {
         tone="grove"
       />
       <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 py-16 md:px-10 lg:px-16">
+        <div className="shell grid gap-y-5 py-16">
           {essays.map((essay) => (
             <Link
               key={essay.slug}

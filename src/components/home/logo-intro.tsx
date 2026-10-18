@@ -114,8 +114,39 @@ export function LogoIntro() {
 
     tl.addLabel("clear", "+=0.28");
     tl.to(".build-grid", { autoAlpha: 0, duration: 0.5 });
-    tl.to({}, { duration: 0.7 });
-    tl.to(node, { autoAlpha: 0, duration: 0.65, ease: "power2.inOut" });
+    tl.to(".intro-progress", { autoAlpha: 0, duration: 0.3 }, "<");
+    tl.to({}, { duration: 0.4 });
+
+    const dock = () => {
+      const lockup = node.querySelector(".intro-lockup") as HTMLElement | null;
+      const target = document.querySelector("[data-site-logo]") as HTMLElement | null;
+      if (!lockup || !target) return { x: 0, y: 0, scale: 1 };
+      const from = lockup.getBoundingClientRect();
+      const to = target.getBoundingClientRect();
+      const scale = to.height > 0 && from.height > 0 ? to.height / from.height : 1;
+      return {
+        scale,
+        x: to.left - from.left,
+        y: to.top - from.top,
+      };
+    };
+    let parked: ReturnType<typeof dock> | null = null;
+    const place = () => (parked ??= dock());
+
+    tl.addLabel("dock");
+    tl.to(
+      ".intro-lockup",
+      {
+        x: () => place().x,
+        y: () => place().y,
+        scale: () => place().scale,
+        duration: 0.95,
+        ease: "power3.inOut",
+        transformOrigin: "0% 0%",
+      },
+      "dock"
+    );
+    tl.to(node, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, "dock+=0.7");
 
     tl.to(".build-progress", { scaleX: 1, duration: tl.duration(), ease: "none" }, 0);
 
@@ -208,7 +239,7 @@ export function LogoIntro() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 h-px w-28 -translate-x-1/2 bg-white/15">
+      <div className="intro-progress absolute bottom-10 left-1/2 h-px w-28 -translate-x-1/2 bg-white/15">
         <div className="build-progress h-px w-full origin-left bg-lime" />
       </div>
     </div>

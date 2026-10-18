@@ -30,7 +30,7 @@ export default function AboutPage() {
       />
 
       <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:px-10 lg:grid-cols-12 lg:px-16">
+        <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-20 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow text-stone">The studio</p>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em]">A cube is structure. A dot is the idea in motion.</h2>
@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="relative min-h-[420px]">
           <FieldArt variant="orbit" tone="dusk" />
         </div>
-        <div className="bg-white px-5 py-16 md:px-10 lg:px-16 lg:py-20">
+        <div className="flex flex-col justify-center bg-white px-[var(--page-margin)] py-16 lg:py-20 lg:pr-[var(--page-margin)] lg:pl-[var(--grid-gutter)]">
           <p className="eyebrow text-stone">How it feels</p>
           <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em]">Written work. Live reviews. One story.</h2>
           <ul className="mt-8 space-y-6">
@@ -72,9 +72,9 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-ink text-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16">
+        <div className="shell py-20">
           <p className="eyebrow text-lime">Bold. Creative. Different.</p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-[var(--grid-gutter)] md:grid-cols-3">
             {principles.map((principle) => (
               <article key={principle.title} className="rounded-[28px] border border-white/10 p-7">
                 <h2 className="text-3xl font-bold tracking-[-0.045em]">{principle.title}</h2>
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-ivory">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16">
+        <div className="shell py-20">
           <p className="eyebrow text-stone">The palette</p>
           <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-[-0.045em]">Four colors. One signal.</h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal">

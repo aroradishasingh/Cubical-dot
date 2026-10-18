@@ -47,7 +47,7 @@ export function Manifesto() {
 
   return (
     <section ref={root} className="bg-ink text-white">
-      <div className="mx-auto grid min-h-[100svh] max-w-[1440px] items-center gap-12 px-5 py-28 md:px-10 lg:grid-cols-12 lg:px-16">
+      <div className="shell grid min-h-[100svh] items-center gap-x-[var(--grid-gutter)] gap-y-12 py-28 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <Chapter index="02" label="Belief" tone="light" />
           <p className="sr-only">{sentence}</p>

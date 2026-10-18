@@ -52,7 +52,7 @@ export function PageHero({
         <FieldArt variant={variant} tone={tone} />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/20 to-transparent" />
       </div>
-      <div className="relative z-10 mx-auto flex min-h-[78svh] max-w-[1440px] flex-col justify-end px-5 pt-32 pb-16 md:px-10 md:pb-20 lg:px-16">
+      <div className="shell relative z-10 flex min-h-[78svh] flex-col justify-end pt-32 pb-16 md:pb-20">
         <div className="page-hero-fade">
           <Chapter index={index} label={label} tone="light" />
         </div>

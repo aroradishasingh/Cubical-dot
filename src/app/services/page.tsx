@@ -28,7 +28,7 @@ export default function ServicesPage() {
       </PageHero>
 
       <section className="bg-ivory">
-        <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-10 lg:px-16">
+        <div className="shell py-16">
           <p className="max-w-2xl text-lg leading-relaxed text-charcoal">
             Engagements run eight to fourteen weeks. You meet a senior direction on the first call and you keep that direction through launch. Specialists join only when the work needs them.
           </p>
@@ -50,11 +50,17 @@ export default function ServicesPage() {
           id={service.id}
           className={index % 2 === 0 ? "bg-white" : "bg-ivory"}
         >
-          <div className="mx-auto grid max-w-[1440px] items-stretch lg:grid-cols-2">
+          <div className="grid items-stretch lg:grid-cols-2">
             <div className={`relative min-h-[320px] lg:min-h-[460px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
               <FieldArt variant={service.composition} tone={service.tone} />
             </div>
-            <div className="flex flex-col justify-center px-5 py-14 md:px-10 lg:px-16">
+            <div
+              className={`flex flex-col justify-center px-[var(--page-margin)] py-14 ${
+                index % 2 === 1
+                  ? "lg:pr-[var(--grid-gutter)] lg:pl-[var(--page-margin)]"
+                  : "lg:pr-[var(--page-margin)] lg:pl-[var(--grid-gutter)]"
+              }`}
+            >
               <p className="eyebrow text-stone">{service.index}</p>
               <h2 className="mt-3 text-4xl font-bold tracking-[-0.045em] md:text-5xl">{service.title}</h2>
               <p className="mt-4 text-lg font-medium tracking-[-0.03em]">{service.line}</p>
@@ -65,7 +71,7 @@ export default function ServicesPage() {
       ))}
 
       <section className="bg-ink text-white">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:px-16">
+        <div className="shell py-20">
           <p className="eyebrow text-white/70">Investment</p>
           <h2 className="display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.4rem)]">A range, before the first call.</h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80">
@@ -84,7 +90,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-ivory">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 md:px-10 lg:grid-cols-12 lg:px-16">
+        <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-20 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow text-stone">Questions</p>
             <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em]">Before you write.</h2>
