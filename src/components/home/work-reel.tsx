@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
-import { StudyMedia } from "@/components/study-media";
 import { studies } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
@@ -20,7 +19,7 @@ export function WorkReel() {
         if (!el) return 0;
         return Math.max(0, el.scrollWidth - window.innerWidth);
       };
-      const tween = gsap.to(track.current, {
+      gsap.to(track.current, {
         x: () => -distance(),
         ease: "none",
         scrollTrigger: {
@@ -32,26 +31,6 @@ export function WorkReel() {
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
-      });
-
-      gsap.utils.toArray<HTMLElement>(".reel-card .study-art").forEach((art) => {
-        const card = art.closest(".reel-card");
-        if (!card) return;
-        gsap.fromTo(
-          art,
-          { xPercent: -6 },
-          {
-            xPercent: 6,
-            ease: "none",
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: tween,
-              start: "left right",
-              end: "right left",
-              scrub: true,
-            },
-          }
-        );
       });
     });
     return () => mm.revert();
@@ -82,7 +61,7 @@ export function WorkReel() {
 
       <section ref={root} className="relative hidden lg:block">
         <div className="flex h-[100svh] items-center overflow-hidden">
-          <div ref={track} className="flex h-[74vh] items-stretch gap-[var(--grid-gutter)] pr-[12vw] pl-[var(--page-margin)] will-change-transform">
+          <div ref={track} className="flex items-center gap-4 pr-[12vw] pl-[var(--page-margin)] will-change-transform">
             {studies.map((study) => (
               <StudyCard key={study.slug} study={study} wide />
             ))}
@@ -106,36 +85,22 @@ function StudyCard({
       data-cursor="hot"
       className={
         wide
-          ? "reel-card group/button flex w-[46vw] shrink-0 flex-col overflow-hidden rounded-[8px] bg-ink text-white"
-          : "group/button overflow-hidden rounded-[8px] bg-ink text-white"
+          ? "section-card reel-card group/button flex w-[min(26rem,78vw)] shrink-0 flex-col justify-center px-8 py-12 text-center text-white md:min-h-[28rem] md:px-10"
+          : "section-card group/button flex min-h-[24rem] flex-col justify-center px-8 py-12 text-center text-white"
       }
     >
-      <div className={wide ? "relative h-[58%] overflow-hidden bg-[#07060f]" : "relative h-72 overflow-hidden bg-[#07060f]"}>
-        {study.cover ? (
-          <img
-            src={study.cover}
-            alt=""
-            className="absolute top-1/2 left-1/2 h-full max-h-full w-auto max-w-full -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
-          />
-        ) : (
-          <div className="study-art absolute inset-[-8%] transition-transform duration-700 ease-out group-hover/button:scale-105">
-            <StudyMedia study={study} motion="none" />
-          </div>
-        )}
-      </div>
-      <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
-        <div>
-          <p className="eyebrow text-white/70">
-            {study.index} / {study.sector}
-          </p>
-          <h3 className="mt-3 text-3xl font-bold tracking-[-0.045em] md:text-4xl">{study.name}</h3>
-          <p className="mt-3 max-w-md text-base leading-relaxed text-white/80">{study.summary}</p>
-        </div>
-        <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-lime">
-          View case study
-          <ArrowIcon />
-        </span>
-      </div>
+      <p className="eyebrow text-white/55">
+        {study.index} / {study.sector}
+      </p>
+      <h3 className="mt-4 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{study.name}</h3>
+      <p className="mx-auto mt-4 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
+        {study.headline}
+      </p>
+      <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/65">{study.summary}</p>
+      <span className="mt-8 inline-flex items-center justify-center gap-2 text-sm font-medium text-lime">
+        View case study
+        <ArrowIcon />
+      </span>
     </Link>
   );
 }
