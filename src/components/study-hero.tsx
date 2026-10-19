@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { FieldArt } from "@/components/field-art";
+import { StudyMedia } from "@/components/study-media";
 import type { Study } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
@@ -42,7 +42,7 @@ export function StudyHero({ study }: { study: Study }) {
   return (
     <section ref={root} className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
       <div className="study-shift absolute inset-0">
-        <FieldArt variant={study.composition} tone={study.tone} />
+        <StudyMedia study={study} motion="idle" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
       </div>
       <div className="shell relative z-10 flex min-h-[100svh] flex-col justify-end pt-32 pb-14">

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
-import { FieldArt } from "@/components/field-art";
+import { StudyMedia } from "@/components/study-media";
 import { studies } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
@@ -112,7 +112,7 @@ function StudyCard({
     >
       <div className={wide ? "relative h-[58%] overflow-hidden" : "relative h-64 overflow-hidden"}>
         <div className="study-art absolute inset-[-8%] transition-transform duration-700 ease-out group-hover/button:scale-105">
-          <FieldArt variant={study.composition} tone={study.tone} motion="none" />
+          <StudyMedia study={study} motion="none" />
         </div>
       </div>
       <div className="flex flex-1 flex-col justify-between p-6 md:p-8">

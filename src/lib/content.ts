@@ -147,14 +147,63 @@ export type Study = {
   headline: string;
   composition: Composition;
   tone: Tone;
+  cover?: string;
+  gallery?: { src: string; alt: string }[];
   chapters: { kicker: string; title: string; body: string[] }[];
   outcomes: { value: string; label: string }[];
 };
 
+const creativePieces = Array.from({ length: 32 }, (_, index) => {
+  const number = String(index + 1).padStart(2, "0");
+  return {
+    src: `/creatives/${number}.webp`,
+    alt: `Social media creative ${index + 1}`,
+  };
+});
+
 export const studies: Study[] = [
   {
-    slug: "aperture",
+    slug: "creatives",
     index: "01",
+    name: "Social",
+    sector: "Social media",
+    year: "2021–24",
+    markets: "OnePlus · Noise · ASUS · Fire-Boltt",
+    services: ["Social creatives", "Campaign design"],
+    summary:
+      "Thirty-two social pieces for OnePlus, Noise, ASUS, Fire-Boltt, and a set of crypto characters.",
+    headline: "Posts that have to work at a glance.",
+    composition: "orbit",
+    tone: "dusk",
+    cover: creativePieces[0].src,
+    gallery: creativePieces,
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A feed is a sequence of decisions, not a folder of posts.",
+        body: [
+          "The work spans product launches, retail offers, and character campaigns. OnePlus, Noise, ASUS, Fire-Boltt, and a crypto set each needed a post that could be read in the time it takes to keep scrolling.",
+          "The constraint is the square. The product, the offer, and the name have to land before the thumb moves.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "One idea per frame. The rest is evidence.",
+        body: [
+          "A foldable phone is shown open, with the spec line beside it, not under a paragraph. A pastry shop gets a system of posts that can change the cake without changing the voice. A character campaign gives each figure a color and a name large enough to read on a phone.",
+          "The full set is below, in the order it was made.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "32", label: "Pieces in the set" },
+      { value: "2021–24", label: "Years the work spans" },
+      { value: "5", label: "Campaigns, one square" },
+    ],
+  },
+  {
+    slug: "aperture",
+    index: "02",
     name: "Aperture",
     sector: "Private aviation",
     year: "2026",
@@ -199,7 +248,7 @@ export const studies: Study[] = [
   },
   {
     slug: "sable-house",
-    index: "02",
+    index: "03",
     name: "Sable House",
     sector: "Hospitality",
     year: "2026",
@@ -244,7 +293,7 @@ export const studies: Study[] = [
   },
   {
     slug: "halcyon",
-    index: "03",
+    index: "04",
     name: "Halcyon",
     sector: "Private wealth",
     year: "2025",
@@ -289,7 +338,7 @@ export const studies: Study[] = [
   },
   {
     slug: "orla",
-    index: "04",
+    index: "05",
     name: "Orla",
     sector: "Contemporary gallery",
     year: "2025",
@@ -334,7 +383,7 @@ export const studies: Study[] = [
   },
   {
     slug: "northwind",
-    index: "05",
+    index: "06",
     name: "Northwind",
     sector: "Fashion atelier",
     year: "2026",
@@ -379,7 +428,7 @@ export const studies: Study[] = [
   },
   {
     slug: "vesper",
-    index: "06",
+    index: "07",
     name: "Vesper",
     sector: "Architecture",
     year: "2025",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowIcon } from "@/components/brand-button";
-import { FieldArt } from "@/components/field-art";
+import { StudyMedia } from "@/components/study-media";
 import { StudyHero } from "@/components/study-hero";
 import { getStudy, nextStudy, studies } from "@/lib/content";
 
@@ -59,6 +59,28 @@ export default async function StudyPage({
             ))}
           </div>
         </div>
+        {study.gallery ? (
+          <div className="shell pb-8">
+            <p className="eyebrow text-violet">The set</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
+              All {study.gallery.length} pieces.
+            </h2>
+            <ul className="mt-8 grid grid-cols-2 gap-[var(--grid-gutter)] md:grid-cols-3 lg:grid-cols-4">
+              {study.gallery.map((piece, index) => (
+                <li key={piece.src} className="overflow-hidden rounded-[8px] bg-ink">
+                  <img
+                    src={piece.src}
+                    alt={piece.alt}
+                    width={1000}
+                    height={1000}
+                    loading={index < 4 ? "eager" : "lazy"}
+                    className="aspect-square w-full object-cover"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
         <div className="shell grid gap-[var(--grid-gutter)] pb-20 md:grid-cols-3">
           {study.outcomes.map((outcome) => (
             <div key={outcome.label} className="rounded-[8px] bg-ink p-7 text-white">
@@ -70,7 +92,7 @@ export default async function StudyPage({
       </section>
       <Link href={`/work/${next.slug}`} className="group/button relative block min-h-[420px] overflow-hidden bg-ink text-white">
         <div className="absolute inset-0 opacity-80 transition-transform duration-700 group-hover/button:scale-105">
-          <FieldArt variant={next.composition} tone={next.tone} />
+          <StudyMedia study={next} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="shell relative z-10 flex min-h-[420px] flex-col justify-end py-14">

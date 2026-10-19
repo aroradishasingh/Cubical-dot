@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { ArrowIcon } from "@/components/brand-button";
-import { FieldArt } from "@/components/field-art";
+import { StudyMedia } from "@/components/study-media";
 import { studies } from "@/lib/content";
 import { cn } from "cn";
 
@@ -44,7 +44,7 @@ export function WorkIndex() {
               >
                 <div className="relative h-64 overflow-hidden sm:h-72">
                   <div className="absolute inset-[-6%] transition-transform duration-700 ease-out group-hover/button:scale-105">
-                    <FieldArt variant={study.composition} tone={study.tone} />
+                    <StudyMedia study={study} />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6 md:p-8">
