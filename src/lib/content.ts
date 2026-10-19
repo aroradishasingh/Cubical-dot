@@ -156,6 +156,7 @@ export type Study = {
   tone: Tone;
   cover?: string;
   gallery?: { src: string; alt: string; deck?: string }[];
+  galleryNoun?: string;
   chapters: { kicker: string; title: string; body: string[] }[];
   outcomes: { value: string; label: string }[];
 };
@@ -184,6 +185,45 @@ const presentationPieces = [
   ...slides("inshorts", 13, "Inshorts"),
   ...slides("public", 19, "Public"),
 ];
+
+const genAiAlts = [
+  "Title",
+  "Brief",
+  "Objectives",
+  "Aim",
+  "House of Aroras",
+  "Moodboard",
+  "Final render",
+  "Campaign catalogue",
+  "Brand intro",
+  "The Crossing",
+  "Campaign image",
+  "Mid-shot and desert",
+  "Macro detail",
+  "Green room",
+  "Campaign stills",
+  "Lifestyle stills",
+  "The process",
+  "Process intro",
+  "Prompt iteration 1",
+  "Prompt iteration 2",
+  "Prompt iteration 3",
+  "Retouching",
+  "Workflow",
+  "Flow with Flora",
+  "Quality check",
+  "Rejected images",
+  "Thank you",
+];
+
+const genAiPieces = genAiAlts.map((alt, index) => {
+  const number = String(index + 1).padStart(2, "0");
+  return {
+    src: `/gen-ai/${number}.webp`,
+    alt: `Gen AI, ${alt}`,
+    deck: "House of Aroras",
+  };
+});
 
 const studyCatalog: Study[] = [
   {
@@ -262,6 +302,46 @@ const studyCatalog: Study[] = [
       { value: "47", label: "Slides across three decks" },
       { value: "3", label: "Decks, three different rooms" },
       { value: "2023–25", label: "Years the work spans" },
+    ],
+  },
+  {
+    slug: "gen-ai",
+    index: "01",
+    name: "Gen AI",
+    sector: "Gen AI",
+    year: "Handbag",
+    markets: "House of Aroras",
+    services: ["Generative imagery", "Art direction", "Retouching"],
+    summary:
+      "A luxury handbag, merchandised with generative imagery that keeps the product accurate from the brief to the shop.",
+    headline: "The bag stays the same bag.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/gen-ai/07.webp",
+    gallery: genAiPieces,
+    galleryNoun: "frames",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A luxury bag has to survive every picture of it.",
+        body: [
+          "Design and merchandise a premium handbag with generative AI. The pictures have to be ready for production, the product has to stay accurate, and the tone has to hold across shopping touchpoints. The house is House of Aroras.",
+          "The work is in three movements: design, merchandise, and retouching. The tools are ChatGPT, Claude, Seedream, Flora, and Photoshop.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Show the bag. Then show the decisions.",
+        body: [
+          "The set opens on the brief, the aim, and the mood. Then the campaign: the final render, the catalogue, the crossing, the desert, the macro, the green room. After the pictures, the process is on the table. Prompt iterations, the Flora flow, the retouch, the quality check, and the frames that were rejected.",
+          "A prettier picture does not get to change the bag.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "27", label: "Frames in the set" },
+      { value: "3", label: "Design, merchandise, retouching" },
+      { value: "1", label: "Bag, held consistent" },
     ],
   },
   {
@@ -536,7 +616,7 @@ const studyCatalog: Study[] = [
   },
 ];
 
-const studyOrder = ["aperture", "sable-house", "creatives", "presentations", "halcyon", "orla", "northwind", "vesper"];
+const studyOrder = ["aperture", "sable-house", "creatives", "presentations", "gen-ai", "halcyon", "orla", "northwind", "vesper"];
 
 export const studies: Study[] = studyOrder.map((slug, index) => {
   const study = studyCatalog.find((item) => item.slug === slug);

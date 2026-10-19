@@ -105,7 +105,7 @@ function Gallery({ study }: { study: Study }) {
       <div className={wide ? "mx-auto w-full max-w-[1072px]" : undefined}>
       <p className="eyebrow text-violet">The set</p>
       <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
-        All {gallery.length} {wide ? "slides" : "pieces"}.
+        All {gallery.length} {study.galleryNoun ?? (wide ? "slides" : "pieces")}.
       </h2>
       {groups.map((group) => (
         <div key={group.deck ?? "set"} className="mt-8">
