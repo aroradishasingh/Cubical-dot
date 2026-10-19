@@ -43,10 +43,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#070707]">
+      <section className="bg-[#07060f]">
         <div className="shell grid gap-4 py-16 md:grid-cols-2 md:py-24 xl:grid-cols-3">
           {services.map((service) => (
-            <article id={service.id} key={service.id} className="section-card service-card flex min-h-[380px] flex-col justify-center px-8 py-12 text-center text-white md:min-h-[440px] md:px-10">
+            <article id={service.id} key={service.id} className="section-card flex min-h-[380px] flex-col justify-center px-8 py-12 text-center text-white md:min-h-[440px] md:px-10">
               <p className="eyebrow text-white/55">{service.index}</p>
               <h2 className="mt-4 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{service.title}</h2>
               <p className="mx-auto mt-4 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">

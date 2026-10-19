@@ -86,8 +86,8 @@ function StudyCard({
       data-cursor="hot"
       className={
         wide
-          ? "section-card reel-card group/button flex h-[72vh] w-[min(40rem,46vw)] shrink-0 flex-col overflow-hidden text-white"
-          : "section-card group/button flex flex-col overflow-hidden text-white"
+          ? "section-card study-card reel-card group/button flex h-[72vh] w-[min(40rem,46vw)] shrink-0 flex-col overflow-hidden text-white"
+          : "section-card study-card group/button flex flex-col overflow-hidden text-white"
       }
     >
       <div className={wide ? "relative h-[58%] shrink-0" : "relative h-72 shrink-0"}>
