@@ -76,7 +76,7 @@ export function Hero() {
           </span>
           <span className="mt-[-0.06em] block overflow-hidden pt-[0.02em] pb-[0.08em]">
             <span className="hero-line block">
-              in <span className="motion-flow inline-block">motion</span>.
+              in <span className="motion-flow inline-block">motion.</span>
             </span>
           </span>
         </h1>

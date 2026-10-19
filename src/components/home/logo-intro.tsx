@@ -5,7 +5,7 @@ import { markGeometry, slabPath } from "@/components/mark";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 const letters = "Cubical Dot".split("");
-const { viewBox, square, corners, dot, blue, word } = markGeometry;
+const { viewBox, square, corners, dot, blue, lime, word } = markGeometry;
 const dotStart = { cx: square - 3.5, cy: square - 3.5, r: 3.5 };
 const sharp = slabPath(0, 0, 0, 0, square);
 const wordSize = 0.95;
@@ -85,7 +85,7 @@ export function LogoIntro() {
     tl.set(strokeDot, { autoAlpha: 1 });
     tl.to(strokeDot, { strokeDashoffset: 0, duration: 0.4 });
     tl.set(strokeDot, { strokeDasharray: 1000, strokeDashoffset: 0 });
-    tl.to(strokeDot, {
+    tl.to([strokeDot, ".build-fill-dot"], {
       attr: { cx: dot.cx, cy: dot.cy, r: dot.r },
       duration: 1.05,
     });
@@ -168,26 +168,8 @@ export function LogoIntro() {
     >
       <div className="intro-lockup relative inline-flex items-end text-[clamp(2.55rem,11.5vw,9.25rem)]">
         <svg viewBox={viewBox} className="build-mark h-[1em] w-auto overflow-visible" aria-hidden>
-          <defs>
-            <clipPath id="intro-dot-flow">
-              <circle cx={dot.cx} cy={dot.cy} r={dot.r} />
-            </clipPath>
-          </defs>
           <path className="build-fill-slab opacity-0" d={sharp} fill={blue} />
-          <foreignObject
-            className="build-fill-dot opacity-0"
-            x={dot.cx - dot.r}
-            y={dot.cy - dot.r}
-            width={dot.r * 2}
-            height={dot.r * 2}
-            clipPath="url(#intro-dot-flow)"
-          >
-            <div
-              xmlns="http://www.w3.org/1999/xhtml"
-              className="motion-fill"
-              style={{ width: `${dot.r * 2}px`, height: `${dot.r * 2}px` }}
-            />
-          </foreignObject>
+          <circle className="build-fill-dot opacity-0" cx={dotStart.cx} cy={dotStart.cy} r={dotStart.r} fill={lime} />
           <rect
             className="build-stroke-rect"
             x="0.8"

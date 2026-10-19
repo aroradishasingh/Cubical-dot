@@ -1,4 +1,3 @@
-import { useId } from "react";
 import { cn } from "cn";
 
 /**
@@ -61,10 +60,9 @@ type MarkProps = {
 
 export function Mark({ className, variant = "mono", title }: MarkProps) {
   const label = title ?? "Cubical Dot mark";
-  const { viewBox, square, corners, dot, blue } = markGeometry;
+  const { viewBox, square, corners, dot, blue, lime } = markGeometry;
   const fill = variant === "color" ? blue : "currentColor";
-  const clipId = `dot-flow-${useId().replace(/:/g, "")}`;
-  const diameter = dot.r * 2;
+  const dotFill = variant === "color" ? lime : "currentColor";
 
   return (
     <svg
@@ -75,30 +73,7 @@ export function Mark({ className, variant = "mono", title }: MarkProps) {
       aria-label={title ? label : undefined}
     >
       <path d={slabPath(corners.tl, corners.tr, corners.br, corners.bl, square)} fill={fill} />
-      {variant === "color" ? (
-        <>
-          <defs>
-            <clipPath id={clipId}>
-              <circle cx={dot.cx} cy={dot.cy} r={dot.r} />
-            </clipPath>
-          </defs>
-          <foreignObject
-            x={dot.cx - dot.r}
-            y={dot.cy - dot.r}
-            width={diameter}
-            height={diameter}
-            clipPath={`url(#${clipId})`}
-          >
-            <div
-              xmlns="http://www.w3.org/1999/xhtml"
-              className="motion-fill"
-              style={{ width: `${diameter}px`, height: `${diameter}px` }}
-            />
-          </foreignObject>
-        </>
-      ) : (
-        <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill="currentColor" />
-      )}
+      <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill={dotFill} />
     </svg>
   );
 }
