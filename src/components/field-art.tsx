@@ -30,7 +30,13 @@ export function FieldArt({
       className={cn("absolute inset-0 overflow-hidden", grounds[tone], className)}
       aria-hidden
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(99,24,255,0.45),transparent_46%)]" />
+      <div
+        className={
+          hero
+            ? "absolute inset-0 bg-[radial-gradient(circle_at_84%_68%,rgba(55,28,180,0.45),transparent_36%)]"
+            : "absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(99,24,255,0.45),transparent_46%)]"
+        }
+      />
       {variant === "orbit" ? <OrbitField hero={hero} idle={idle} /> : null}
       {variant === "eclipse" ? (
         <>
@@ -97,12 +103,48 @@ export function FieldArt({
   );
 }
 
+function HeroOrbit() {
+  return (
+    <>
+      <div className="hero-slab absolute top-[4.25rem] -right-[34%] w-[58%] sm:top-[16%] sm:right-[7%] sm:w-[min(38vw,520px)]">
+        <div
+          className="aspect-[1.42] w-full rotate-[16deg] rounded-[4.5rem] shadow-[0_28px_70px_rgba(6,4,24,0.4)]"
+          style={{
+            background:
+              "linear-gradient(122deg, #1B43FF 0%, #2E3CF4 38%, #5A38FF 72%, #7A4DFF 100%)",
+          }}
+        />
+      </div>
+      <div className="hero-sphere-blue absolute -right-[42%] bottom-[22%] aspect-square w-[78%] sm:-right-[8%] sm:bottom-[-20%] sm:w-[min(54vw,700px)]">
+        <div
+          className="size-full rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle at 34% 28%, #8E8BFF 0%, #4C36F2 36%, #2618C4 68%, #140C62 100%)",
+          }}
+        />
+      </div>
+      <div className="hero-sphere-lime absolute top-[5.5rem] -right-[8%] aspect-square w-[24%] sm:top-[30%] sm:-right-[1%] sm:w-[min(20vw,250px)]">
+        <div
+          className="size-full rounded-full shadow-[0_0_70px_rgba(190,240,40,0.35)]"
+          style={{
+            background:
+              "radial-gradient(circle at 32% 28%, #F7FFD0 0%, #E7FF62 26%, #C8F034 58%, #8EBE00 100%)",
+          }}
+        />
+      </div>
+    </>
+  );
+}
+
 function OrbitField({ hero, idle }: { hero: boolean; idle: boolean }) {
   const id = useId().replace(/:/g, "");
   const slab = `${id}-slab`;
   const orb = `${id}-orb`;
   const lime = `${id}-lime`;
   const shade = `${id}-shade`;
+
+  if (hero) return <HeroOrbit />;
 
   return (
     <div className="absolute top-[4.25rem] right-[var(--page-margin)] w-[min(40%,156px)] sm:top-[11%] sm:w-[min(32%,360px)] lg:top-[10%] lg:w-[min(28vw,520px)]">
