@@ -102,6 +102,7 @@ function Gallery({ study }: { study: Study }) {
 
   return (
     <div className="shell pb-8">
+      <div className={wide ? "mx-auto w-full max-w-[1072px]" : undefined}>
       <p className="eyebrow text-violet">The set</p>
       <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
         All {gallery.length} {wide ? "slides" : "pieces"}.
@@ -114,7 +115,7 @@ function Gallery({ study }: { study: Study }) {
           <ul
             className={
               wide
-                ? "mt-4 flex flex-col gap-[var(--grid-gutter)]"
+                ? "mt-4 flex flex-col gap-4 sm:gap-5"
                 : "grid grid-cols-2 gap-[var(--grid-gutter)] md:grid-cols-3 lg:grid-cols-4"
             }
           >
@@ -129,7 +130,7 @@ function Gallery({ study }: { study: Study }) {
                     width={wide ? 1500 : 1000}
                     height={wide ? 844 : 1000}
                     loading={eager ? "eager" : "lazy"}
-                    className={wide ? "aspect-video w-full object-cover" : "aspect-square w-full object-cover"}
+                    className={wide ? "block h-auto w-full" : "aspect-square w-full object-cover"}
                   />
                 </li>
               );
@@ -137,6 +138,7 @@ function Gallery({ study }: { study: Study }) {
           </ul>
         </div>
       ))}
+      </div>
     </div>
   );
 }
