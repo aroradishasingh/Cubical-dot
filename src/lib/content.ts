@@ -161,7 +161,7 @@ const creativePieces = Array.from({ length: 32 }, (_, index) => {
   };
 });
 
-export const studies: Study[] = [
+const studyCatalog: Study[] = [
   {
     slug: "creatives",
     index: "01",
@@ -472,6 +472,14 @@ export const studies: Study[] = [
     ],
   },
 ];
+
+const studyOrder = ["aperture", "sable-house", "creatives", "halcyon", "orla", "northwind", "vesper"];
+
+export const studies: Study[] = studyOrder.map((slug, index) => {
+  const study = studyCatalog.find((item) => item.slug === slug);
+  if (!study) throw new Error(`Missing study ${slug}`);
+  return { ...study, index: String(index + 1).padStart(2, "0") };
+});
 
 export type Essay = {
   slug: string;

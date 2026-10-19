@@ -42,10 +42,18 @@ export function WorkIndex() {
                 href={`/work/${study.slug}`}
                 className="group/button flex h-full flex-col overflow-hidden rounded-[8px] bg-ink text-white"
               >
-                <div className="relative h-64 overflow-hidden sm:h-72">
-                  <div className="absolute inset-[-6%] transition-transform duration-700 ease-out group-hover/button:scale-105">
-                    <StudyMedia study={study} />
-                  </div>
+                <div className="relative h-72 overflow-hidden bg-[#07060f] sm:h-80">
+                  {study.cover ? (
+                    <img
+                      src={study.cover}
+                      alt=""
+                      className="absolute top-1/2 left-1/2 h-full max-h-full w-auto max-w-full -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="absolute inset-[-6%] transition-transform duration-700 ease-out group-hover/button:scale-105">
+                      <StudyMedia study={study} />
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-6 md:p-8">
                   <p className="eyebrow text-white/70">

@@ -110,10 +110,18 @@ function StudyCard({
           : "group/button overflow-hidden rounded-[8px] bg-ink text-white"
       }
     >
-      <div className={wide ? "relative h-[58%] overflow-hidden" : "relative h-64 overflow-hidden"}>
-        <div className="study-art absolute inset-[-8%] transition-transform duration-700 ease-out group-hover/button:scale-105">
-          <StudyMedia study={study} motion="none" />
-        </div>
+      <div className={wide ? "relative h-[58%] overflow-hidden bg-[#07060f]" : "relative h-72 overflow-hidden bg-[#07060f]"}>
+        {study.cover ? (
+          <img
+            src={study.cover}
+            alt=""
+            className="absolute top-1/2 left-1/2 h-full max-h-full w-auto max-w-full -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
+          />
+        ) : (
+          <div className="study-art absolute inset-[-8%] transition-transform duration-700 ease-out group-hover/button:scale-105">
+            <StudyMedia study={study} motion="none" />
+          </div>
+        )}
       </div>
       <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
         <div>
