@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { BrandButton } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
-import { FieldArt } from "@/components/field-art";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function Hero() {
@@ -21,52 +20,14 @@ export function Hero() {
         if (reduce) return;
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.from(".hero-slab", {
-          scale: 0.82,
-          rotation: -10,
-          autoAlpha: 0,
-          duration: 1.15,
-          transformOrigin: "50% 50%",
-        })
-          .from(
-            ".hero-sphere-lime",
-            { x: 28, scale: 0.72, autoAlpha: 0, duration: 0.95, ease: "back.out(1.4)" },
-            "-=0.72"
-          )
-          .from(".hero-sphere-blue", { y: 24, autoAlpha: 0, duration: 1.05 }, "-=0.85")
-          .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.08 }, "-=0.55")
+        tl.from(".hero-wallpaper", { autoAlpha: 0, duration: 1.2, ease: "power2.out" })
+          .from(".hero-line", { yPercent: 110, duration: 0.9, stagger: 0.08 }, "-=0.7")
           .from(
             ".hero-rule",
             { scaleX: 0, duration: 0.55, ease: "power2.out", transformOrigin: "left center" },
             "-=0.4"
           )
           .from(".hero-fade", { y: 18, autoAlpha: 0, duration: 0.65, stagger: 0.07 }, "-=0.35");
-
-        gsap.to(".hero-slab", {
-          y: -8,
-          rotation: 3,
-          duration: 7.5,
-          delay: 2.7,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
-        gsap.to(".hero-sphere-lime", {
-          y: -7,
-          duration: 5.2,
-          delay: 2.7,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
-        gsap.to(".hero-sphere-blue", {
-          y: 8,
-          duration: 6.6,
-          delay: 2.7,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
 
         gsap.to(".hero-parallax", {
           yPercent: -12,
@@ -79,7 +40,7 @@ export function Hero() {
           },
         });
         gsap.to(".hero-art", {
-          yPercent: 10,
+          yPercent: 6,
           ease: "none",
           scrollTrigger: {
             trigger: root.current,
@@ -96,10 +57,14 @@ export function Hero() {
 
   return (
     <section ref={root} className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
-      <div className="hero-art absolute inset-0">
-        <FieldArt variant="orbit" tone="dusk" motion="hero" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/25 md:bg-gradient-to-r md:from-ink md:from-20% md:via-ink/75 md:via-48% md:to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
+      <div className="hero-art pointer-events-none absolute inset-0" aria-hidden>
+        <img
+          src="/hero-wallpaper.png"
+          alt=""
+          className="hero-wallpaper absolute top-0 right-0 h-[38%] w-[205%] max-w-none object-cover object-[right_8%] md:inset-x-0 md:-top-[12%] md:h-[124%] md:w-full md:object-[78%_center]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[2%] via-ink via-[27%] to-ink md:hidden" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-ink via-ink/70 to-transparent md:h-28 md:via-ink/35" />
       </div>
       <div className="hero-parallax shell relative z-10 flex min-h-[100svh] flex-col justify-end pt-28 pb-8 md:pb-10">
         <div className="hero-fade">

@@ -111,18 +111,28 @@
     margin-inline: auto;
     padding-inline: var(--page-margin);
   }
-  .motion-flow {
+  .motion-flow,
+  .motion-fill {
     background-color: #6318ff;
     background-image: url("/motion-flow.svg");
     background-repeat: no-repeat;
     background-size: 200% 240%;
     background-position: 0% 40%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     animation:
       motion-drift 12s linear infinite,
       motion-wave 4.6s ease-in-out infinite alternate;
+  }
+  .motion-flow {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .motion-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-size: 145% 170%;
   }
 }
 
@@ -217,10 +227,12 @@
   .float-a,
   .float-b,
   .float-c,
-  .motion-flow {
+  .motion-flow,
+  .motion-fill {
     animation: none;
   }
-  .motion-flow {
+  .motion-flow,
+  .motion-fill {
     background-position: 18% 42%;
     background-size: 180% 180%;
   }
