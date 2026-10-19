@@ -24,6 +24,7 @@ export type Service = {
   index: string;
   title: string;
   line: string;
+  accent: string;
   detail: string;
   composition: Composition;
   tone: Tone;
@@ -35,6 +36,7 @@ export const services: Service[] = [
     index: "01",
     title: "Website design",
     line: "A digital flagship for a brand ready to be seen at the price it charges.",
+    accent: "flagship",
     detail:
       "New websites for companies entering a market, launching a house, or retiring a temporary site that outlived its brief. Narrative, structure, visual system, motion, and a front end your team can keep.",
     composition: "orbit",
@@ -45,6 +47,7 @@ export const services: Service[] = [
     index: "02",
     title: "Website redesign",
     line: "The commercial edit. What stays, what goes, what the next buyer needs first.",
+    accent: "commercial",
     detail:
       "Most of our work. We read the live site against the sale you actually want, keep the parts that earn trust, and rebuild the path from first screen to serious inquiry.",
     composition: "eclipse",
@@ -55,6 +58,7 @@ export const services: Service[] = [
     index: "03",
     title: "Design systems",
     line: "The smallest set of parts that keeps a brand consistent after we leave.",
+    accent: "consistent",
     detail:
       "Type, color, components, motion rules, and the decisions underneath them. Built so an internal team in another city can extend the site without inventing a second brand.",
     composition: "stack",
@@ -65,6 +69,7 @@ export const services: Service[] = [
     index: "04",
     title: "Digital brand",
     line: "Identity, translated for screens. Not a logo pasted onto a template.",
+    accent: "screens",
     detail:
       "When the brand is ahead of the website, or the website has become the brand by accident. We tune voice, crop, color, and motion until the digital presence can carry a premium price.",
     composition: "split",
@@ -75,6 +80,7 @@ export const services: Service[] = [
     index: "05",
     title: "Motion",
     line: "Movement with a job. Emphasis, sequence, and the feeling of a thing well made.",
+    accent: "job",
     detail:
       "Scroll, hover, and arrival. We use motion to explain, to pace a story, and to make a flagship feel considered. Decoration that does not help the buyer does not ship.",
     composition: "cascade",
@@ -85,6 +91,7 @@ export const services: Service[] = [
     index: "06",
     title: "Product interfaces",
     line: "Marketing sites and product surfaces that share one visual language.",
+    accent: "one visual language",
     detail:
       "For teams whose marketing site and product have drifted apart. We design the pages that sell the product and the interface patterns that should feel like the same company.",
     composition: "orbit",

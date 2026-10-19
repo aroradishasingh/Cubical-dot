@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandButton } from "@/components/brand-button";
-import { FieldArt } from "@/components/field-art";
 import { PageHero } from "@/components/page-hero";
 import { faqs, investment, method, services } from "@/lib/content";
 
@@ -44,31 +43,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {services.map((service, index) => (
-        <section
-          key={service.id}
-          id={service.id}
-          className={index % 2 === 0 ? "bg-white" : "bg-ivory"}
-        >
-          <div className="grid items-stretch lg:grid-cols-2">
-            <div className={`relative min-h-[320px] lg:min-h-[460px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-              <FieldArt variant={service.composition} tone={service.tone} />
-            </div>
-            <div
-              className={`flex flex-col justify-center px-[var(--page-margin)] py-14 ${
-                index % 2 === 1
-                  ? "lg:pr-[var(--grid-gutter)] lg:pl-[var(--page-margin)]"
-                  : "lg:pr-[var(--page-margin)] lg:pl-[var(--grid-gutter)]"
-              }`}
-            >
-              <p className="eyebrow text-stone">{service.index}</p>
-              <h2 className="mt-3 text-4xl font-bold tracking-[-0.045em] md:text-5xl">{service.title}</h2>
-              <p className="mt-4 text-lg font-medium tracking-[-0.03em]">{service.line}</p>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-charcoal">{service.detail}</p>
-            </div>
-          </div>
-        </section>
-      ))}
+      <section className="bg-[#07060f]">
+        <div className="shell grid gap-4 py-16 md:grid-cols-2 md:py-24 xl:grid-cols-3">
+          {services.map((service) => (
+            <article id={service.id} key={service.id} className="section-card flex min-h-[380px] flex-col justify-center px-8 py-12 text-center text-white md:min-h-[440px] md:px-10">
+              <p className="eyebrow text-white/55">{service.index}</p>
+              <h2 className="mt-4 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{service.title}</h2>
+              <p className="mx-auto mt-4 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
+                <Accent line={service.line} accent={service.accent} />
+              </p>
+              <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/65">{service.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="bg-ink text-white">
         <div className="shell py-20">
@@ -118,6 +106,19 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
+
+function Accent({ line, accent }: { line: string; accent: string }) {
+  const start = line.toLowerCase().indexOf(accent.toLowerCase());
+  if (start < 0) return line;
+  const end = start + accent.length;
+  return (
+    <>
+      {line.slice(0, start)}
+      <span className="text-[#d4c6ff]">{line.slice(start, end)}</span>
+      {line.slice(end)}
     </>
   );
 }
