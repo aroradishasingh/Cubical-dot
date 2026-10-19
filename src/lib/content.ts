@@ -148,7 +148,7 @@ export type Study = {
   composition: Composition;
   tone: Tone;
   cover?: string;
-  gallery?: { src: string; alt: string }[];
+  gallery?: { src: string; alt: string; deck?: string }[];
   chapters: { kicker: string; title: string; body: string[] }[];
   outcomes: { value: string; label: string }[];
 };
@@ -160,6 +160,23 @@ const creativePieces = Array.from({ length: 32 }, (_, index) => {
     alt: `Social media creative ${index + 1}`,
   };
 });
+
+function slides(file: string, count: number, deck: string) {
+  return Array.from({ length: count }, (_, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    return {
+      src: `/presentations/${file}-${number}.webp`,
+      alt: `${deck}, slide ${index + 1}`,
+      deck,
+    };
+  });
+}
+
+const presentationPieces = [
+  ...slides("art", 15, "Art Era"),
+  ...slides("inshorts", 13, "Inshorts"),
+  ...slides("public", 19, "Public"),
+];
 
 const studyCatalog: Study[] = [
   {
@@ -199,6 +216,45 @@ const studyCatalog: Study[] = [
       { value: "32", label: "Pieces in the set" },
       { value: "2021–24", label: "Years the work spans" },
       { value: "5", label: "Campaigns, one square" },
+    ],
+  },
+  {
+    slug: "presentations",
+    index: "01",
+    name: "Presentations",
+    sector: "Presentation design",
+    year: "2023–25",
+    markets: "Art Era · Inshorts · Public",
+    services: ["Presentation design", "Slide systems"],
+    summary:
+      "Three decks: Art Era on fearless thinking, Inshorts on World Earth Day, and Public's festive formats.",
+    headline: "A slide has to argue before it decorates.",
+    composition: "stack",
+    tone: "dusk",
+    cover: presentationPieces[0].src,
+    gallery: presentationPieces,
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "Three rooms, three different jobs for a deck.",
+        body: [
+          "Art Era sets the Renaissance against a cyberpunk light and asks what past designers did fearlessly. Inshorts needed a campaign deck, World Earth Day among them, that could carry an editorial story. Public needed a festive deck: the festival, the ad format, and how the story lives in the app.",
+          "None of them is a template with the logo swapped. Each deck has a room it has to hold.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "One idea on the slide. The evidence sits beside it.",
+        body: [
+          "Art Era gives each thinker a frame large enough to read from the back of a room: the name, the lesson, the picture. Inshorts opens on the planet and lets the campaign name take the remaining field. Public puts the phone in the center and lets the format explain itself.",
+          "The full set is below, deck by deck.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "47", label: "Slides across three decks" },
+      { value: "3", label: "Decks, three different rooms" },
+      { value: "2023–25", label: "Years the work spans" },
     ],
   },
   {
@@ -473,7 +529,7 @@ const studyCatalog: Study[] = [
   },
 ];
 
-const studyOrder = ["aperture", "sable-house", "creatives", "halcyon", "orla", "northwind", "vesper"];
+const studyOrder = ["aperture", "sable-house", "creatives", "presentations", "halcyon", "orla", "northwind", "vesper"];
 
 export const studies: Study[] = studyOrder.map((slug, index) => {
   const study = studyCatalog.find((item) => item.slug === slug);

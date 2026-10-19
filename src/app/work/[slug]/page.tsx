@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowIcon } from "@/components/brand-button";
 import { StudyMedia } from "@/components/study-media";
 import { StudyHero } from "@/components/study-hero";
-import { getStudy, nextStudy, studies } from "@/lib/content";
+import { getStudy, nextStudy, studies, type Study } from "@/lib/content";
 
 export function generateStaticParams() {
   return studies.map((study) => ({ slug: study.slug }));
@@ -60,26 +60,7 @@ export default async function StudyPage({
           </div>
         </div>
         {study.gallery ? (
-          <div className="shell pb-8">
-            <p className="eyebrow text-violet">The set</p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
-              All {study.gallery.length} pieces.
-            </h2>
-            <ul className="mt-8 grid grid-cols-2 gap-[var(--grid-gutter)] md:grid-cols-3 lg:grid-cols-4">
-              {study.gallery.map((piece, index) => (
-                <li key={piece.src} className="overflow-hidden rounded-[8px] bg-ink">
-                  <img
-                    src={piece.src}
-                    alt={piece.alt}
-                    width={1000}
-                    height={1000}
-                    loading={index < 4 ? "eager" : "lazy"}
-                    className="aspect-square w-full object-cover"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Gallery study={study} />
         ) : null}
         <div className="shell grid gap-[var(--grid-gutter)] pb-20 md:grid-cols-3">
           {study.outcomes.map((outcome) => (
@@ -105,5 +86,57 @@ export default async function StudyPage({
         </div>
       </Link>
     </article>
+  );
+}
+
+function Gallery({ study }: { study: Study }) {
+  const gallery = study.gallery ?? [];
+  const wide = gallery.some((piece) => piece.deck);
+  const groups: { deck?: string; pieces: NonNullable<Study["gallery"]> }[] = [];
+  for (const piece of gallery) {
+    const last = groups[groups.length - 1];
+    if (last && last.deck === piece.deck) last.pieces.push(piece);
+    else groups.push({ deck: piece.deck, pieces: [piece] });
+  }
+  let shown = 0;
+
+  return (
+    <div className="shell pb-8">
+      <p className="eyebrow text-violet">The set</p>
+      <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
+        All {gallery.length} {wide ? "slides" : "pieces"}.
+      </h2>
+      {groups.map((group) => (
+        <div key={group.deck ?? "set"} className="mt-8">
+          {group.deck ? (
+            <h3 className="text-xl font-semibold tracking-[-0.04em]">{group.deck}</h3>
+          ) : null}
+          <ul
+            className={
+              wide
+                ? "mt-4 grid grid-cols-1 gap-[var(--grid-gutter)] md:grid-cols-2"
+                : "grid grid-cols-2 gap-[var(--grid-gutter)] md:grid-cols-3 lg:grid-cols-4"
+            }
+          >
+            {group.pieces.map((piece) => {
+              const eager = shown < 4;
+              shown += 1;
+              return (
+                <li key={piece.src} className="overflow-hidden rounded-[8px] bg-ink">
+                  <img
+                    src={piece.src}
+                    alt={piece.alt}
+                    width={wide ? 1500 : 1000}
+                    height={wide ? 844 : 1000}
+                    loading={eager ? "eager" : "lazy"}
+                    className={wide ? "aspect-video w-full object-cover" : "aspect-square w-full object-cover"}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
   );
 }
