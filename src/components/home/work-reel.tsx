@@ -90,22 +90,18 @@ function StudyCard({
           : "section-card group/button flex flex-col overflow-hidden text-white"
       }
     >
-      <div
-        className={
-          wide
-            ? "relative mx-5 mt-5 h-[52%] overflow-hidden rounded-[20px] bg-[#07060f]"
-            : "relative mx-4 mt-4 h-64 overflow-hidden rounded-[20px] bg-[#07060f]"
-        }
-      >
-        {study.cover ? (
-          <img
-            src={study.cover}
-            alt=""
-            className="absolute top-1/2 left-1/2 h-full max-h-full w-auto max-w-full -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
-          />
-        ) : (
-          <FieldArt variant={study.composition} tone={study.tone} motion="none" />
-        )}
+      <div className={wide ? "relative h-[58%] shrink-0" : "relative h-72 shrink-0"}>
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_42%,transparent_100%)]">
+          {study.cover ? (
+            <img
+              src={study.cover}
+              alt=""
+              className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
+            />
+          ) : (
+            <FieldArt variant={study.composition} tone={study.tone} motion="none" />
+          )}
+        </div>
       </div>
       <div className="flex flex-1 flex-col justify-center px-8 py-6 text-center">
         <p className="eyebrow text-white/55">
