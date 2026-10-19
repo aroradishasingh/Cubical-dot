@@ -9,7 +9,7 @@ export function StudyMedia({
   motion?: "hero" | "idle" | "none";
 }) {
   if (study.cover) {
-    const deck = study.gallery?.some((piece) => piece.deck);
+    const deck = study.gallery?.some((piece) => piece.deck) && study.galleryWidth !== "page";
     if (deck) {
       return (
         <img

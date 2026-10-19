@@ -105,6 +105,7 @@ function StudyCard({
       </div>
       <div className="flex flex-1 flex-col justify-center px-8 py-6 text-center">
         <p className="eyebrow text-white/55">
+          {study.featured ? <span className="text-lime">Featured · </span> : null}
           {study.index} / {study.sector}
         </p>
         <h3 className="mt-3 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{study.name}</h3>

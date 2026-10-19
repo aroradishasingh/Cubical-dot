@@ -92,6 +92,7 @@ export default async function StudyPage({
 function Gallery({ study }: { study: Study }) {
   const gallery = study.gallery ?? [];
   const wide = gallery.some((piece) => piece.deck);
+  const pageWide = study.galleryWidth === "page";
   const groups: { deck?: string; pieces: NonNullable<Study["gallery"]> }[] = [];
   for (const piece of gallery) {
     const last = groups[groups.length - 1];
@@ -102,7 +103,11 @@ function Gallery({ study }: { study: Study }) {
 
   return (
     <div className="shell pb-8">
-      <div className={wide ? "mx-auto w-full max-w-[1072px]" : undefined}>
+      <div
+        className={
+          pageWide ? "mx-auto w-full max-w-[1400px]" : wide ? "mx-auto w-full max-w-[1072px]" : undefined
+        }
+      >
       <p className="eyebrow text-violet">The set</p>
       <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
         All {gallery.length} {study.galleryNoun ?? (wide ? "slides" : "pieces")}.
@@ -127,8 +132,8 @@ function Gallery({ study }: { study: Study }) {
                   <img
                     src={piece.src}
                     alt={piece.alt}
-                    width={wide ? 1500 : 1000}
-                    height={wide ? 844 : 1000}
+                    width={pageWide ? 1400 : wide ? 1500 : 1000}
+                    height={pageWide ? 2400 : wide ? 844 : 1000}
                     loading={eager ? "eager" : "lazy"}
                     className={wide ? "block h-auto w-full" : "aspect-square w-full object-cover"}
                   />

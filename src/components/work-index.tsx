@@ -57,6 +57,7 @@ export function WorkIndex() {
                 </div>
                 <div className="flex flex-1 flex-col p-6 md:p-8">
                   <p className="eyebrow text-white/70">
+                    {study.featured ? <span className="text-lime">Featured · </span> : null}
                     {study.index} / {study.sector} / {study.year}
                   </p>
                   <h2 className="mt-3 text-3xl font-bold tracking-[-0.045em]">{study.name}</h2>

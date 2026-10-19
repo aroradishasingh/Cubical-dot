@@ -157,6 +157,9 @@ export type Study = {
   cover?: string;
   gallery?: { src: string; alt: string; deck?: string }[];
   galleryNoun?: string;
+  /** Slide decks stay in the 1072px column. Research boards use the page width. */
+  galleryWidth?: "column" | "page";
+  featured?: boolean;
   chapters: { kicker: string; title: string; body: string[] }[];
   outcomes: { value: string; label: string }[];
 };
@@ -225,7 +228,78 @@ const genAiPieces = genAiAlts.map((alt, index) => {
   };
 });
 
+const mcdonaldsBoards: { file: string; alt: string; deck: string }[] = [
+  ["01", "Project overview, bringing McDonald's to the IIT Roorkee campus", "Project overview"],
+  ["02", "Market context and competition for McDonald's", "Market"],
+  ["03", "Survey insights and accessibility interviews", "Research"],
+  ["04", "Peak-hour pain points, counter layout, and kiosk measurements", "Research"],
+  ["05", "Core operational strategy and the campus model", "Operations"],
+  ["06", "Service innovations and the order journey", "Service"],
+  ["07", "McCampus phone screens and the welcome", "McCampus"],
+  ["08", "McCampus interface, from build-your-own-meal to order 2648", "McCampus"],
+  ["09", "McCampus brand guidelines", "Brand"],
+  ["10", "Spatial analysis of the campus across the day", "The room"],
+  ["11", "Campus map around the Students' Activity Centre", "The room"],
+  ["12", "Ground-floor plan, 76 seats, 480 square metres", "The room"],
+  ["13", "Kiosk design explorations", "The room"],
+].map(([file, alt, deck]) => ({ file, alt, deck }));
+
 const studyCatalog: Study[] = [
+  {
+    slug: "mcdonalds",
+    index: "01",
+    name: "McCampus",
+    sector: "User research",
+    year: "2025",
+    markets: "IIT Roorkee",
+    services: ["User research", "Service design", "Spatial design", "Interface"],
+    summary:
+      "The research behind bringing McDonald's to IIT Roorkee: how students eat, where the room should sit, and the service that became McCampus.",
+    headline: "A campus has to want the brand.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/mcdonalds/cover.webp",
+    gallery: mcdonaldsBoards.map((board) => ({
+      src: `/mcdonalds/${board.file}.webp`,
+      alt: board.alt,
+      deck: board.deck,
+    })),
+    galleryNoun: "boards",
+    galleryWidth: "page",
+    featured: true,
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "An ecosystem for the campus, not a storefront on the lawn.",
+        body: [
+          "Bringing McDonald's to IIT Roorkee meant designing a place a global food brand could actually live: the order, the room, the app, and the way a student moves through a day. The work was done with Mohammad Faisal, Sreejesh Nair, and Prabhav Singh, drawn in Illustrator and Photoshop.",
+          "The product is McCampus. The line on the welcome screen is the brief in one sentence: because every campus deserves its own McDonald's.",
+        ],
+      },
+      {
+        kicker: "The research",
+        title: "Eighty-one percent were not satisfied with how they eat.",
+        body: [
+          "A survey of the campus set the numbers before any interface. Seventy-two percent wanted delivery to a place they chose. Sixty-seven percent would spend ₹100–200 on an order. Eighty-one percent were not satisfied with the eating experience.",
+          "Interviews with students who use a wheelchair named the room: uneven outdoor paths, long queues, missing ramps, and canteens without a wheelchair space. The recommendation was ramps, wheelchair seating, pre-order so no one stands in a queue during an event, and a quieter zone.",
+          "Peak hour at the Dehradun restaurant showed the same friction in a working store. Crowding at the kiosk and the counter. Collection delayed because the status is checked by hand. Bulk orders stalling the line. No priority lane, and no accessible seat.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "McCampus is the service the research asked for.",
+        body: [
+          "Order ahead, a group order, and build-your-own-meal. A student ID carries the loyalty points. The menu says what is in the food. During exams, a table can be booked before anyone leaves the library. The notification arrives when the order is ready, not after the queue has already formed.",
+          "The room is drawn on the campus, beside the Students' Activity Centre, the J. Thompson Building, and the stadiums. The ground floor holds 76 seats in 480 square metres, with a kitchen of 106. The kiosk is measured against a person standing at it, and the entrance takes a wheelchair without a detour.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "81%", label: "Not satisfied with how they eat" },
+      { value: "72%", label: "Wanted delivery to a chosen spot" },
+      { value: "76", label: "Seats on the ground floor" },
+    ],
+  },
   {
     slug: "creatives",
     index: "01",
@@ -616,7 +690,18 @@ const studyCatalog: Study[] = [
   },
 ];
 
-const studyOrder = ["aperture", "sable-house", "creatives", "presentations", "gen-ai", "halcyon", "orla", "northwind", "vesper"];
+const studyOrder = [
+  "mcdonalds",
+  "aperture",
+  "sable-house",
+  "creatives",
+  "presentations",
+  "gen-ai",
+  "halcyon",
+  "orla",
+  "northwind",
+  "vesper",
+];
 
 export const studies: Study[] = studyOrder.map((slug, index) => {
   const study = studyCatalog.find((item) => item.slug === slug);
