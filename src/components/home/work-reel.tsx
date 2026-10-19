@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
+import { FieldArt } from "@/components/field-art";
 import { studies } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
@@ -85,22 +86,41 @@ function StudyCard({
       data-cursor="hot"
       className={
         wide
-          ? "section-card reel-card group/button flex w-[min(26rem,78vw)] shrink-0 flex-col justify-center px-8 py-12 text-center text-white md:min-h-[28rem] md:px-10"
-          : "section-card group/button flex min-h-[24rem] flex-col justify-center px-8 py-12 text-center text-white"
+          ? "section-card reel-card group/button flex h-[72vh] w-[min(40rem,46vw)] shrink-0 flex-col overflow-hidden text-white"
+          : "section-card group/button flex flex-col overflow-hidden text-white"
       }
     >
-      <p className="eyebrow text-white/55">
-        {study.index} / {study.sector}
-      </p>
-      <h3 className="mt-4 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{study.name}</h3>
-      <p className="mx-auto mt-4 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
-        {study.headline}
-      </p>
-      <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/65">{study.summary}</p>
-      <span className="mt-8 inline-flex items-center justify-center gap-2 text-sm font-medium text-lime">
-        View case study
-        <ArrowIcon />
-      </span>
+      <div
+        className={
+          wide
+            ? "relative mx-5 mt-5 h-[52%] overflow-hidden rounded-[20px] bg-[#07060f]"
+            : "relative mx-4 mt-4 h-64 overflow-hidden rounded-[20px] bg-[#07060f]"
+        }
+      >
+        {study.cover ? (
+          <img
+            src={study.cover}
+            alt=""
+            className="absolute top-1/2 left-1/2 h-full max-h-full w-auto max-w-full -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
+          />
+        ) : (
+          <FieldArt variant={study.composition} tone={study.tone} motion="none" />
+        )}
+      </div>
+      <div className="flex flex-1 flex-col justify-center px-8 py-6 text-center">
+        <p className="eyebrow text-white/55">
+          {study.index} / {study.sector}
+        </p>
+        <h3 className="mt-3 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{study.name}</h3>
+        <p className="mx-auto mt-3 max-w-md text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
+          {study.headline}
+        </p>
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/65">{study.summary}</p>
+        <span className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-medium text-lime">
+          View case study
+          <ArrowIcon />
+        </span>
+      </div>
     </Link>
   );
 }
