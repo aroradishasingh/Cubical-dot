@@ -1,6 +1,6 @@
 export const studio = {
   name: "Cubical Dot",
-  email: "hello@cubicaldot.com",
+  email: "mayank@cubicaldot.com",
   url: "https://cubicaldot.com",
   line: "A design studio for what's next.",
   lockup: "Ideas in motion. Design in every detail.",
