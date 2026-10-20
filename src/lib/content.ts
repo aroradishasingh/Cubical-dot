@@ -9,15 +9,15 @@ export const studio = {
 };
 
 export const designedFor = [
-  { name: "Amazon", mark: "amazon" },
-  { name: "NVIDIA", mark: "NVIDIA" },
-  { name: "AffinityX", mark: "AffinityX" },
-  { name: "Trimble", mark: "Trimble" },
-  { name: "Vistaprint", mark: "Vistaprint" },
-  { name: "Noise", mark: "noise" },
-  { name: "Fire-Boltt", mark: "Fire-Boltt" },
-  { name: "OnePlus", mark: "OnePlus" },
-  { name: "vivo", mark: "vivo" },
+  { name: "Amazon", src: "/logos/amazon.svg" },
+  { name: "NVIDIA", src: "/logos/nvidia.svg" },
+  { name: "AffinityX", src: "/logos/affinityx.png" },
+  { name: "Trimble", src: "/logos/trimble.svg" },
+  { name: "Vistaprint", src: "/logos/vistaprint.png" },
+  { name: "Noise", src: "/logos/noise.svg" },
+  { name: "Fire-Boltt", src: "/logos/fire-boltt.png" },
+  { name: "OnePlus", src: "/logos/oneplus.svg" },
+  { name: "vivo", src: "/logos/vivo.svg" },
 ] as const;
 
 export const nav = [
