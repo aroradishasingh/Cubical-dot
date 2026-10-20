@@ -1,41 +1,38 @@
 import { designedFor } from "@/lib/content";
 
+function LogoRow({ id }: { id: string }) {
+  return (
+    <ul className="flex items-center gap-14 pr-14">
+      {designedFor.map((company) => (
+        <li key={`${id}-${company.name}`} className="flex items-center gap-14">
+          <span className="text-[1.75rem] font-semibold tracking-[-0.045em] whitespace-nowrap md:text-5xl">
+            {company.mark}
+          </span>
+          <span className="size-2 shrink-0 rounded-full bg-lime" aria-hidden />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function DesignedFor() {
   return (
-    <section className="bg-white text-ink" aria-labelledby="designed-for">
-      <div className="shell py-16 md:py-24">
-        <p className="eyebrow text-stone">The team</p>
-        <h2 id="designed-for" className="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.045em] md:text-5xl">
-          The team has designed for.
-        </h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal">
-          Product, brand, and campaign work, done by the people in this studio.
-        </p>
-        <ul className="mt-12 grid grid-cols-3 gap-2 sm:gap-3">
-          {designedFor.map((company) => (
-            <li
-              key={company.name}
-              className="flex h-16 items-center justify-center rounded-[8px] border border-ink/10 bg-ivory px-2 sm:h-24 sm:px-5"
-            >
-              <svg viewBox="0 0 220 48" className="h-6 w-full max-w-[220px] text-ink sm:h-9" role="img" aria-label={company.name}>
-                <text
-                  x="110"
-                  y="33"
-                  textAnchor="middle"
-                  fill="currentColor"
-                  fontFamily="var(--font-inter), Inter, sans-serif"
-                  fontSize="30"
-                  fontWeight="600"
-                  letterSpacing="-0.04em"
-                  lengthAdjust="spacingAndGlyphs"
-                  textLength="200"
-                >
-                  {company.mark}
-                </text>
-              </svg>
-            </li>
-          ))}
-        </ul>
+    <section className="bg-ivory text-ink" aria-labelledby="designed-for">
+      <h2 id="designed-for" className="shell eyebrow pt-8 text-stone md:pt-10">
+        The team has designed for
+      </h2>
+      <ul className="sr-only">
+        {designedFor.map((company) => (
+          <li key={company.name}>{company.name}</li>
+        ))}
+      </ul>
+      <div className="marquee mt-4 overflow-hidden border-y border-ink/10 py-8 md:py-10" aria-hidden>
+        <div className="marquee-track flex w-max">
+          <LogoRow id="a" />
+          <div className="marquee-copy flex">
+            <LogoRow id="b" />
+          </div>
+        </div>
       </div>
     </section>
   );
