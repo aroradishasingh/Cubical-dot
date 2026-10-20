@@ -27,6 +27,6 @@ npm run build
 - `/blog` and `/blog/[slug]` — studio notes
 - `/contact` — project brief
 
-The studies are representative engagements, written to show how a project is framed. They are not a client roster. The contact form prepares an email draft to `hello@cubicaldot.com`. It does not store the message on a server.
+The studies include work for Trimble, Inshorts, Supr Daily, and independent brands, alongside representative engagements written to show how a project is framed. The contact form prepares an email draft to `hello@cubicaldot.com`. It does not store the message on a server.
 
 Motion uses [GSAP](https://gsap.com/) and ScrollTrigger. Visitors who prefer reduced motion get the same pages without pinned sequences or entrance tweens.

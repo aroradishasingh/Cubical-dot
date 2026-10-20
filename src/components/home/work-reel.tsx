@@ -44,7 +44,7 @@ export function WorkReel() {
           <h2 className="display max-w-xl text-[clamp(2.6rem,5vw,4.6rem)]">Selected studies.</h2>
           <div className="max-w-sm">
             <p className="text-base leading-relaxed text-charcoal">
-              Representative engagements, written so you can see how a project is framed, designed, and judged.
+              Research, identity, campaigns, and the sites. Each study is the work, then the decision behind it.
             </p>
             <Link href="/work" className="mt-4 inline-flex text-sm font-medium underline decoration-lime decoration-2 underline-offset-4">
               All studies

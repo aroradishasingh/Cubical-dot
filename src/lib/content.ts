@@ -244,6 +244,17 @@ const mcdonaldsBoards: { file: string; alt: string; deck: string }[] = [
   ["13", "Kiosk design explorations", "The room"],
 ].map(([file, alt, deck]) => ({ file, alt, deck }));
 
+function boards(folder: string, count: number, deck: string, alt: string) {
+  return Array.from({ length: count }, (_, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    return {
+      src: `/${folder}/${number}.webp`,
+      alt: `${alt} ${index + 1}`,
+      deck,
+    };
+  });
+}
+
 const studyCatalog: Study[] = [
   {
     slug: "mcdonalds",
@@ -688,15 +699,458 @@ const studyCatalog: Study[] = [
       { value: "2", label: "Studios publishing into it" },
     ],
   },
+  {
+    slug: "trimble-claims",
+    index: "01",
+    name: "Claims",
+    sector: "UI / UX",
+    year: "2025–26",
+    markets: "Trimble",
+    services: ["UX", "Service design", "Interface"],
+    summary:
+      "Warranty claims for Trimble dealers, taken out of the legacy portal and rebuilt as guided, role-aware flows.",
+    headline: "A claim a dealer can finish.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/trimble-claims/01.webp",
+    gallery: boards("trimble-claims", 34, "Trimble Intelligent Support", "Warranty claim"),
+    galleryNoun: "slides",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "The claim started in a portal dealers were leaving.",
+        body: [
+          "On Trimble Intelligent Support, the work was the dealer warranty claim, then RMA repair and replace. The legacy Customer Service Portal made dealers re-enter data Trimble already held, on cluttered screens, and many of them went back to email when hardware failed.",
+          "The role was graduate technical intern, June 2025 to June 2026, with the Intelligent Support team. The tools were Figma, FigJam, and the Modus design system. The portal also carries RMA upgrade, repair, replace, and support. The warranty claim was the path with the most friction.",
+        ],
+      },
+      {
+        kicker: "The research",
+        title: "Forty-five dealers, five people in the same workflow.",
+        body: [
+          "Forty-five interviews with dealers worldwide kept returning to the same points. Trimble should fill in what it already knows, a sales order from a serial number. A case sitting in a status needs to say so. Managers need shared access to tickets. One set of fields cannot serve every warranty path.",
+          "Five people touch the claim: survey manager, sales rep, service manager, support technician, service technician. The legacy screen was the same for all of them. The audit grouped the damage into cognitive overload, missing status, errors found only at submit, and no role context.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Show the whole journey. Open only the part that applies.",
+        body: [
+          "The new flow starts from the person. An end user gets a service request. A dealer gets recent devices, drafts, and a path built for repeat filing. The form is four sections. Fields appear from the answers already given, and missing fields are marked before submit.",
+          "An A/B test compared a linear stepper with every section visible but locked until it applies. Dealers preferred seeing the full journey. Moderated sessions cut time on task. The implementation audit closed more than thirty UX and functional gaps before the handoff to Stage.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "45", label: "Dealer interviews" },
+      { value: "30+", label: "Gaps closed before handoff" },
+      { value: "5", label: "Request types in the portal" },
+    ],
+  },
+  {
+    slug: "trimble-modus",
+    index: "01",
+    name: "Modus",
+    sector: "Design systems",
+    year: "2025",
+    markets: "Trimble",
+    services: ["Design systems", "Visual design"],
+    summary:
+      "A personality for Modus, Trimble's design system, so a wide product portfolio can share one character.",
+    headline: "Personality for one system.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/trimble-modus/01.webp",
+    gallery: boards("trimble-modus", 56, "Modus", "Design system"),
+    galleryNoun: "boards",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "One system, a portfolio of products that do not look related.",
+        body: [
+          "Modus is Trimble's design system. The case is the personality: how a system used across a diverse product portfolio gets a character of its own, instead of each product inventing one.",
+          "The work is drawn in Illustrator, in 2025, and set out as a single case study.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Give the system a character the products can share.",
+        body: [
+          "The case is a personality for Modus that a diverse product portfolio can use, so each product does not have to invent its own. Drawn as one study, board by board.",
+          "The full set is below, in the order of the case.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "56", label: "Boards in the case" },
+      { value: "2025", label: "The year of the study" },
+      { value: "1", label: "System, Modus" },
+    ],
+  },
+  {
+    slug: "magazine",
+    index: "01",
+    name: "Magazine",
+    sector: "Editorial",
+    year: "2023",
+    markets: "Inshorts",
+    services: ["Editorial design", "Advertisement"],
+    summary:
+      "An interactive magazine for the Inshorts news app, and the advertisement pages that run inside it.",
+    headline: "A magazine in the news app.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/magazine/01.webp",
+    gallery: boards("magazine", 21, "Inshorts", "Magazine page"),
+    galleryNoun: "pages",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "News that had to read like a magazine, inside an app.",
+        body: [
+          "Interactive magazine design for the Inshorts news app, and the creative advertisements that sit in the same format. The role was visual designer, in 2023, working in Figma and InDesign.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "A page, then the ad that has to live on one.",
+        body: [
+          "The set is the magazine itself: spreads for the app, then advertisement pages drawn at the same size so a campaign can enter the issue without breaking it.",
+          "Twenty-one pages, in order.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "21", label: "Pages in the issue" },
+      { value: "2023", label: "Designed for Inshorts" },
+      { value: "2", label: "Tools, Figma and InDesign" },
+    ],
+  },
+  {
+    slug: "supr",
+    index: "01",
+    name: "Supr",
+    sector: "Visual design",
+    year: "2021",
+    markets: "Supr Daily · Swiggy",
+    services: ["Visual design", "Editorial"],
+    summary:
+      "Magazine-format advertisement pages for Supr Daily by Swiggy.",
+    headline: "Pages for the daily order.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/supr/cover.webp",
+    gallery: boards("supr", 2, "Supr Daily", "Advertisement page"),
+    galleryWidth: "page",
+    galleryNoun: "pages",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A daily grocery service, told as a magazine page.",
+        body: [
+          "Visual design for Supr Daily by Swiggy, January to March 2021. The pages are advertisements in a magazine format, drawn in Photoshop, Illustrator, and Figma.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Two pages, full height.",
+        body: [
+          "The set is the two advertisement pages from the editorial series, kept at the proportion they were printed.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "2", label: "Advertisement pages" },
+      { value: "2021", label: "Supr Daily by Swiggy" },
+      { value: "3", label: "Tools on the pages" },
+    ],
+  },
+  {
+    slug: "breadwala",
+    index: "01",
+    name: "Breadwala",
+    sector: "Packaging",
+    year: "2023",
+    markets: "Breadwala",
+    services: ["Packaging", "Illustration"],
+    summary:
+      "A cream-roll pack for children, printed in four spot colours. The limit produced the mascot.",
+    headline: "Four colours. One mascot.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/breadwala/01.webp",
+    gallery: boards("breadwala", 7, "Packaging", "Breadwala pack"),
+    galleryNoun: "boards",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A cream roll that had to reach a child, on a four-colour budget.",
+        body: [
+          "Packaging for Breadwala, 2023. The print budget was four spot colours. The pack still had to be picked up by a child, and read by the person paying.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "The constraint became the character.",
+        body: [
+          "Four colours, total, and a mascot that can carry the range. The boards are the pack: the roll, the face, and the system that lets the next flavour change without a new press.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "4", label: "Spot colours, total" },
+      { value: "7", label: "Boards in the case" },
+      { value: "2023", label: "The year of the pack" },
+    ],
+  },
+  {
+    slug: "identity",
+    index: "01",
+    name: "Identity",
+    sector: "Branding",
+    year: "2021–24",
+    markets: "Beardo · Lipton",
+    services: ["Identity", "Brand systems"],
+    summary:
+      "Marks, palettes, and type for Beardo, Lipton, and independent brands, with the rules that keep them from drifting.",
+    headline: "Marks that hold after handover.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/identity/07.webp",
+    gallery: boards("identity", 9, "Identity", "Identity board"),
+    galleryNoun: "boards",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A mark is the easy part. The six months after are the work.",
+        body: [
+          "Identity systems from 2021 to 2024 for Beardo, Lipton, and independent brands. Each one needed a mark, a palette, a type scale, and the rules that stop the brand drifting after handover.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Show the system, not only the logo.",
+        body: [
+          "The boards put the mark next to the rules: color, type, and the places the identity has to survive. Nine of them, in the order they were selected.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "9", label: "Boards in the set" },
+      { value: "2021–24", label: "Years the work spans" },
+      { value: "2", label: "Named brands, and independents" },
+    ],
+  },
+  {
+    slug: "personal",
+    index: "01",
+    name: "Personal",
+    sector: "Branding",
+    year: "2023",
+    markets: "Independent",
+    services: ["Identity", "Art direction"],
+    summary:
+      "A personal brand built as a system: the mark, the type, and the pages that carry them.",
+    headline: "A brand built as a system.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/personal/08.webp",
+    gallery: boards("personal", 9, "Personal brand", "Personal brand board"),
+    galleryNoun: "boards",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A personal brand, held to the same standard as a client's.",
+        body: [
+          "Personal branding, 2023. The system behind an independent practice: a mark that can sit on a page, a type ramp, and a set of pages that use both without inventing a third.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "One system, shown in use.",
+        body: [
+          "The boards are the brand applied, not a logo on a plinth. Nine frames, from the mark to the pages.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "9", label: "Boards in the system" },
+      { value: "2023", label: "The year it was drawn" },
+      { value: "1", label: "Brand, used on its own pages" },
+    ],
+  },
+  {
+    slug: "collected-2024",
+    index: "01",
+    name: "Collected",
+    sector: "Graphic design",
+    year: "2024",
+    markets: "Independent",
+    services: ["Identity", "Packaging", "Social"],
+    summary:
+      "A 2024 collection of logos, packaging, identity, and social, kept as one set.",
+    headline: "Logo, pack, identity, social.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/collected-2024/01.webp",
+    gallery: boards("collected-2024", 54, "2024", "Collected piece"),
+    galleryNoun: "pieces",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A year of work, filed by what it had to do.",
+        body: [
+          "Portfolio 2024. Logos, packaging, identity, and social, selected as one collection rather than four folders.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Leave them in the order they were made.",
+        body: [
+          "Fifty-four pieces. A logo sits next to the pack it belongs to, and a social frame sits next to the identity that produced it.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "54", label: "Pieces in the year" },
+      { value: "2024", label: "The year of the set" },
+      { value: "4", label: "Logo, pack, identity, social" },
+    ],
+  },
+  {
+    slug: "graphics-2024",
+    index: "01",
+    name: "Graphics",
+    sector: "Graphic design",
+    year: "2024",
+    markets: "Brand · editorial",
+    services: ["Campaign design", "Layout", "Editorial"],
+    summary:
+      "Campaigns, layouts, and visual stories from 2024, across brand and editorial work.",
+    headline: "Campaigns, layouts, stories.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/graphics-2024/01.webp",
+    gallery: boards("graphics-2024", 48, "2024", "Graphic"),
+    galleryNoun: "pieces",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A year of graphic work, kept as a set.",
+        body: [
+          "Graphic design from 2024: campaigns, layouts, and visual storytelling across brand and editorial projects. Drawn in Photoshop, Illustrator, and InDesign.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "The piece, then the piece beside it.",
+        body: [
+          "Forty-eight frames, in the order of the portfolio. Each one is a finished layout, not a crop of a larger system.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "48", label: "Pieces in the set" },
+      { value: "2024", label: "The year of the work" },
+      { value: "3", label: "Photoshop, Illustrator, InDesign" },
+    ],
+  },
+  {
+    slug: "illustrations",
+    index: "01",
+    name: "Illustrations",
+    sector: "Illustration",
+    year: "2021",
+    markets: "Independent",
+    services: ["Illustration"],
+    summary: "A set of illustrations drawn in Illustrator and Photoshop.",
+    headline: "Drawings, left as drawings.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/illustrations/01.webp",
+    gallery: boards("illustrations", 13, "Drawings", "Illustration"),
+    galleryWidth: "page",
+    galleryNoun: "drawings",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "Pictures with no campaign attached.",
+        body: [
+          "Illustrations from 2021, drawn in Illustrator and Photoshop. A set of pictures made for their own sake.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Keep the drawing at the size it was made.",
+        body: [
+          "Squares, portraits, and one sequence. Thirteen drawings, shown whole.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "13", label: "Drawings in the set" },
+      { value: "2021", label: "The year they were made" },
+      { value: "2", label: "Illustrator and Photoshop" },
+    ],
+  },
+  {
+    slug: "dino",
+    index: "01",
+    name: "Dino",
+    sector: "Illustration",
+    year: "2021",
+    markets: "Dino Explorer",
+    services: ["Illustration", "Game art", "Packaging"],
+    summary:
+      "Dino Explorer, a dinosaur park for children: the creatures, the world map, and the pack.",
+    headline: "A park that teaches the map.",
+    composition: "stack",
+    tone: "dusk",
+    cover: "/dino/cover.webp",
+    gallery: boards("dino", 5, "Dino Explorer", "Dino Explorer"),
+    galleryNoun: "boards",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A dinosaur game for children who are still learning the map.",
+        body: [
+          "Dino Explorer is a dinosaur park designed in 2021 for a game company. The creatures were built in Blender, then given their features in Photoshop and Illustrator.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "The animal, the place it lived, and the pack it ships in.",
+        body: [
+          "The same characters land on a world map, so a child can see where the dinosaur lived. The set also includes the card and the packaging for the same game.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "5", label: "Boards in the set" },
+      { value: "2021", label: "Designed for the game" },
+      { value: "3", label: "Blender, Photoshop, Illustrator" },
+    ],
+  },
 ];
 
 const studyOrder = [
   "mcdonalds",
-  "aperture",
-  "sable-house",
+  "trimble-claims",
+  "trimble-modus",
+  "magazine",
+  "supr",
+  "breadwala",
+  "identity",
+  "personal",
+  "collected-2024",
+  "graphics-2024",
+  "illustrations",
+  "dino",
   "creatives",
   "presentations",
   "gen-ai",
+  "aperture",
+  "sable-house",
   "halcyon",
   "orla",
   "northwind",

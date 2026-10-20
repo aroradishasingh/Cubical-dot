@@ -5,7 +5,7 @@ import { WorkIndex } from "@/components/work-index";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Studio studies from Cubical Dot. Representative website design and redesign engagements for premium, international brands.",
+    "Studies from Cubical Dot: research, identity, campaigns, and website design for international brands.",
 };
 
 export default function WorkPage() {
@@ -15,7 +15,7 @@ export default function WorkPage() {
         index="02"
         label="Work"
         title="Selected studies."
-        lede="Six digital flagships. Each one is a studio study — a representative engagement written to the standard we hold a live brief. Names illustrate the work. They are not a client roster."
+        lede="Research, identity, campaigns, and the sites. The client studies are the work as it shipped. The named flagships are representative engagements, written to the same standard."
         variant="cascade"
         tone="dusk"
       />
