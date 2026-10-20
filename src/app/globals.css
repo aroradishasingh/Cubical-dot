@@ -134,20 +134,20 @@
       linear-gradient(158deg, #07060f 0%, #100828 46%, #22145c 100%);
   }
   .study-card {
-    background-color: #07060f;
+    background-color: #0a0a0a;
     background-image:
-      radial-gradient(120% 100% at 112% 122%, #f9f9f7 0%, #e1fc6d 7%, #8b6cff 22%, #6318ff 40%, #2c5cf6 60%, transparent 78%),
-      linear-gradient(150deg, #05040c 0%, #0a0722 36%, #1a1464 70%, #3a28c4 100%);
+      radial-gradient(42% 36% at 100% 100%, #f9f9f7 0%, #e1fc6d 14%, #6318ff 34%, rgba(44, 92, 246, 0.38) 50%, transparent 68%),
+      linear-gradient(168deg, #0a0a0a 0%, #111111 82%, #151515 100%);
   }
   .study-card:nth-child(3n + 2) {
     background-image:
-      radial-gradient(118% 102% at 116% 126%, #f9f9f7 0%, #d7ff3f 8%, #2c5cf6 34%, #6318ff 58%, transparent 78%),
-      linear-gradient(156deg, #05040c 0%, #070818 40%, #12206e 76%, #2c5cf6 100%);
+      radial-gradient(40% 34% at 100% 100%, #f9f9f7 0%, #d7ff3f 16%, #2c5cf6 42%, transparent 66%),
+      linear-gradient(172deg, #090909 0%, #121212 82%, #161616 100%);
   }
   .study-card:nth-child(3n + 3) {
     background-image:
-      radial-gradient(122% 108% at 106% 120%, #f4f0ff 0%, #e1fc6d 6%, #6318ff 32%, #2c5cf6 56%, transparent 76%),
-      linear-gradient(142deg, #07060f 0%, #120828 40%, #2a146c 100%);
+      radial-gradient(44% 38% at 100% 100%, #f4f0ff 0%, #e1fc6d 12%, #6318ff 36%, transparent 64%),
+      linear-gradient(158deg, #0a0a0a 0%, #101010 80%, #171717 100%);
   }
   .motion-flow {
     background-color: #6318ff;

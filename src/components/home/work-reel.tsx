@@ -110,6 +110,9 @@ function StudyCard({
         <h3 className="mt-5 text-[2.75rem] leading-[0.92] font-semibold tracking-[-0.055em] text-balance md:text-[4.25rem]">
           {study.name}
         </h3>
+        <p className="mx-auto mt-4 max-w-[18rem] text-base leading-snug font-medium tracking-[-0.03em] text-balance text-white/75">
+          {study.headline}
+        </p>
       </div>
     </Link>
   );
