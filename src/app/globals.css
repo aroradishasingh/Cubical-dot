@@ -136,21 +136,21 @@
   .study-card {
     background-color: #0a0a0a;
     background-image:
-      radial-gradient(62% 54% at 100% 100%, rgba(249, 249, 247, 0.95) 0%, rgba(225, 252, 109, 0.72) 10%, rgba(99, 24, 255, 0.55) 24%, rgba(99, 24, 255, 0.22) 42%, rgba(99, 24, 255, 0.08) 60%, rgba(99, 24, 255, 0) 78%),
-      radial-gradient(96% 82% at 100% 100%, rgba(44, 92, 246, 0.16) 0%, rgba(44, 92, 246, 0.05) 46%, rgba(44, 92, 246, 0) 74%),
-      linear-gradient(168deg, #0a0a0a, #111111);
+      radial-gradient(78% 68% at 104% 108%, rgba(244, 240, 255, 0.72) 0%, rgba(176, 150, 255, 0.42) 14%, rgba(99, 24, 255, 0.32) 30%, rgba(74, 64, 230, 0.16) 48%, rgba(44, 92, 246, 0.06) 66%, rgba(44, 92, 246, 0) 84%),
+      radial-gradient(120% 100% at 100% 100%, rgba(99, 24, 255, 0.1) 0%, rgba(44, 92, 246, 0.04) 42%, rgba(44, 92, 246, 0) 78%),
+      linear-gradient(#0a0a0a, #111111);
   }
   .study-card:nth-child(3n + 2) {
     background-image:
-      radial-gradient(58% 50% at 100% 100%, rgba(249, 249, 247, 0.92) 0%, rgba(215, 255, 63, 0.7) 12%, rgba(44, 92, 246, 0.5) 28%, rgba(44, 92, 246, 0.18) 46%, rgba(44, 92, 246, 0.06) 64%, rgba(44, 92, 246, 0) 80%),
-      radial-gradient(100% 86% at 100% 100%, rgba(44, 92, 246, 0.14) 0%, rgba(44, 92, 246, 0.04) 48%, rgba(44, 92, 246, 0) 76%),
-      linear-gradient(172deg, #090909, #121212);
+      radial-gradient(74% 64% at 106% 110%, rgba(236, 240, 255, 0.66) 0%, rgba(140, 160, 255, 0.38) 16%, rgba(44, 92, 246, 0.28) 34%, rgba(44, 92, 246, 0.12) 52%, rgba(44, 92, 246, 0.04) 68%, rgba(44, 92, 246, 0) 86%),
+      radial-gradient(124% 104% at 100% 100%, rgba(44, 92, 246, 0.09) 0%, rgba(44, 92, 246, 0.03) 46%, rgba(44, 92, 246, 0) 80%),
+      linear-gradient(#090909, #121212);
   }
   .study-card:nth-child(3n + 3) {
     background-image:
-      radial-gradient(64% 56% at 100% 100%, rgba(244, 240, 255, 0.9) 0%, rgba(225, 252, 109, 0.62) 10%, rgba(99, 24, 255, 0.48) 26%, rgba(99, 24, 255, 0.16) 46%, rgba(99, 24, 255, 0.05) 66%, rgba(99, 24, 255, 0) 82%),
-      radial-gradient(104% 90% at 100% 100%, rgba(99, 24, 255, 0.14) 0%, rgba(99, 24, 255, 0.04) 50%, rgba(99, 24, 255, 0) 78%),
-      linear-gradient(158deg, #0a0a0a, #101010);
+      radial-gradient(80% 70% at 102% 106%, rgba(244, 240, 255, 0.7) 0%, rgba(168, 130, 255, 0.4) 15%, rgba(99, 24, 255, 0.26) 32%, rgba(99, 24, 255, 0.1) 52%, rgba(99, 24, 255, 0.03) 70%, rgba(99, 24, 255, 0) 88%),
+      radial-gradient(128% 108% at 100% 100%, rgba(99, 24, 255, 0.08) 0%, rgba(99, 24, 255, 0.025) 48%, rgba(99, 24, 255, 0) 82%),
+      linear-gradient(#0a0a0a, #101010);
   }
   .motion-flow {
     background-color: #6318ff;

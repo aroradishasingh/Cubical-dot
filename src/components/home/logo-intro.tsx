@@ -149,6 +149,7 @@ export function LogoIntro() {
     tl.to(node, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, "dock+=0.7");
 
     tl.to(".build-progress", { scaleX: 1, duration: tl.duration(), ease: "none" }, 0);
+    tl.timeScale(1.18);
 
     return () => {
       document.documentElement.style.overflow = "";
