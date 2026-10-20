@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import { LogoIntro } from "@/components/home/logo-intro";
 import { MotionRoot } from "@/components/motion-root";
 import { SiteFooter } from "@/components/site-footer";
@@ -7,18 +7,23 @@ import { SiteHeader } from "@/components/site-header";
 import { studio } from "@/lib/content";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    { path: "../fonts/inter-latin-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/inter-latin-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/inter-latin-600.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/inter-latin-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
+const poppins = localFont({
+  src: "../fonts/poppins-latin-500.woff2",
+  weight: "500",
+  style: "normal",
   display: "swap",
   variable: "--font-poppins",
-  weight: "500",
 });
 
 export const metadata: Metadata = {
