@@ -8,6 +8,18 @@ export const studio = {
     "Cubical Dot is an independent digital design studio. We design and redesign websites for premium brands that sell across borders.",
 };
 
+export const designedFor = [
+  { name: "Amazon", mark: "amazon" },
+  { name: "NVIDIA", mark: "NVIDIA" },
+  { name: "AffinityX", mark: "AffinityX" },
+  { name: "Trimble", mark: "Trimble" },
+  { name: "Vistaprint", mark: "Vistaprint" },
+  { name: "Noise", mark: "noise" },
+  { name: "Fire-Boltt", mark: "Fire-Boltt" },
+  { name: "OnePlus", mark: "OnePlus" },
+  { name: "vivo", mark: "vivo" },
+] as const;
+
 export const nav = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },

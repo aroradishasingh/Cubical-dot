@@ -1,3 +1,4 @@
+import { DesignedFor } from "@/components/designed-for";
 import { Close } from "@/components/home/close";
 import { Hero } from "@/components/home/hero";
 import { JournalTease } from "@/components/home/journal-tease";
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Marquee />
+      <DesignedFor />
       <Manifesto />
       <WorkReel />
       <Practice />

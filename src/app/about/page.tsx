@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BrandButton } from "@/components/brand-button";
+import { DesignedFor } from "@/components/designed-for";
 import { FieldArt } from "@/components/field-art";
 import { PageHero } from "@/components/page-hero";
 import { principles } from "@/lib/content";
@@ -48,6 +49,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <DesignedFor />
 
       <section className="grid lg:grid-cols-2">
         <div className="relative min-h-[420px]">
