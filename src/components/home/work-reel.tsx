@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
 import { FieldArt } from "@/components/field-art";
 import { studies } from "@/lib/content";
@@ -90,8 +89,8 @@ function StudyCard({
           : "section-card study-card group/button flex flex-col overflow-hidden text-white"
       }
     >
-      <div className={wide ? "relative h-[58%] shrink-0" : "relative h-72 shrink-0"}>
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_42%,transparent_100%)]">
+      <div className={wide ? "relative h-[46%] shrink-0" : "relative h-56 shrink-0"}>
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_28%,transparent_100%)]">
           {study.cover ? (
             <img
               src={study.cover}
@@ -103,20 +102,14 @@ function StudyCard({
           )}
         </div>
       </div>
-      <div className="flex flex-1 flex-col justify-center px-8 py-6 text-center">
-        <p className="eyebrow text-white/55">
+      <div className="flex flex-1 flex-col items-center justify-center px-8 py-8 text-center">
+        <p className="eyebrow text-white/50">
           {study.featured ? <span className="text-lime">Featured · </span> : null}
-          {study.index} / {study.sector}
+          {study.index}
         </p>
-        <h3 className="mt-3 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{study.name}</h3>
-        <p className="mx-auto mt-3 max-w-md text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
-          {study.headline}
-        </p>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/65">{study.summary}</p>
-        <span className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-medium text-lime">
-          View case study
-          <ArrowIcon />
-        </span>
+        <h3 className="mt-5 text-[2.75rem] leading-[0.92] font-semibold tracking-[-0.055em] text-balance md:text-[4.25rem]">
+          {study.name}
+        </h3>
       </div>
     </Link>
   );
