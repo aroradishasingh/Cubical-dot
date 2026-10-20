@@ -3,13 +3,13 @@ import { studio } from "@/lib/content";
 
 export function Close() {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute -top-10 -right-10 size-[280px] rounded-full bg-[radial-gradient(circle_at_32%_30%,#f4ffb0,#d7ff3f_40%,#7eac00_78%)] opacity-90 md:size-[420px]" aria-hidden />
-      <div className="pointer-events-none absolute bottom-[-120px] left-[-80px] size-[340px] rounded-[8px] bg-[linear-gradient(160deg,#7a4dff,#1a0860)] opacity-80" aria-hidden />
-      <div className="shell relative py-28 lg:py-36">
+    <section className="home-close relative flex min-h-[calc(100svh-22rem)] flex-col justify-center overflow-hidden bg-ink pt-28 pb-12 text-white">
+      <div className="pointer-events-none absolute top-24 -right-16 size-[220px] rounded-full bg-[radial-gradient(circle_at_32%_30%,#f4ffb0,#d7ff3f_40%,#7eac00_78%)] opacity-90 md:size-[320px]" aria-hidden />
+      <div className="pointer-events-none absolute bottom-[-140px] left-[-100px] size-[280px] rounded-[8px] bg-[linear-gradient(160deg,#7a4dff,#1a0860)] opacity-80 md:size-[340px]" aria-hidden />
+      <div className="shell relative">
         <p className="eyebrow text-white/60">08 / Invitation</p>
-        <h2 className="display mt-6 max-w-4xl text-[clamp(3.4rem,8vw,7rem)]">Let&apos;s build.</h2>
-        <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
+        <h2 className="display mt-4 max-w-4xl pb-[0.08em] text-[clamp(3rem,6vw,5.5rem)]">Let&apos;s build.</h2>
+        <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
           {studio.line} Tell us the market you are entering and the standard the website has to hold.
         </p>
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">

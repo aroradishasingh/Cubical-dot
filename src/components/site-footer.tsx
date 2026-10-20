@@ -5,7 +5,7 @@ import { nav, studio } from "@/lib/content";
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-white">
-      <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-16 md:grid-cols-12 md:py-20">
+      <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-10 py-12 md:grid-cols-12 md:py-14">
         <div className="md:col-span-5">
           <Link href="/" aria-label="Cubical Dot, home" className="inline-flex text-white">
             <Logo />
