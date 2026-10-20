@@ -15,7 +15,7 @@ export default function WorkPage() {
         index="02"
         label="Work"
         title="Selected studies."
-        lede="Research, identity, campaigns, and the sites. The client studies are the work as it shipped. The named flagships are representative engagements, written to the same standard."
+        lede="Research, identity, campaigns, and the sites. Each study is the work as it shipped."
         variant="cascade"
         tone="dusk"
       />
