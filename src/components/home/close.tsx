@@ -4,8 +4,8 @@ import { studio } from "@/lib/content";
 export function Close() {
   return (
     <section className="home-close relative flex min-h-[calc(100svh-22rem)] flex-col justify-center overflow-hidden bg-ink pt-28 pb-12 text-white">
-      <div className="pointer-events-none absolute top-24 -right-16 size-[220px] rounded-full bg-[radial-gradient(circle_at_32%_30%,#f4ffb0,#d7ff3f_40%,#7eac00_78%)] opacity-90 md:size-[320px]" aria-hidden />
-      <div className="pointer-events-none absolute bottom-[-140px] left-[-100px] size-[280px] rounded-[8px] bg-[linear-gradient(160deg,#7a4dff,#1a0860)] opacity-80 md:size-[340px]" aria-hidden />
+      <div className="pointer-events-none absolute top-20 right-[var(--page-margin)] hidden size-[280px] rounded-full bg-[radial-gradient(circle_at_32%_30%,#f4ffb0,#d7ff3f_40%,#7eac00_78%)] opacity-90 md:block" aria-hidden />
+      <div className="pointer-events-none absolute -bottom-44 left-[var(--page-margin)] hidden size-[240px] rounded-[8px] bg-[linear-gradient(160deg,#7a4dff,#1a0860)] opacity-80 md:block" aria-hidden />
       <div className="shell relative">
         <p className="eyebrow text-white/60">08 / Invitation</p>
         <h2 className="display mt-4 max-w-4xl pb-[0.08em] text-[clamp(3rem,6vw,5.5rem)]">Let&apos;s build.</h2>
