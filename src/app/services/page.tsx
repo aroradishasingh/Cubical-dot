@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandButton } from "@/components/brand-button";
 import { PageHero } from "@/components/page-hero";
-import { faqs, investment, method, services } from "@/lib/content";
+import { faqs, method, services } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -55,25 +55,6 @@ export default function ServicesPage() {
               <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/65">{service.detail}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-ink text-white">
-        <div className="shell py-20">
-          <p className="eyebrow text-white/70">Investment</p>
-          <h2 className="display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.4rem)]">A range, before the first call.</h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80">
-            Premium work has a floor. Publishing it protects both calendars. The final number follows the page map, the markets, and whether we are designing, building, or both.
-          </p>
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
-            {investment.map((tier) => (
-              <article key={tier.title} className="rounded-[8px] border border-white/10 p-7">
-                <p className="text-sm font-medium text-lime">{tier.range}</p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em]">{tier.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-white/80">{tier.body}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

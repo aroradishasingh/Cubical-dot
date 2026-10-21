@@ -28,7 +28,7 @@ function LogoRow({ id }: { id: string }) {
             loading="lazy"
             decoding="async"
           />
-          <span className="size-1.5 shrink-0 rounded-full bg-lime" aria-hidden />
+          <span className="size-1.5 shrink-0 rounded-full bg-violet" aria-hidden />
         </li>
       ))}
     </ul>
@@ -41,8 +41,7 @@ export function DesignedFor({ className }: { className?: string }) {
       className={cn("bg-ivory py-7 text-ink [--logo-base:40px] md:py-9 md:[--logo-base:46px]", className)}
       aria-labelledby="designed-for"
     >
-      <h2 id="designed-for" className="shell eyebrow flex items-center justify-center gap-3 text-center text-stone">
-        <span className="size-1.5 rounded-full bg-lime" aria-hidden />
+      <h2 id="designed-for" className="sr-only">
         The team has designed for
       </h2>
       <ul className="sr-only">
@@ -51,7 +50,7 @@ export function DesignedFor({ className }: { className?: string }) {
         ))}
       </ul>
       <div
-        className="marquee mt-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] md:mt-5"
+        className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
         aria-hidden
       >
         <div className="marquee-track flex w-max items-center">

@@ -9,7 +9,6 @@ import { studio } from "@/lib/content";
 import { cn } from "cn";
 
 const projectTypes = ["New website", "Redesign", "Design system", "Not sure yet"];
-const budgets = ["Under $40k", "$40–80k", "$80–150k", "$150k+"];
 const timelines = ["As soon as we can", "This quarter", "This half", "Exploring"];
 
 type Fields = {
@@ -18,7 +17,6 @@ type Fields = {
   company: string;
   website: string;
   projectType: string;
-  budget: string;
   timeline: string;
   message: string;
 };
@@ -29,7 +27,6 @@ const empty: Fields = {
   company: "",
   website: "",
   projectType: "",
-  budget: "",
   timeline: "",
   message: "",
 };
@@ -42,7 +39,6 @@ function mailtoHref(fields: Fields) {
     `Company: ${fields.company}`,
     `Website: ${fields.website || "—"}`,
     `Project: ${fields.projectType}`,
-    `Budget: ${fields.budget}`,
     `Timeline: ${fields.timeline || "—"}`,
     "",
     fields.message,
@@ -66,7 +62,6 @@ export function ContactForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) next.email = "We need a real email to reply.";
     if (fields.company.trim().length < 2) next.company = "Which company is this for?";
     if (!fields.projectType) next.projectType = "Choose the kind of work.";
-    if (!fields.budget) next.budget = "A range keeps the first conversation honest.";
     if (fields.message.trim().length < 20) next.message = "A few sentences on the market and the website are enough.";
     return next;
   }
@@ -139,18 +134,6 @@ export function ContactForm() {
           ))}
         </div>
         {errors.projectType ? <p className="mt-2 text-sm text-[#9a3412]">{errors.projectType}</p> : null}
-      </fieldset>
-
-      <fieldset className="mt-6">
-        <legend className="text-sm font-medium">Investment range</legend>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {budgets.map((budget) => (
-            <Choice key={budget} pressed={fields.budget === budget} onClick={() => update("budget", budget)}>
-              {budget}
-            </Choice>
-          ))}
-        </div>
-        {errors.budget ? <p className="mt-2 text-sm text-[#9a3412]">{errors.budget}</p> : null}
       </fieldset>
 
       <fieldset className="mt-6">

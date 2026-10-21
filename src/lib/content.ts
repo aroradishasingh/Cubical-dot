@@ -842,24 +842,6 @@ export const essays: Essay[] = [
   },
 ];
 
-export const investment = [
-  {
-    range: "From $40k",
-    title: "Focused flagship",
-    body: "A precise site or a contained redesign. One market, a short page map, a system you can extend.",
-  },
-  {
-    range: "$80–150k",
-    title: "Full redesign",
-    body: "The typical engagement. Narrative, design, motion, and a production front end for a brand with something to protect.",
-  },
-  {
-    range: "$150k+",
-    title: "Multi-market system",
-    body: "Several audiences or cities, a design system other teams will touch, and a launch that cannot be improvised.",
-  },
-];
-
 export const faqs = [
   {
     q: "Do you only design, or do you also build?",
@@ -883,7 +865,7 @@ export const faqs = [
   },
   {
     q: "What does it cost?",
-    a: "Focused work begins around $40,000. A full redesign is typically $80,000 to $150,000. Multi-market systems sit above that. The form asks for a range so the first conversation is not a guessing game.",
+    a: "It depends on the page map, the markets, and whether we are designing, building, or both. Write us the brief and you will have a clear number after the first call, not a guessing game.",
   },
 ];
 
