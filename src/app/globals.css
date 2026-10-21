@@ -115,6 +115,13 @@
     margin-inline: auto;
     padding-inline: var(--page-margin);
   }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
   .section-card {
     position: relative;
     isolation: isolate;
