@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useRef } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
 import { FieldArt } from "@/components/field-art";
@@ -9,17 +6,8 @@ import { studies } from "@/lib/content";
 import { cn } from "cn";
 
 export function WorkReel() {
-  const track = useRef<HTMLDivElement>(null);
-
-  function scrollByCards(direction: 1 | -1) {
-    const el = track.current;
-    if (!el) return;
-    const amount = Math.min(el.clientWidth * 0.86, 680) * direction;
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  }
-
   return (
-    <section className="overflow-hidden bg-ivory text-ink">
+    <section className="bg-ivory text-ink">
       <div className="shell pt-20 lg:pt-28">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -40,81 +28,71 @@ export function WorkReel() {
         </div>
       </div>
 
-      <div className="relative mt-10 lg:mt-14">
-        <div
-          ref={track}
-          className="no-scrollbar flex gap-4 overflow-x-auto scroll-smooth pl-[var(--page-margin)] pr-[var(--page-margin)] [scroll-padding-left:var(--page-margin)] [scroll-snap-type:x_mandatory]"
-        >
-          {studies.map((study) => (
-            <StudyCard key={study.slug} study={study} />
-          ))}
-        </div>
-      </div>
-
-      <div className="shell mt-7 flex items-center justify-between pb-16 lg:pb-20">
-        <div className="flex gap-2">
-          <NavButton direction={-1} onClick={() => scrollByCards(-1)} label="Scroll to previous studies" />
-          <NavButton direction={1} onClick={() => scrollByCards(1)} label="Scroll to next studies" />
-        </div>
-        <p className="eyebrow hidden text-stone sm:block">Drag, swipe, or use the arrows</p>
+      <div className="relative mt-14 pb-20 lg:mt-20 lg:pb-28">
+        {studies.map((study, index) => (
+          <div
+            key={study.slug}
+            className="shell sticky top-20 pb-5 md:top-24 md:pb-7"
+            style={{ zIndex: index + 1 }}
+          >
+            <StackCard study={study} index={index} />
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-function StudyCard({ study }: { study: (typeof studies)[number] }) {
+function StackCard({ study, index }: { study: (typeof studies)[number]; index: number }) {
   return (
     <Link
       href={`/work/${study.slug}`}
       data-cursor="hot"
-      className="section-card study-card group/button flex w-[78vw] shrink-0 flex-col overflow-hidden text-white [scroll-snap-align:start] sm:w-[22rem]"
+      className={cn(
+        "section-card study-card group/button flex w-full flex-col overflow-hidden text-white shadow-[0_32px_64px_-28px_rgba(0,0,0,0.45)] md:grid md:min-h-[27rem] md:grid-cols-2",
+        index % 3 === 1 && "study-card-b",
+        index % 3 === 2 && "study-card-c"
+      )}
     >
-      <div className="relative h-52 shrink-0 sm:h-56">
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_28%,transparent_100%)]">
+      <div className="relative h-52 shrink-0 md:h-full">
+        <div
+          className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)] md:[mask-image:linear-gradient(to_right,black_55%,transparent_100%)]"
+        >
           {study.cover ? (
             <img
               src={study.cover}
               alt=""
-              className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.04]"
+              className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
             />
           ) : (
             <FieldArt variant={study.composition} tone={study.tone} motion="none" />
           )}
         </div>
       </div>
-      <div className="flex flex-1 flex-col items-center justify-center px-7 py-8 text-center">
+      <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
         <p className="eyebrow text-white/50">
           {study.featured ? <span className="text-lime">Featured · </span> : null}
-          {study.services[0]}
+          {study.sector}
         </p>
-        <h3 className="mt-4 text-[2.1rem] leading-[0.95] font-semibold tracking-[-0.05em] text-balance">
+        <h3 className="text-[2.6rem] leading-[0.92] font-semibold tracking-[-0.05em] text-balance md:text-[3.4rem]">
           {study.name}
         </h3>
-        <p className="mx-auto mt-3 max-w-[16rem] text-sm leading-snug font-medium tracking-[-0.02em] text-balance text-white/75">
-          {study.headline}
-        </p>
+        <p className="max-w-md text-base leading-relaxed text-white/75">{study.headline}</p>
+        <div className="flex flex-wrap gap-2">
+          {study.services.map((service) => (
+            <span
+              key={service}
+              className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-white/70"
+            >
+              {service}
+            </span>
+          ))}
+        </div>
+        <span className="mt-1 inline-flex items-center gap-2 text-sm font-medium">
+          View study
+          <ArrowIcon />
+        </span>
       </div>
     </Link>
-  );
-}
-
-function NavButton({
-  direction,
-  onClick,
-  label,
-}: {
-  direction: 1 | -1;
-  onClick: () => void;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      className="group/button inline-flex size-12 items-center justify-center rounded-full border border-ink/15 bg-white text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
-    >
-      <ArrowIcon className={cn("size-5", direction === -1 && "rotate-180")} />
-    </button>
   );
 }

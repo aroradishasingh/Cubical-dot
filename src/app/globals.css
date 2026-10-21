@@ -115,13 +115,6 @@
     margin-inline: auto;
     padding-inline: var(--page-margin);
   }
-  .no-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
   .section-card {
     position: relative;
     isolation: isolate;
@@ -158,6 +151,20 @@
       linear-gradient(#090909, #121212);
   }
   .study-card:nth-child(3n + 3) {
+    background-image:
+      radial-gradient(80% 70% at 102% 106%, rgba(244, 240, 255, 0.7) 0%, rgba(168, 130, 255, 0.4) 15%, rgba(99, 24, 255, 0.26) 32%, rgba(99, 24, 255, 0.1) 52%, rgba(99, 24, 255, 0.03) 70%, rgba(99, 24, 255, 0) 88%),
+      radial-gradient(128% 108% at 100% 100%, rgba(99, 24, 255, 0.08) 0%, rgba(99, 24, 255, 0.025) 48%, rgba(99, 24, 255, 0) 82%),
+      linear-gradient(#0a0a0a, #101010);
+  }
+  /* Explicit variants for stacked cards, each its own parent's only child
+     (nth-child always 1), so the cycling above can't reach them. */
+  .study-card-b {
+    background-image:
+      radial-gradient(74% 64% at 106% 110%, rgba(236, 240, 255, 0.66) 0%, rgba(140, 160, 255, 0.38) 16%, rgba(44, 92, 246, 0.28) 34%, rgba(44, 92, 246, 0.12) 52%, rgba(44, 92, 246, 0.04) 68%, rgba(44, 92, 246, 0) 86%),
+      radial-gradient(124% 104% at 100% 100%, rgba(44, 92, 246, 0.09) 0%, rgba(44, 92, 246, 0.03) 46%, rgba(44, 92, 246, 0) 80%),
+      linear-gradient(#090909, #121212);
+  }
+  .study-card-c {
     background-image:
       radial-gradient(80% 70% at 102% 106%, rgba(244, 240, 255, 0.7) 0%, rgba(168, 130, 255, 0.4) 15%, rgba(99, 24, 255, 0.26) 32%, rgba(99, 24, 255, 0.1) 52%, rgba(99, 24, 255, 0.03) 70%, rgba(99, 24, 255, 0) 88%),
       radial-gradient(128% 108% at 100% 100%, rgba(99, 24, 255, 0.08) 0%, rgba(99, 24, 255, 0.025) 48%, rgba(99, 24, 255, 0) 82%),
