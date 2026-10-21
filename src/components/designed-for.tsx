@@ -16,7 +16,7 @@ function LogoRow({ id }: { id: string }) {
   return (
     <ul className="flex items-center gap-10 pr-10 md:gap-14 md:pr-14">
       {designedFor.map((company) => (
-        <li key={`${id}-${company.name}`} className="flex h-10 items-center gap-10 md:h-12 md:gap-14">
+        <li key={`${id}-${company.name}`} className="flex h-6 items-center gap-10 md:h-7 md:gap-14">
           <img
             src={company.src}
             alt=""
@@ -38,7 +38,7 @@ function LogoRow({ id }: { id: string }) {
 export function DesignedFor({ className }: { className?: string }) {
   return (
     <section
-      className={cn("bg-ivory py-12 text-ink [--logo-base:48px] md:py-16 md:[--logo-base:56px]", className)}
+      className={cn("bg-ivory py-7 text-ink [--logo-base:40px] md:py-9 md:[--logo-base:46px]", className)}
       aria-labelledby="designed-for"
     >
       <h2 id="designed-for" className="shell eyebrow flex items-center justify-center gap-3 text-center text-stone">
@@ -51,7 +51,7 @@ export function DesignedFor({ className }: { className?: string }) {
         ))}
       </ul>
       <div
-        className="marquee mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] md:mt-10"
+        className="marquee mt-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] md:mt-5"
         aria-hidden
       >
         <div className="marquee-track flex w-max items-center">
