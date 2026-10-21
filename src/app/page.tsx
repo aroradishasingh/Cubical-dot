@@ -13,7 +13,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
       <DesignedFor />
       <Manifesto />
       <WorkReel />
@@ -21,6 +20,7 @@ export default function HomePage() {
       <Method />
       <MarkStory />
       <JournalTease />
+      <Marquee />
       <Close />
     </>
   );

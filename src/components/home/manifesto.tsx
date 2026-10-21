@@ -59,7 +59,7 @@ export function Manifesto() {
     <section className="bg-ink text-white">
       <div ref={root} className="relative lg:h-[200vh]">
         <div className="lg:sticky lg:top-0 lg:flex lg:min-h-[100svh] lg:items-center">
-          <div className="shell grid w-full items-center gap-x-[var(--grid-gutter)] gap-y-12 py-28 lg:grid-cols-12">
+          <div className="shell grid w-full items-center gap-x-[var(--grid-gutter)] gap-y-12 py-20 lg:grid-cols-12 lg:py-28">
             <div className="lg:col-span-8">
               <Chapter index="02" label="Belief" tone="light" />
               <p className="sr-only">{sentence}</p>
@@ -76,7 +76,7 @@ export function Manifesto() {
             </div>
             <div className="flex flex-col gap-4 lg:col-span-4">
               {principles.map((principle) => (
-                <article key={principle.title} className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                <article key={principle.title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
                   <h2 className="text-2xl font-semibold tracking-[-0.04em]">{principle.title}</h2>
                   <p className="mt-2 text-base leading-relaxed text-white/80">{principle.body}</p>
                 </article>

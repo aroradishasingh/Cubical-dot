@@ -38,10 +38,10 @@ export function WorkReel() {
 
   return (
     <section className="bg-ivory text-ink">
-      <div className="shell pt-20 pb-8 lg:pt-24">
+      <div className="shell pt-20 pb-8 lg:pt-28">
         <Chapter index="03" label="Work" />
         <div className="mt-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <h2 className="display max-w-xl text-[clamp(2.6rem,5vw,4.6rem)]">Selected studies.</h2>
+          <h2 className="display section-title max-w-xl">Selected studies.</h2>
           <div className="max-w-sm">
             <p className="text-base leading-relaxed text-charcoal">
               Research, identity, campaigns, and the sites. Each study is the work, then the decision behind it.

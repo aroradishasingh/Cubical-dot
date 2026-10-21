@@ -95,7 +95,7 @@ export function Hero() {
             See the work
           </BrandButton>
         </div>
-        <div className="hero-fade mt-14 flex flex-col gap-3 border-t border-white/10 pt-5 text-sm tracking-[0.08em] text-white/75 uppercase sm:flex-row sm:items-center sm:justify-between">
+        <div className="hero-fade mt-14 flex flex-col gap-3 eyebrow border-t border-white/10 pt-5 text-white/75 sm:flex-row sm:items-center sm:justify-between">
           <span>Website design & redesign</span>
           <span className="hidden sm:inline">By engagement</span>
           <span>Worldwide</span>

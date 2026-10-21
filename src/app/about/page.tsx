@@ -50,7 +50,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <DesignedFor />
+      <DesignedFor className="border-t border-ink/10" />
 
       <section className="grid lg:grid-cols-2">
         <div className="relative min-h-[420px]">

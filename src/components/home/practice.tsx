@@ -17,7 +17,7 @@ export function Practice() {
       <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-10 py-20 lg:grid-cols-12 lg:py-28">
         <div className="lg:col-span-4">
           <Chapter index="04" label="Practice" />
-          <h2 className="display mt-6 text-[clamp(2.4rem,4vw,3.8rem)]">Design beyond boundaries.</h2>
+          <h2 className="display section-title mt-6">Design beyond boundaries.</h2>
           <p className="mt-5 max-w-sm text-base leading-relaxed text-charcoal">
             Website design and redesign for companies that charge a premium and intend to look like it. Hover a practice. The field on the right is the temperament of the work.
           </p>

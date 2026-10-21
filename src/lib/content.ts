@@ -9,15 +9,17 @@ export const studio = {
 };
 
 export const designedFor = [
-  { name: "Amazon", src: "/logos/amazon.svg" },
-  { name: "NVIDIA", src: "/logos/nvidia.svg" },
-  { name: "AffinityX", src: "/logos/affinityx.png" },
-  { name: "Trimble", src: "/logos/trimble.svg" },
-  { name: "Vistaprint", src: "/logos/vistaprint.png" },
-  { name: "Noise", src: "/logos/noise.svg" },
-  { name: "Fire-Boltt", src: "/logos/fire-boltt.png" },
-  { name: "OnePlus", src: "/logos/oneplus.svg" },
-  { name: "vivo", src: "/logos/vivo.svg" },
+  // ratio = intrinsic width / height of the artwork. The strip uses it to give
+  // every mark the same visual weight instead of the same height.
+  { name: "Amazon", src: "/logos/amazon.svg", ratio: 3.31 },
+  { name: "NVIDIA", src: "/logos/nvidia.svg", ratio: 5.42 },
+  { name: "AffinityX", src: "/logos/affinityx.png", ratio: 5.52 },
+  { name: "Trimble", src: "/logos/trimble.svg", ratio: 4.27 },
+  { name: "Vistaprint", src: "/logos/vistaprint.png", ratio: 5.1 },
+  { name: "Noise", src: "/logos/noise.svg", ratio: 4.47 },
+  { name: "Fire-Boltt", src: "/logos/fire-boltt.png", ratio: 5.58 },
+  { name: "OnePlus", src: "/logos/oneplus.svg", ratio: 1 },
+  { name: "vivo", src: "/logos/vivo.svg", ratio: 3.82 },
 ] as const;
 
 export const nav = [
