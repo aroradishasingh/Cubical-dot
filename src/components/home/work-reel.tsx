@@ -32,7 +32,7 @@ export function WorkReel() {
         {studies.map((study, index) => (
           <div
             key={study.slug}
-            className="shell sticky top-20 pb-5 md:top-24 md:pb-7"
+            className="sticky top-20 pb-5 md:top-24 md:pb-7"
             style={{ zIndex: index + 1 }}
           >
             <StackCard study={study} index={index} />
@@ -48,13 +48,14 @@ function StackCard({ study, index }: { study: (typeof studies)[number]; index: n
     <Link
       href={`/work/${study.slug}`}
       data-cursor="hot"
+      style={{ borderRadius: 0 }}
       className={cn(
-        "section-card study-card group/button flex w-full flex-col overflow-hidden text-white shadow-[0_32px_64px_-28px_rgba(0,0,0,0.45)] md:grid md:min-h-[27rem] md:grid-cols-2",
+        "section-card study-card group/button flex w-full flex-col overflow-hidden text-white shadow-[0_32px_64px_-28px_rgba(0,0,0,0.45)] md:grid md:min-h-[34rem] md:grid-cols-2",
         index % 3 === 1 && "study-card-b",
         index % 3 === 2 && "study-card-c"
       )}
     >
-      <div className="relative h-52 shrink-0 md:h-full">
+      <div className="relative h-64 shrink-0 md:h-full">
         <div
           className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)] md:[mask-image:linear-gradient(to_right,black_55%,transparent_100%)]"
         >
@@ -69,7 +70,7 @@ function StackCard({ study, index }: { study: (typeof studies)[number]; index: n
           )}
         </div>
       </div>
-      <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
+      <div className="flex flex-col justify-center gap-5 p-8 sm:p-12 lg:p-16">
         <p className="eyebrow text-white/50">
           {study.featured ? <span className="text-lime">Featured · </span> : null}
           {study.sector}
