@@ -7,6 +7,7 @@ import { MarkStory } from "@/components/home/mark-story";
 import { Marquee } from "@/components/home/marquee";
 import { Method } from "@/components/home/method";
 import { Practice } from "@/components/home/practice";
+import { ShowReel } from "@/components/home/show-reel";
 import { WorkReel } from "@/components/home/work-reel";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Manifesto />
       <WorkReel />
       <Practice />
+      <ShowReel />
       <Method />
       <MarkStory />
       <JournalTease />

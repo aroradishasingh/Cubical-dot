@@ -9,7 +9,7 @@ export function MarkStory() {
         <FieldArt variant="split" tone="ink" />
       </div>
       <div className="flex flex-col justify-center px-[var(--page-margin)] py-20 lg:py-28 lg:pr-[var(--page-margin)] lg:pl-[var(--grid-gutter)]">
-        <Chapter index="06" label="The mark" />
+        <Chapter index="07" label="The mark" />
         <h2 className="display section-title mt-6">
           Simple forms.
           <br />

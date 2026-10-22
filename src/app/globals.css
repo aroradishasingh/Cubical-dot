@@ -198,6 +198,44 @@
   }
 }
 
+@keyframes reel-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes reel-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.reel-up {
+  animation: reel-up 32s linear infinite;
+}
+
+.reel-down {
+  animation: reel-down 32s linear infinite;
+}
+
+.reel:hover .reel-up,
+.reel:hover .reel-down {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-up,
+  .reel-down {
+    animation: none;
+  }
+}
+
 .pin-spacer {
   max-width: 100%;
 }

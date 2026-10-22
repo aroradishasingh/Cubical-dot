@@ -186,6 +186,22 @@ const creativePieces = Array.from({ length: 32 }, (_, index) => {
   };
 });
 
+/** Supr Daily's own intro slide ("Internship Work") is excluded on purpose. */
+const suprPieces = [
+  { src: "/supr/cover.webp", alt: "Supr Daily by Swiggy" },
+  { src: "/supr/02.webp", alt: "Supr Daily social and emailer assets" },
+];
+
+const illustrationPieces = Array.from({ length: 13 }, (_, index) => {
+  const number = String(index + 1).padStart(2, "0");
+  return {
+    src: `/illustrations/${number}.webp`,
+    alt: `Illustration ${index + 1}`,
+  };
+});
+
+const socialPieces = [...creativePieces, ...suprPieces, ...illustrationPieces];
+
 function slides(file: string, count: number, deck: string) {
   return Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
@@ -331,21 +347,21 @@ const studyCatalog: Study[] = [
     name: "Social",
     sector: "Social media",
     year: "2021–24",
-    markets: "OnePlus · Noise · ASUS · Fire-Boltt",
-    services: ["Social creatives", "Campaign design"],
+    markets: "OnePlus · Noise · ASUS · Fire-Boltt · Supr Daily",
+    services: ["Social creatives", "Campaign design", "Illustration"],
     summary:
-      "Thirty-two social pieces for OnePlus, Noise, ASUS, Fire-Boltt, and a set of crypto characters.",
+      "Forty-seven social, campaign, and illustration pieces for OnePlus, Noise, ASUS, Fire-Boltt, Supr Daily, a set of crypto characters, and a run of independent drawings.",
     headline: "Posts that have to work at a glance.",
     composition: "orbit",
     tone: "dusk",
     cover: creativePieces[0].src,
-    gallery: creativePieces,
+    gallery: socialPieces,
     chapters: [
       {
         kicker: "The brief",
         title: "A feed is a sequence of decisions, not a folder of posts.",
         body: [
-          "The work spans product launches, retail offers, and character campaigns. OnePlus, Noise, ASUS, Fire-Boltt, and a crypto set each needed a post that could be read in the time it takes to keep scrolling.",
+          "The work spans product launches, retail offers, character campaigns, and the social and emailer assets built for Supr Daily. OnePlus, Noise, ASUS, Fire-Boltt, Supr Daily, and a crypto set each needed a post that could be read in the time it takes to keep scrolling.",
           "The constraint is the square. The product, the offer, and the name have to land before the thumb moves.",
         ],
       },
@@ -354,14 +370,15 @@ const studyCatalog: Study[] = [
         title: "One idea per frame. The rest is evidence.",
         body: [
           "A foldable phone is shown open, with the spec line beside it, not under a paragraph. A pastry shop gets a system of posts that can change the cake without changing the voice. A character campaign gives each figure a color and a name large enough to read on a phone.",
+          "The set closes on a run of independent illustrations: drawings made for their own sake, kept in the same feed because the hand behind them is the same hand behind the rest.",
           "The full set is below, in the order it was made.",
         ],
       },
     ],
     outcomes: [
-      { value: "32", label: "Pieces in the set" },
+      { value: "47", label: "Pieces in the set" },
       { value: "2021–24", label: "Years the work spans" },
-      { value: "5", label: "Campaigns, one square" },
+      { value: "6", label: "Brands and campaigns, one square" },
     ],
   },
   {
@@ -523,45 +540,6 @@ const studyCatalog: Study[] = [
     ],
   },
   {
-    slug: "supr",
-    index: "01",
-    name: "Supr",
-    sector: "Visual design",
-    year: "2021",
-    markets: "Supr Daily · Swiggy",
-    services: ["Visual design", "Editorial"],
-    summary:
-      "Magazine-format advertisement pages for Supr Daily by Swiggy.",
-    headline: "Pages for the daily order.",
-    composition: "stack",
-    tone: "dusk",
-    cover: "/supr/cover.webp",
-    gallery: boards("supr", 2, "Supr Daily", "Advertisement page"),
-    galleryWidth: "page",
-    galleryNoun: "pages",
-    chapters: [
-      {
-        kicker: "The brief",
-        title: "A daily grocery service, told as a magazine page.",
-        body: [
-          "Visual design for Supr Daily by Swiggy, January to March 2021. The pages are advertisements in a magazine format, drawn in Photoshop, Illustrator, and Figma.",
-        ],
-      },
-      {
-        kicker: "The move",
-        title: "Two pages, full height.",
-        body: [
-          "The set is the two advertisement pages from the editorial series, kept at the proportion they were printed.",
-        ],
-      },
-    ],
-    outcomes: [
-      { value: "2", label: "Advertisement pages" },
-      { value: "2021", label: "Supr Daily by Swiggy" },
-      { value: "3", label: "Tools on the pages" },
-    ],
-  },
-  {
     slug: "breadwala",
     index: "01",
     name: "Breadwala",
@@ -675,94 +653,15 @@ const studyCatalog: Study[] = [
       { value: "1", label: "Brand, used on its own pages" },
     ],
   },
-  {
-    slug: "illustrations",
-    index: "01",
-    name: "Illustrations",
-    sector: "Illustration",
-    year: "2021",
-    markets: "Independent",
-    services: ["Illustration"],
-    summary: "A set of illustrations drawn in Illustrator and Photoshop.",
-    headline: "Drawings, left as drawings.",
-    composition: "stack",
-    tone: "dusk",
-    cover: "/illustrations/01.webp",
-    gallery: boards("illustrations", 13, "Drawings", "Illustration"),
-    galleryWidth: "page",
-    galleryNoun: "drawings",
-    chapters: [
-      {
-        kicker: "The brief",
-        title: "Pictures with no campaign attached.",
-        body: [
-          "Illustrations from 2021, drawn in Illustrator and Photoshop. A set of pictures made for their own sake.",
-        ],
-      },
-      {
-        kicker: "The move",
-        title: "Keep the drawing at the size it was made.",
-        body: [
-          "Squares, portraits, and one sequence. Thirteen drawings, shown whole.",
-        ],
-      },
-    ],
-    outcomes: [
-      { value: "13", label: "Drawings in the set" },
-      { value: "2021", label: "The year they were made" },
-      { value: "2", label: "Illustrator and Photoshop" },
-    ],
-  },
-  {
-    slug: "dino",
-    index: "01",
-    name: "Dino",
-    sector: "Illustration",
-    year: "2021",
-    markets: "Dino Explorer",
-    services: ["Illustration", "Game art", "Packaging"],
-    summary:
-      "Dino Explorer, a dinosaur park for children: the creatures, the world map, and the pack.",
-    headline: "A park that teaches the map.",
-    composition: "stack",
-    tone: "dusk",
-    cover: "/dino/cover.webp",
-    gallery: boards("dino", 5, "Dino Explorer", "Dino Explorer"),
-    galleryNoun: "boards",
-    chapters: [
-      {
-        kicker: "The brief",
-        title: "A dinosaur game for children who are still learning the map.",
-        body: [
-          "Dino Explorer is a dinosaur park designed in 2021 for a game company. The creatures were built in Blender, then given their features in Photoshop and Illustrator.",
-        ],
-      },
-      {
-        kicker: "The move",
-        title: "The animal, the place it lived, and the pack it ships in.",
-        body: [
-          "The same characters land on a world map, so a child can see where the dinosaur lived. The set also includes the card and the packaging for the same game.",
-        ],
-      },
-    ],
-    outcomes: [
-      { value: "5", label: "Boards in the set" },
-      { value: "2021", label: "Designed for the game" },
-      { value: "3", label: "Blender, Photoshop, Illustrator" },
-    ],
-  },
 ];
 
 const studyOrder = [
   "mcdonalds",
   "trimble-modus",
   "magazine",
-  "supr",
   "breadwala",
   "identity",
   "personal",
-  "illustrations",
-  "dino",
   "creatives",
   "presentations",
   "gen-ai",

@@ -9,7 +9,6 @@ import { cn } from "cn";
 
 const THUMB_OVERRIDES: Record<string, string[]> = {
   presentations: ["/presentations/art-01.webp", "/presentations/art-02.webp", "/presentations/art-03.webp"],
-  supr: ["/supr/cover.webp", "/supr/01.webp", "/supr/02.webp"],
 };
 
 function thumbsFor(slug: string) {

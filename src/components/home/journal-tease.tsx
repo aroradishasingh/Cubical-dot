@@ -10,7 +10,7 @@ export function JournalTease() {
       <div className="shell py-20 lg:py-28">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <Chapter index="07" label="Blog" />
+            <Chapter index="08" label="Blog" />
             <h2 className="display section-title mt-6">Notes from the studio.</h2>
           </div>
           <Link href="/blog" className="hidden text-sm font-medium underline decoration-lime decoration-2 underline-offset-4 sm:inline">

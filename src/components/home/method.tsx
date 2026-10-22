@@ -32,7 +32,7 @@ export function Method() {
   return (
     <section ref={root} className="bg-ink text-white">
       <div className="shell py-20 lg:py-28">
-        <Chapter index="05" label="Method" tone="light" />
+        <Chapter index="06" label="Method" tone="light" />
         <h2 className="display section-title mt-6 max-w-3xl">Five movements. One story.</h2>
         <div className="relative mt-14">
           <div className="method-line absolute top-3 right-0 left-0 hidden h-px origin-left bg-lime md:block" />
