@@ -68,7 +68,7 @@ function StudyRow({
   onOpen: () => void;
 }) {
   return (
-    <div className="border-b border-white/10" onMouseEnter={onOpen} onFocus={onOpen}>
+    <div className="border-b border-white/10" onMouseEnter={onOpen} onFocus={onOpen} onClick={onOpen}>
       <div className="shell grid grid-cols-1 items-start gap-x-6 gap-y-4 py-7 md:grid-cols-12 md:py-9">
         <div className="flex items-center gap-4 md:col-span-5 md:items-start">
           <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs text-white/60">
