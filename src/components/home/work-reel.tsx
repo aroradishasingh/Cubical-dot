@@ -69,14 +69,14 @@ function StudyRow({
 }) {
   return (
     <div className="border-b border-white/10" onMouseEnter={onOpen} onFocus={onOpen} onClick={onOpen}>
-      <div className="shell grid grid-cols-1 items-start gap-x-6 gap-y-4 py-7 md:grid-cols-12 md:py-9">
-        <div className="flex items-center gap-4 md:col-span-5 md:items-start">
-          <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs text-white/60">
+      <div className="shell grid grid-cols-1 items-center gap-x-6 gap-y-4 py-14 md:grid-cols-12 md:py-24">
+        <div className="flex items-center gap-5 md:col-span-5">
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/30 text-sm text-white/60">
             {index1(study)}
           </span>
           <span
             className={cn(
-              "inline-block px-2 py-0.5 font-mono text-[1.7rem] leading-none font-bold tracking-tight uppercase transition-colors duration-300 md:text-[2.6rem]",
+              "inline-block px-2 py-0.5 text-[2.2rem] leading-none font-bold tracking-tight uppercase transition-colors duration-300 md:text-[3.4rem]",
               open ? "bg-white text-ink" : "text-white/85"
             )}
           >
@@ -84,9 +84,9 @@ function StudyRow({
           </span>
         </div>
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 pl-11 md:col-span-6 md:pl-0">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 pl-[3.25rem] md:col-span-6 md:pl-0">
           {study.services.map((service) => (
-            <span key={service} className="font-mono text-[0.7rem] tracking-wider text-white/50 uppercase">
+            <span key={service} className="text-xs tracking-wider text-white/50 uppercase">
               {service}
             </span>
           ))}
