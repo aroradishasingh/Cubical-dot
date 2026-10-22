@@ -42,8 +42,6 @@ export type Service = {
   detail: string;
   composition: Composition;
   tone: Tone;
-  capabilities: string[];
-  preview: string[];
 };
 
 export const services: Service[] = [
@@ -57,8 +55,6 @@ export const services: Service[] = [
       "New websites for companies entering a market, launching a house, or retiring a temporary site that outlived its brief. Narrative, structure, visual system, motion, and a front end your team can keep.",
     composition: "orbit",
     tone: "dusk",
-    capabilities: ["Narrative & positioning", "Information architecture", "Visual system", "Motion", "Production front end"],
-    preview: ["/mcdonalds/cover.webp", "/mcdonalds/02.webp", "/mcdonalds/03.webp"],
   },
   {
     id: "website-redesign",
@@ -70,8 +66,6 @@ export const services: Service[] = [
       "Most of our work. We read the live site against the sale you actually want, keep the parts that earn trust, and rebuild the path from first screen to serious inquiry.",
     composition: "eclipse",
     tone: "violet",
-    capabilities: ["Site audit", "Conversion path", "Visual refresh", "Content strategy", "Migration & launch"],
-    preview: ["/magazine/01.webp", "/magazine/02.webp", "/magazine/03.webp"],
   },
   {
     id: "design-systems",
@@ -83,8 +77,6 @@ export const services: Service[] = [
       "Type, color, components, motion rules, and the decisions underneath them. Built so an internal team in another city can extend the site without inventing a second brand.",
     composition: "stack",
     tone: "ink",
-    capabilities: ["Type & color", "Component library", "Motion rules", "Documentation", "Team handover"],
-    preview: ["/trimble-modus/01.webp", "/trimble-modus/02.webp", "/trimble-modus/03.webp"],
   },
   {
     id: "digital-brand",
@@ -96,8 +88,6 @@ export const services: Service[] = [
       "When the brand is ahead of the website, or the website has become the brand by accident. We tune voice, crop, color, and motion until the digital presence can carry a premium price.",
     composition: "split",
     tone: "grove",
-    capabilities: ["Voice & tone", "Art direction", "Color & crop", "Motion language", "Brand guidelines"],
-    preview: ["/identity/07.webp", "/identity/02.webp", "/identity/03.webp"],
   },
   {
     id: "motion",
@@ -109,8 +99,6 @@ export const services: Service[] = [
       "Scroll, hover, and arrival. We use motion to explain, to pace a story, and to make a flagship feel considered. Decoration that does not help the buyer does not ship.",
     composition: "cascade",
     tone: "dusk",
-    capabilities: ["Scroll choreography", "Micro-interactions", "Page transitions", "Arrival & loading", "Motion QA"],
-    preview: ["/presentations/art-01.webp", "/presentations/art-02.webp", "/presentations/inshorts-01.webp"],
   },
   {
     id: "product-interfaces",
@@ -122,8 +110,6 @@ export const services: Service[] = [
       "For teams whose marketing site and product have drifted apart. We design the pages that sell the product and the interface patterns that should feel like the same company.",
     composition: "orbit",
     tone: "violet",
-    capabilities: ["Marketing-to-product handoff", "Interface patterns", "Design tokens", "Responsive systems", "Cross-team alignment"],
-    preview: ["/supr/cover.webp", "/supr/01.webp", "/supr/02.webp"],
   },
 ];
 

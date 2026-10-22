@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
 import { FieldArt } from "@/components/field-art";
@@ -6,17 +9,19 @@ import { studies } from "@/lib/content";
 import { cn } from "cn";
 
 export function WorkReel() {
+  const [active, setActive] = useState(0);
+
   return (
-    <section className="bg-ivory text-ink">
+    <section className="bg-[#07060f] text-white">
       <div className="shell pt-20 lg:pt-28">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <Chapter index="03" label="Work" />
+            <Chapter index="03" label="Work" tone="light" />
             <h2 className="display mt-4 text-[clamp(3.6rem,11.5vw,9rem)] leading-[0.86]">Services.</h2>
           </div>
           <div className="max-w-sm md:pb-2">
-            <p className="text-base leading-relaxed text-charcoal">
-              Research, identity, campaigns, and the sites. Each study is the work, then the decision behind it.
+            <p className="text-base leading-relaxed text-white/70">
+              Research, identity, campaigns, and the sites. Hover a study to see the work behind it.
             </p>
             <Link
               href="/work"
@@ -28,72 +33,96 @@ export function WorkReel() {
         </div>
       </div>
 
-      <div className="relative mt-14 pb-20 lg:mt-20 lg:pb-28">
+      <div className="mt-12 border-t border-white/10 lg:mt-16">
         {studies.map((study, index) => (
-          <div
-            key={study.slug}
-            className="sticky top-20 pb-5 md:top-24 md:pb-7"
-            style={{ zIndex: index + 1 }}
-          >
-            <StackCard study={study} index={index} />
-          </div>
+          <StudyRow key={study.slug} study={study} open={index === active} onOpen={() => setActive(index)} />
         ))}
       </div>
     </section>
   );
 }
 
-function StackCard({ study, index }: { study: (typeof studies)[number]; index: number }) {
+function StudyRow({
+  study,
+  open,
+  onOpen,
+}: {
+  study: (typeof studies)[number];
+  open: boolean;
+  onOpen: () => void;
+}) {
   return (
-    <Link
-      href={`/work/${study.slug}`}
-      data-cursor="hot"
-      style={{ borderRadius: 0 }}
-      className={cn(
-        "section-card study-card group/button flex w-full flex-col overflow-hidden text-white shadow-[0_32px_64px_-28px_rgba(0,0,0,0.45)] md:grid md:min-h-[34rem] md:grid-cols-2",
-        index % 3 === 1 && "study-card-b",
-        index % 3 === 2 && "study-card-c"
-      )}
-    >
-      <div className="relative h-64 shrink-0 md:h-full">
-        <div
-          className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)] md:[mask-image:linear-gradient(to_right,black_55%,transparent_100%)]"
-        >
-          {study.cover ? (
-            <img
-              src={study.cover}
-              alt=""
-              className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
-            />
-          ) : (
-            <FieldArt variant={study.composition} tone={study.tone} motion="none" />
-          )}
-        </div>
-      </div>
-      <div className="flex flex-col justify-center gap-5 p-8 sm:p-12 lg:p-16">
-        <p className="eyebrow text-white/50">
-          {study.featured ? <span className="text-lime">Featured · </span> : null}
-          {study.sector}
-        </p>
-        <h3 className="text-[2.6rem] leading-[0.92] font-semibold tracking-[-0.05em] text-balance md:text-[3.4rem]">
-          {study.name}
-        </h3>
-        <p className="max-w-md text-base leading-relaxed text-white/75">{study.headline}</p>
-        <div className="flex flex-wrap gap-2">
-          {study.services.map((service) => (
-            <span
-              key={service}
-              className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-white/70"
-            >
-              {service}
-            </span>
-          ))}
-        </div>
-        <span className="mt-1 inline-flex items-center gap-2 text-sm font-medium">
-          View study
-          <ArrowIcon />
+    <div className="border-b border-white/10" onMouseEnter={onOpen}>
+      <button
+        type="button"
+        onClick={onOpen}
+        onFocus={onOpen}
+        aria-expanded={open}
+        className="shell flex w-full items-center justify-between gap-6 py-5 text-left md:py-6"
+      >
+        <span className="flex items-center gap-5 md:gap-8">
+          <span className={cn("text-sm font-medium tabular-nums", open ? "text-lime" : "text-white/40")}>
+            {study.index}
+          </span>
+          <span
+            className={cn(
+              "text-[1.9rem] leading-none font-semibold tracking-[-0.05em] transition-colors duration-300 md:text-[2.8rem]",
+              open ? "text-white" : "text-white/35"
+            )}
+          >
+            {study.name}
+          </span>
         </span>
+        <span
+          className={cn(
+            "flex size-10 shrink-0 items-center justify-center rounded-[4px] border transition-colors duration-300 md:size-12",
+            open ? "border-lime bg-lime text-ink" : "border-white/20 text-white/50"
+          )}
+          aria-hidden
+        >
+          <ArrowIcon className={cn("size-4 transition-transform duration-300", open && "-rotate-45")} />
+        </span>
+      </button>
+
+      <div
+        className={cn(
+          "grid transition-[grid-template-rows] duration-500 ease-out",
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        )}
+      >
+        <div className="overflow-hidden">
+          <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-6 pb-8 md:grid-cols-12 md:pb-10">
+            <p className="text-base leading-relaxed text-white/70 md:col-span-4">{study.headline}</p>
+            <ul className="columns-2 gap-x-6 md:col-span-3">
+              {study.services.map((service) => (
+                <li key={service} className="mb-2 text-sm leading-snug text-white/55">
+                  {service}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href={`/work/${study.slug}`}
+              data-cursor="hot"
+              className="group/button relative block h-40 overflow-hidden rounded-[4px] md:col-span-5 md:h-48"
+            >
+              {study.cover ? (
+                <img
+                  src={study.cover}
+                  alt=""
+                  className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
+                />
+              ) : (
+                <FieldArt variant={study.composition} tone={study.tone} motion="none" />
+              )}
+              <span className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" aria-hidden />
+              <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-ink/80 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+                View study
+                <ArrowIcon className="size-3" />
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
