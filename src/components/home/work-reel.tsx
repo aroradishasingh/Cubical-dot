@@ -4,15 +4,23 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowIcon } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
-import { FieldArt } from "@/components/field-art";
 import { studies } from "@/lib/content";
 import { cn } from "cn";
+
+const THUMB_OVERRIDES: Record<string, string[]> = {
+  presentations: ["/presentations/art-01.webp", "/presentations/art-02.webp", "/presentations/art-03.webp"],
+  supr: ["/supr/cover.webp", "/supr/01.webp", "/supr/02.webp"],
+};
+
+function thumbsFor(slug: string) {
+  return THUMB_OVERRIDES[slug] ?? [`/${slug}/01.webp`, `/${slug}/02.webp`, `/${slug}/03.webp`];
+}
 
 export function WorkReel() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-[#07060f] text-white">
+    <section className="bg-black text-white">
       <div className="shell pt-20 lg:pt-28">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -35,7 +43,13 @@ export function WorkReel() {
 
       <div className="mt-12 border-t border-white/10 lg:mt-16">
         {studies.map((study, index) => (
-          <StudyRow key={study.slug} study={study} open={index === active} onOpen={() => setActive(index)} />
+          <StudyRow
+            key={study.slug}
+            study={study}
+            thumbs={thumbsFor(study.slug)}
+            open={index === active}
+            onOpen={() => setActive(index)}
+          />
         ))}
       </div>
     </section>
@@ -44,45 +58,52 @@ export function WorkReel() {
 
 function StudyRow({
   study,
+  thumbs,
   open,
   onOpen,
 }: {
   study: (typeof studies)[number];
+  thumbs: string[];
   open: boolean;
   onOpen: () => void;
 }) {
   return (
-    <div className="border-b border-white/10" onMouseEnter={onOpen}>
-      <button
-        type="button"
-        onClick={onOpen}
-        onFocus={onOpen}
-        aria-expanded={open}
-        className="shell flex w-full items-center justify-between gap-6 py-5 text-left md:py-6"
-      >
-        <span className="flex items-center gap-5 md:gap-8">
-          <span className={cn("text-sm font-medium tabular-nums", open ? "text-lime" : "text-white/40")}>
-            {study.index}
+    <div className="border-b border-white/10" onMouseEnter={onOpen} onFocus={onOpen}>
+      <div className="shell grid grid-cols-1 items-start gap-x-6 gap-y-4 py-7 md:grid-cols-12 md:py-9">
+        <div className="flex items-center gap-4 md:col-span-5 md:items-start">
+          <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/30 text-xs text-white/60">
+            {index1(study)}
           </span>
           <span
             className={cn(
-              "text-[1.9rem] leading-none font-semibold tracking-[-0.05em] transition-colors duration-300 md:text-[2.8rem]",
-              open ? "text-white" : "text-white/35"
+              "inline-block px-2 py-0.5 font-mono text-[1.7rem] leading-none font-bold tracking-tight uppercase transition-colors duration-300 md:text-[2.6rem]",
+              open ? "bg-white text-ink" : "text-white/85"
             )}
           >
             {study.name}
           </span>
-        </span>
-        <span
-          className={cn(
-            "flex size-10 shrink-0 items-center justify-center rounded-[4px] border transition-colors duration-300 md:size-12",
-            open ? "border-lime bg-lime text-ink" : "border-white/20 text-white/50"
-          )}
-          aria-hidden
-        >
-          <ArrowIcon className={cn("size-4 transition-transform duration-300", open && "-rotate-45")} />
-        </span>
-      </button>
+        </div>
+
+        <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 pl-11 md:col-span-6 md:pl-0">
+          {study.services.map((service) => (
+            <span key={service} className="font-mono text-[0.7rem] tracking-wider text-white/50 uppercase">
+              {service}
+            </span>
+          ))}
+        </div>
+
+        <div className="hidden justify-end md:col-span-1 md:flex">
+          <Link
+            href={`/work/${study.slug}`}
+            data-cursor="hot"
+            className={cn("text-lime transition-opacity duration-300", open ? "opacity-100" : "opacity-0")}
+            aria-hidden={!open}
+            tabIndex={open ? 0 : -1}
+          >
+            <ArrowIcon className="size-6 -rotate-45" />
+          </Link>
+        </div>
+      </div>
 
       <div
         className={cn(
@@ -91,38 +112,24 @@ function StudyRow({
         )}
       >
         <div className="overflow-hidden">
-          <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-6 pb-8 md:grid-cols-12 md:pb-10">
-            <p className="text-base leading-relaxed text-white/70 md:col-span-4">{study.headline}</p>
-            <ul className="columns-2 gap-x-6 md:col-span-3">
-              {study.services.map((service) => (
-                <li key={service} className="mb-2 text-sm leading-snug text-white/55">
-                  {service}
-                </li>
-              ))}
-            </ul>
-            <Link
-              href={`/work/${study.slug}`}
-              data-cursor="hot"
-              className="group/button relative block h-40 overflow-hidden rounded-[4px] md:col-span-5 md:h-48"
-            >
-              {study.cover ? (
-                <img
-                  src={study.cover}
-                  alt=""
-                  className="absolute inset-0 size-full object-cover object-center transition-transform duration-700 ease-out group-hover/button:scale-[1.03]"
-                />
-              ) : (
-                <FieldArt variant={study.composition} tone={study.tone} motion="none" />
-              )}
-              <span className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" aria-hidden />
-              <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-ink/80 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-                View study
-                <ArrowIcon className="size-3" />
-              </span>
-            </Link>
+          <div className="shell flex gap-3 pb-7 md:pb-9">
+            {thumbs.map((src) => (
+              <Link
+                key={src}
+                href={`/work/${study.slug}`}
+                data-cursor="hot"
+                className="size-20 shrink-0 overflow-hidden rounded-[2px] md:size-24"
+              >
+                <img src={src} alt="" className="size-full object-cover" loading="lazy" decoding="async" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
+}
+
+function index1(study: { index: string }) {
+  return String(Number(study.index));
 }
