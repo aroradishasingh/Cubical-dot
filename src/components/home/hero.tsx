@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { BrandButton } from "@/components/brand-button";
 import { Chapter } from "@/components/chapter";
-import { HeroTrail } from "@/components/home/hero-trail";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function Hero() {
@@ -67,7 +66,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[2%] via-ink via-[27%] to-ink md:hidden" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-ink via-ink/70 to-transparent md:h-28 md:via-ink/35" />
       </div>
-      <HeroTrail />
       <div className="hero-parallax shell relative z-10 flex min-h-[100svh] flex-col justify-end pt-28 pb-8 md:pb-10">
         <div className="hero-fade">
           <Chapter index="01" label="Arrival" tone="light" />
