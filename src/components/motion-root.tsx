@@ -54,7 +54,7 @@ export function MotionRoot() {
       <div ref={bar} className="pointer-events-none fixed top-0 left-0 z-[70] h-[3px] w-full origin-left bg-lime" aria-hidden />
       <div
         ref={cursor}
-        className="studio-cursor pointer-events-none fixed top-0 left-0 z-[80] size-3.5 rounded-full border border-ink bg-lime"
+        className="studio-cursor pointer-events-none fixed top-0 left-0 z-[80] mix-blend-difference size-3.5 rounded-full bg-lime"
         aria-hidden
       />
     </>
