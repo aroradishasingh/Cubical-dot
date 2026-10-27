@@ -66,7 +66,7 @@ export default function PrivacyPage() {
             <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Privacy Policy" }]} />
             <h1 className="display mt-5 text-[clamp(2.6rem,6vw,4.8rem)]">Privacy Policy.</h1>
             <p className="mt-6 text-lg leading-relaxed text-white/70">
-              Short version: we don't track you, we don't store what you send us on a server, and we don't share it with anyone. The long version is below.
+              Short version: we don&apos;t track you, we don&apos;t store what you send us on a server, and we don&apos;t share it with anyone. The long version is below.
             </p>
             <p className="mt-4 text-sm text-white/50">Last updated 27 October 2026.</p>
           </div>
