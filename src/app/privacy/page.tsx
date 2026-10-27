@@ -24,8 +24,9 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "How the contact form actually works",
     body: [
-      `When you fill in the contact form and submit it, your browser prepares a draft email addressed to ${studio.email} and opens it in your own email application. Nothing is sent to, or stored on, any server we operate - the form does not post your data anywhere. You decide whether to actually send that email.`,
-      `If you do send it, the message lives in your inbox and ours, like any other email, for as long as either of us keeps it. We use it only to reply to your enquiry. We do not add you to a mailing list, share it with third parties, or use it for anything beyond that conversation.`,
+      `When you submit the contact form, what you typed is sent once to a small server function we run, which forwards it straight to our inbox as an email using Resend, an email-delivery service. We do not save your submission in a database - the only copy that persists is the email itself, in our inbox, like any other message you'd send us.`,
+      "The form also checks a hidden field that only automated bots fill in, and how quickly the form was submitted, purely to filter spam before it reaches us. Neither check collects anything beyond what the form already asks for.",
+      `We use your message only to reply to your enquiry. We do not add you to a mailing list, share it with third parties, or use it for anything beyond that conversation. If the form is ever unreachable, you can always write ${studio.email} directly.`,
     ],
   },
   {

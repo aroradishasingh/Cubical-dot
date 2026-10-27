@@ -32,25 +32,15 @@ const empty: Fields = {
   message: "",
 };
 
-function mailtoHref(fields: Fields) {
-  const subject = `New project - ${fields.company}`;
-  const body = [
-    `Name: ${fields.name}`,
-    `Email: ${fields.email}`,
-    `Company: ${fields.company}`,
-    `Website: ${fields.website || "-"}`,
-    `Project: ${fields.projectType}`,
-    `Timeline: ${fields.timeline || "-"}`,
-    "",
-    fields.message,
-  ].join("\n");
-  return `mailto:${studio.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [fields, setFields] = useState<Fields>(empty);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [renderedAt] = useState(() => Date.now());
 
   function update<K extends keyof Fields>(key: K, value: Fields[K]) {
     setFields((current) => ({ ...current, [key]: value }));
@@ -61,39 +51,50 @@ export function ContactForm() {
     const next: Partial<Record<keyof Fields, string>> = {};
     if (fields.name.trim().length < 2) next.name = "Tell us who to address.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) next.email = "We need a real email to reply.";
-    if (fields.company.trim().length < 2) next.company = "Which company is this for?";
     if (!fields.projectType) next.projectType = "Choose the kind of work.";
     if (fields.message.trim().length < 20) next.message = "A few sentences on the market and the website are enough.";
     return next;
   }
 
-  function onSubmit(event: React.FormEvent) {
+  async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
     const next = validate();
     setErrors(next);
     if (Object.keys(next).length > 0) return;
-    setSent(true);
+
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...fields, company_website: honeypot, renderedAt }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        setErrorMessage(result.error || "Could not send that just now. Please email us directly.");
+        setStatus("error");
+        return;
+      }
+      setStatus("sent");
+    } catch {
+      setErrorMessage("Could not reach the server. Please email us directly.");
+      setStatus("error");
+    }
   }
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div className="rounded-[8px] bg-ink p-8 text-white md:p-10" role="status">
-        <p className="eyebrow text-lime">Brief ready</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">The note is written.</h2>
+        <p className="eyebrow text-lime">Brief sent</p>
+        <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">We have it.</h2>
         <p className="mt-4 max-w-md text-base leading-relaxed text-white/80">
-          Open it in your email app and send. A producer replies within two business days, on your clock. If the draft does not open, write {studio.email} directly.
+          A producer replies within two business days. If it is urgent, write {studio.email} directly.
         </p>
-        <a
-          href={mailtoHref(fields)}
-          className="mt-8 inline-flex h-12 items-center rounded-[8px] bg-lime px-5 text-sm font-medium text-ink"
-        >
-          Open the email
-        </a>
         <button
           type="button"
-          className="mt-4 block text-sm text-white/60 underline underline-offset-4"
+          className="mt-8 block text-sm text-white/60 underline underline-offset-4"
           onClick={() => {
-            setSent(false);
+            setStatus("idle");
             setFields(empty);
           }}
         >
@@ -110,6 +111,27 @@ export function ContactForm() {
           A few fields need another look before this can be sent.
         </p>
       ) : null}
+      {status === "error" ? (
+        <p role="alert" className="mb-6 rounded-2xl bg-[#fff4f0] px-4 py-3 text-sm text-[#9a3412]">
+          {errorMessage}{" "}
+          <a href={`mailto:${studio.email}`} className="underline">
+            {studio.email}
+          </a>
+        </p>
+      ) : null}
+      {/* Honeypot: hidden from sighted and screen-reader users, bots fill every field they can find. */}
+      <div className="sr-only" aria-hidden="true">
+        <label htmlFor="company_website">Leave this field empty</label>
+        <input
+          id="company_website"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Name" id="name" error={errors.name}>
           <Input id="name" name="name" autoComplete="name" value={fields.name} aria-invalid={Boolean(errors.name)} onChange={(event) => update("name", event.target.value)} />
@@ -117,8 +139,8 @@ export function ContactForm() {
         <Field label="Email" id="email" error={errors.email}>
           <Input id="email" name="email" type="email" autoComplete="email" value={fields.email} aria-invalid={Boolean(errors.email)} onChange={(event) => update("email", event.target.value)} />
         </Field>
-        <Field label="Company" id="company" error={errors.company}>
-          <Input id="company" name="company" autoComplete="organization" value={fields.company} aria-invalid={Boolean(errors.company)} onChange={(event) => update("company", event.target.value)} />
+        <Field label="Company" id="company" optional>
+          <Input id="company" name="company" autoComplete="organization" value={fields.company} onChange={(event) => update("company", event.target.value)} />
         </Field>
         <Field label="Website" id="website" optional>
           <Input id="website" name="website" type="url" placeholder="https://" value={fields.website} onChange={(event) => update("website", event.target.value)} />
@@ -163,16 +185,16 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Button type="submit" variant="ink" size="pill" className="mt-6">
+      <Button type="submit" variant="ink" size="pill" className="mt-6" disabled={status === "sending"}>
         <span className="size-2 rounded-full bg-lime group-hover/button:bg-ink" aria-hidden />
-        Prepare the email
+        {status === "sending" ? "Sending..." : "Send the brief"}
       </Button>
       <p className="mt-4 text-sm leading-relaxed text-charcoal">
-        Nothing is stored on a server. Preparing the email opens a draft to {studio.email} so you can send it yourself. See our{" "}
+        This goes straight to our inbox, nothing else. See our{" "}
         <Link href="/privacy" className="underline decoration-lime decoration-2 underline-offset-2">
           privacy policy
         </Link>
-        .
+        . You can also write {studio.email} directly.
       </p>
     </form>
   );
