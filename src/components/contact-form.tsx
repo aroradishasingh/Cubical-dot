@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -167,7 +168,11 @@ export function ContactForm() {
         Prepare the email
       </Button>
       <p className="mt-4 text-sm leading-relaxed text-charcoal">
-        Nothing is stored on a server. Preparing the email opens a draft to {studio.email} so you can send it yourself.
+        Nothing is stored on a server. Preparing the email opens a draft to {studio.email} so you can send it yourself. See our{" "}
+        <Link href="/privacy" className="underline decoration-lime decoration-2 underline-offset-2">
+          privacy policy
+        </Link>
+        .
       </p>
     </form>
   );
