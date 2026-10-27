@@ -23,9 +23,21 @@ export function LogoIntro() {
     const node = root.current;
     if (!node) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem("cubical-intro-seen") === "1";
+    } catch {
+      seen = false;
+    }
+    if (reduced || seen) {
       node.style.display = "none";
       return;
+    }
+    try {
+      sessionStorage.setItem("cubical-intro-seen", "1");
+    } catch {
+      // ignore: private browsing or storage disabled, animation just replays
     }
 
     const strokeRect = node.querySelector(".build-stroke-rect") as SVGGeometryElement | null;
@@ -149,7 +161,7 @@ export function LogoIntro() {
     tl.to(node, { autoAlpha: 0, duration: 0.4, ease: "power2.inOut" }, "dock+=0.7");
 
     tl.to(".build-progress", { scaleX: 1, duration: tl.duration(), ease: "none" }, 0);
-    tl.timeScale(1.18);
+    tl.timeScale(2.3);
 
     return () => {
       document.documentElement.style.overflow = "";

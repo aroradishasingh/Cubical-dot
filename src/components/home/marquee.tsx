@@ -8,7 +8,7 @@ const items = [
   "Digital brand",
   "Product interfaces",
   "Creative direction",
-  "International clients",
+  "Working worldwide",
 ];
 
 export function Marquee({ tone = "dark" }: { tone?: "dark" | "light" }) {

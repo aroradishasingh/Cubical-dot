@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowIcon } from "@/components/brand-button";
@@ -69,13 +70,13 @@ function StudyRow({
   return (
     <div className="border-b border-white/10" onMouseEnter={onOpen} onFocus={onOpen} onClick={onOpen}>
       <div className="shell grid grid-cols-1 items-center gap-x-6 gap-y-4 py-14 md:grid-cols-12 md:py-24">
-        <div className="flex items-center gap-5 md:col-span-5">
+        <div className="flex min-w-0 items-center gap-5 md:col-span-5">
           <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/30 text-sm text-white/60">
             {index1(study)}
           </span>
           <span
             className={cn(
-              "inline-block px-2 py-0.5 text-[2.2rem] leading-none font-bold tracking-tight uppercase transition-colors duration-300 md:text-[3.4rem]",
+              "min-w-0 truncate px-2 py-0.5 text-[2.2rem] leading-none font-bold tracking-tight uppercase transition-colors duration-300 md:text-[clamp(2rem,4.4vw,3.4rem)]",
               open ? "bg-white text-ink" : "text-white/85"
             )}
           >
@@ -117,9 +118,9 @@ function StudyRow({
                 key={src}
                 href={`/work/${study.slug}`}
                 data-cursor="hot"
-                className="size-20 shrink-0 overflow-hidden rounded-[2px] md:size-24"
+                className="relative size-20 shrink-0 overflow-hidden rounded-[2px] md:size-24"
               >
-                <img src={src} alt="" className="size-full object-cover" loading="lazy" decoding="async" />
+                <Image src={src} alt="" fill sizes="96px" className="object-cover" />
               </Link>
             ))}
           </div>
