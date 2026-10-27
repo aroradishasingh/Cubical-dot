@@ -36,7 +36,7 @@ export function SiteFooter() {
             {studio.email}
           </a>
           <p className="mt-4 text-base leading-relaxed text-white/75">
-            Independent studio. Clients across Europe, North America, the Gulf, and Asia-Pacific. We reply within two business days.
+            India-based independent studio. Working with ambitious brands worldwide. We reply within two business days.
           </p>
         </div>
       </div>

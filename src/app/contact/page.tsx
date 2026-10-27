@@ -46,7 +46,7 @@ export default function ContactPage() {
               {studio.email}
             </a>
             <p className="mt-3 max-w-sm text-base leading-relaxed text-charcoal">
-              Independent studio. Clients across Europe, North America, the Gulf, and Asia-Pacific.
+              India-based independent studio. Working with ambitious brands worldwide.
             </p>
           </div>
           <div className="lg:col-span-7">

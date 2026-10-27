@@ -52,7 +52,7 @@ export const services: Service[] = [
     line: "A digital flagship for a brand ready to be seen at the price it charges.",
     accent: "flagship",
     detail:
-      "New websites for companies entering a market, launching a house, or retiring a temporary site that outlived its brief. Narrative, structure, visual system, motion, and a front end your team can keep.",
+      "A new site built from scratch: sitemap and page-by-page UX, a visual and motion system, copy direction, and a production-ready front end your team can maintain. Typically 6-12 pages, delivered in 8-14 weeks.",
     composition: "orbit",
     tone: "dusk",
   },
@@ -63,7 +63,7 @@ export const services: Service[] = [
     line: "The commercial edit. What stays, what goes, what the next buyer needs first.",
     accent: "commercial",
     detail:
-      "Most of our work. We read the live site against the sale you actually want, keep the parts that earn trust, and rebuild the path from first screen to serious inquiry.",
+      "Starts with an audit of the current site against the sale you actually want. We keep the pages and SEO equity that earn trust, then rebuild the information architecture, UI, and front end around the path to a serious inquiry.",
     composition: "eclipse",
     tone: "violet",
   },
@@ -74,7 +74,7 @@ export const services: Service[] = [
     line: "The smallest set of parts that keeps a brand consistent after we leave.",
     accent: "consistent",
     detail:
-      "Type, color, components, motion rules, and the decisions underneath them. Built so an internal team in another city can extend the site without inventing a second brand.",
+      "A documented component library covering type, color, spacing, components, and motion rules, in Figma and in code. Built so your own team can extend the site without inventing a second brand.",
     composition: "stack",
     tone: "ink",
   },
@@ -85,7 +85,7 @@ export const services: Service[] = [
     line: "Identity, translated for screens. Not a logo pasted onto a template.",
     accent: "screens",
     detail:
-      "When the brand is ahead of the website, or the website has become the brand by accident. We tune voice, crop, color, and motion until the digital presence can carry a premium price.",
+      "A digital-specific style guide - voice and tone, screen color and type, photo and motion direction - so marketing, product, and sales all use the same brand on screen, not just on the logo.",
     composition: "split",
     tone: "grove",
   },
@@ -96,7 +96,7 @@ export const services: Service[] = [
     line: "Movement with a job. Emphasis, sequence, and the feeling of a thing well made.",
     accent: "job",
     detail:
-      "Scroll, hover, and arrival. We use motion to explain, to pace a story, and to make a flagship feel considered. Decoration that does not help the buyer does not ship.",
+      "Production-ready motion specs and code (GSAP and CSS) for the scroll, hover, and transition moments that matter - something your developers can ship, not a mood video that gets reinterpreted later.",
     composition: "cascade",
     tone: "dusk",
   },
@@ -107,7 +107,7 @@ export const services: Service[] = [
     line: "Marketing sites and product surfaces that share one visual language.",
     accent: "one visual language",
     detail:
-      "For teams whose marketing site and product have drifted apart. We design the pages that sell the product and the interface patterns that should feel like the same company.",
+      "The marketing pages that sell the product, plus a shared UI-pattern set - navigation, forms, states - so the product and the site read as the same company, not two vendors.",
     composition: "orbit",
     tone: "violet",
   },

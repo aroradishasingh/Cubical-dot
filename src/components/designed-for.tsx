@@ -42,13 +42,16 @@ export function DesignedFor({ className }: { className?: string }) {
       aria-labelledby="designed-for"
     >
       <h2 id="designed-for" className="sr-only">
-        The team has designed for
+        Brands the founder has designed for in previous roles
       </h2>
       <ul className="sr-only">
         {designedFor.map((company) => (
           <li key={company.name}>{company.name}</li>
         ))}
       </ul>
+      <p className="shell eyebrow mb-4 text-stone" aria-hidden>
+        Previously designed for, in earlier roles
+      </p>
       <div
         className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
         aria-hidden

@@ -44,7 +44,7 @@ export default function AboutPage() {
               We are hired by founders, brand directors, and marketing leads whose price already says premium, and whose website still says otherwise. Often they are selling into a second country. Often the current site was assembled quickly and then asked to do a job it was never designed for.
             </p>
             <p>
-              The studio stays small on purpose. A senior design direction leads every engagement. Engineering, motion, and content join per project, named, and introduced. You are not handed to a different team after the proposal.
+              Founder-led design, with specialist collaborators engaged when a project requires them, each named and introduced before they join. You are not handed to a different team after the proposal.
             </p>
           </div>
         </div>
