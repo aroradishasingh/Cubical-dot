@@ -29,12 +29,12 @@ const poppins = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(studio.url),
   title: {
-    default: "Cubical Dot — Ideas in motion",
-    template: "%s — Cubical Dot",
+    default: "Cubical Dot - Ideas in motion",
+    template: "%s - Cubical Dot",
   },
   description: studio.description,
   openGraph: {
-    title: "Cubical Dot — Ideas in motion",
+    title: "Cubical Dot - Ideas in motion",
     description: studio.description,
     url: studio.url,
     siteName: "Cubical Dot",

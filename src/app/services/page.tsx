@@ -17,7 +17,7 @@ export default function ServicesPage() {
         index="03"
         label="Services"
         title="Design beyond boundaries."
-        lede="The practice is website design and redesign for premium brands. The surrounding work — systems, brand, motion, product — exists so the site still holds together after launch."
+        lede="The practice is website design and redesign for premium brands. The surrounding work - systems, brand, motion, product - exists so the site still holds together after launch."
         variant="stack"
         tone="violet"
       >

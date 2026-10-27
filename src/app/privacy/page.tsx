@@ -11,7 +11,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Who this policy covers",
     body: [
-      `This policy explains how ${studio.name} ("we", "us") handles information in connection with ${studio.url}. It is written to describe what the site actually does, not a generic template — if a section below doesn't apply to you, that's because the practice it describes doesn't happen on this site.`,
+      `This policy explains how ${studio.name} ("we", "us") handles information in connection with ${studio.url}. It is written to describe what the site actually does, not a generic template - if a section below doesn't apply to you, that's because the practice it describes doesn't happen on this site.`,
     ],
   },
   {
@@ -24,14 +24,14 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "How the contact form actually works",
     body: [
-      `When you fill in the contact form and submit it, your browser prepares a draft email addressed to ${studio.email} and opens it in your own email application. Nothing is sent to, or stored on, any server we operate — the form does not post your data anywhere. You decide whether to actually send that email.`,
+      `When you fill in the contact form and submit it, your browser prepares a draft email addressed to ${studio.email} and opens it in your own email application. Nothing is sent to, or stored on, any server we operate - the form does not post your data anywhere. You decide whether to actually send that email.`,
       `If you do send it, the message lives in your inbox and ours, like any other email, for as long as either of us keeps it. We use it only to reply to your enquiry. We do not add you to a mailing list, share it with third parties, or use it for anything beyond that conversation.`,
     ],
   },
   {
     title: "Hosting and technical logs",
     body: [
-      "The site is hosted on Vercel. Like any web host, Vercel's infrastructure processes standard request metadata — such as IP address, browser type, and the page requested — purely to deliver pages and keep the service secure. We don't access or use this data for profiling; it is governed by Vercel's own privacy policy, not ours.",
+      "The site is hosted on Vercel. Like any web host, Vercel's infrastructure processes standard request metadata - such as IP address, browser type, and the page requested - purely to deliver pages and keep the service secure. We don't access or use this data for profiling; it is governed by Vercel's own privacy policy, not ours.",
       "Fonts and other assets on this site are hosted by us directly, not fetched from Google Fonts or any other third party, so your browser does not make typography-related requests to outside services when you visit.",
     ],
   },
@@ -40,7 +40,7 @@ const sections: { title: string; body: string[] }[] = [
     body: [
       "If you're in India, this is handled consistently with the Digital Personal Data Protection Act, 2023: you can ask us what we hold about you (in practice, whatever you wrote in an email to us), ask us to correct or delete it, and withdraw consent for us to hold it.",
       "If you're in the EU/EEA or UK, the same requests apply under the GDPR: access, correction, erasure, restriction, and objection. You also have the right to lodge a complaint with your local data protection authority.",
-      `To exercise any of these, just email ${studio.email} — the same address the contact form writes to. We'll action it directly since it's a real person reading real email, not a ticketing system.`,
+      `To exercise any of these, just email ${studio.email} - the same address the contact form writes to. We'll action it directly since it's a real person reading real email, not a ticketing system.`,
     ],
   },
   {
@@ -52,7 +52,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Changes to this policy",
     body: [
-      "If what the site does changes — for example, if we ever add analytics — we'll update this page to reflect it rather than leave a policy that no longer describes reality.",
+      "If what the site does changes - for example, if we ever add analytics - we'll update this page to reflect it rather than leave a policy that no longer describes reality.",
     ],
   },
 ];

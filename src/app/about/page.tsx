@@ -93,7 +93,7 @@ export default function AboutPage() {
           <p className="eyebrow text-stone">The palette</p>
           <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-[-0.045em]">Four colors. One signal.</h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-charcoal">
-            Black and ivory are the fields. Violet carries the form. Lime is the only signal — the thing a buyer is meant to do next. If everything signals, nothing does.
+            Black and ivory are the fields. Violet carries the form. Lime is the only signal - the thing a buyer is meant to do next. If everything signals, nothing does.
           </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {swatches.map((swatch) => (

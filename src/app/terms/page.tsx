@@ -11,7 +11,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Accepting these terms",
     body: [
-      `By using ${studio.url}, you agree to these terms. This page covers the website itself — browsing it, reading it, contacting us through it. It is not a client services agreement; the terms of an actual engagement are set out separately, in writing, before any project starts.`,
+      `By using ${studio.url}, you agree to these terms. This page covers the website itself - browsing it, reading it, contacting us through it. It is not a client services agreement; the terms of an actual engagement are set out separately, in writing, before any project starts.`,
     ],
   },
   {
@@ -23,7 +23,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Ownership",
     body: [
-      `The design, code, copy, and case study presentation on this site belong to ${studio.name} unless stated otherwise. The underlying client work shown in each case study — the brands, products, and deliverables — belongs to the respective clients; we show it to describe work we did for them, not to claim it as our own product.`,
+      `The design, code, copy, and case study presentation on this site belong to ${studio.name} unless stated otherwise. The underlying client work shown in each case study - the brands, products, and deliverables - belongs to the respective clients; we show it to describe work we did for them, not to claim it as our own product.`,
       "Client names and logos shown on this site (including the \"designed for\" strip and individual case studies) represent studio or founder work completed for those brands. If you are a brand shown here and have a concern about how your name or mark is displayed, contact us and we'll address it promptly.",
     ],
   },
@@ -66,7 +66,7 @@ export default function TermsPage() {
             <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Terms of Use" }]} />
             <h1 className="display mt-5 text-[clamp(2.6rem,6vw,4.8rem)]">Terms of Use.</h1>
             <p className="mt-6 text-lg leading-relaxed text-white/70">
-              The plain terms that cover using this website — not a client contract, just the site itself.
+              The plain terms that cover using this website - not a client contract, just the site itself.
             </p>
             <p className="mt-4 text-sm text-white/50">Last updated 27 October 2026.</p>
           </div>

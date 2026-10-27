@@ -33,14 +33,14 @@ const empty: Fields = {
 };
 
 function mailtoHref(fields: Fields) {
-  const subject = `New project — ${fields.company}`;
+  const subject = `New project - ${fields.company}`;
   const body = [
     `Name: ${fields.name}`,
     `Email: ${fields.email}`,
     `Company: ${fields.company}`,
-    `Website: ${fields.website || "—"}`,
+    `Website: ${fields.website || "-"}`,
     `Project: ${fields.projectType}`,
-    `Timeline: ${fields.timeline || "—"}`,
+    `Timeline: ${fields.timeline || "-"}`,
     "",
     fields.message,
   ].join("\n");
