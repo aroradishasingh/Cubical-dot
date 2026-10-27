@@ -10,7 +10,23 @@ export const metadata: Metadata = {
 const sections: { title: string; body: string[] }[] = [
   {
     title: "Who this policy covers",
-    body: ["This is a minimal test paragraph."],
+    body: [
+      `This policy explains how ${studio.name} ("we", "us") handles information in connection with ${studio.url}. It is written to describe what the site actually does, not a generic template — if a section below doesn't apply to you, that's because the practice it describes doesn't happen on this site.`,
+    ],
+  },
+  {
+    title: "What we collect",
+    body: [
+      "The only personal information this site handles is what you choose to type into the contact form: your name, email, company, website (optional), the kind of project, a timeline (optional), and your message.",
+      "We do not use cookies, analytics, or any third-party tracking script. We do not run advertising pixels. We do not build a profile of visitors. If you simply read the site without using the contact form, we collect nothing about you beyond the standard technical logs described below.",
+    ],
+  },
+  {
+    title: "How the contact form actually works",
+    body: [
+      `When you fill in the contact form and submit it, your browser prepares a draft email addressed to ${studio.email} and opens it in your own email application. Nothing is sent to, or stored on, any server we operate — the form does not post your data anywhere. You decide whether to actually send that email.`,
+      `If you do send it, the message lives in your inbox and ours, like any other email, for as long as either of us keeps it. We use it only to reply to your enquiry. We do not add you to a mailing list, share it with third parties, or use it for anything beyond that conversation.`,
+    ],
   },
 ];
 
