@@ -91,7 +91,7 @@ export function Logo({
     <span className={cn("inline-flex items-end text-[1.65rem] sm:text-[1.85rem]", className)}>
       <Mark variant={variant} className="h-[1em] w-auto" />
       {wordmark ? (
-        <span className="font-logo ml-[0.42em] translate-y-[0.157em] text-[0.95em] leading-none font-medium tracking-[-0.02em] text-[#F6F5F2]">
+        <span className="font-logo ml-[0.42em] translate-y-[0.157em] text-[0.95em] leading-none font-medium tracking-[-0.02em] text-current">
           Cubical Dot
         </span>
       ) : null}

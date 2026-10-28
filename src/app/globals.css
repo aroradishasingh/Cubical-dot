@@ -7,17 +7,24 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
   --font-logo: var(--font-poppins), "Poppins", sans-serif;
-  --color-ink: #0a0a0a;
-  --color-ivory: #f9f9f7;
-  --color-violet: #6318ff;
-  --color-lime: #d7ff3f;
-  --color-charcoal: #1f1f1f;
-  --color-mist: #e5e5e7;
-  --color-stone: #5c5c5c;
-  --color-dusk: #07060f;
+  /* Variation C palette, taken from the mark itself. */
+  --color-paper: #f2f0e9;
+  --color-cobalt: #2c5cf6;
+  --color-cobalt-deep: #1e3fc4;
+  --color-ink: #101012;
+  --color-lime: #e1fc6d;
+  --color-stone: #55555a;
+  /* Older names used by inner pages, pointed at the new palette. */
+  --color-ivory: #f2f0e9;
+  --color-night: #101012;
+  --color-violet: #1e3fc4;
+  --color-charcoal: #2a2a2e;
+  --color-mist: #dedbd2;
+  --color-dusk: #101012;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -46,8 +53,8 @@
 :root {
   --page-margin: clamp(1.25rem, 4vw, 5rem);
   --grid-gutter: 16px;
-  --background: #f9f9f7;
-  --foreground: #0a0a0a;
+  --background: #f2f0e9;
+  --foreground: #101012;
   --card: #ffffff;
   --card-foreground: #0a0a0a;
   --popover: #ffffff;
@@ -63,7 +70,7 @@
   --destructive: #c2410c;
   --border: #e5e5e7;
   --input: #e0e0e2;
-  --ring: #6318ff;
+  --ring: #1e3fc4;
   --radius: 8px;
   color-scheme: light;
 }
@@ -87,9 +94,15 @@
     overflow-x: clip;
     max-width: 100%;
   }
+  /* Light panels keep dark type; text utilities still override. */
+  .bg-ivory,
+  .bg-white,
+  .bg-lime {
+    color: var(--color-ink);
+  }
   ::selection {
-    background: #d7ff3f;
-    color: #0a0a0a;
+    background: #e1fc6d;
+    color: #101012;
   }
 }
 
@@ -100,14 +113,15 @@
     line-height: 0.96;
     text-wrap: balance;
   }
-  /* One size for every section heading on the home page. */
   .section-title {
     font-size: clamp(2.4rem, 4.6vw, 4.4rem);
   }
+  /* Labels: mono, uppercase, never below 12px. */
   .eyebrow {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
   .shell {
@@ -115,49 +129,23 @@
     margin-inline: auto;
     padding-inline: var(--page-margin);
   }
-  .section-card {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background-color: #070614;
-    background-image:
-      radial-gradient(88% 80% at 108% 114%, #f9f9f7 0%, #e1fc6d 13%, #6318ff 38%, rgba(44, 92, 246, 0.3) 56%, transparent 72%),
-      linear-gradient(168deg, #07060f 0%, #0b0720 46%, #16124e 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  /* Emphasis is weight contrast: a light word inside heavy display type. */
+  .serif-i {
+    font-weight: 250;
+    font-style: normal;
+    letter-spacing: -0.03em;
   }
-  .section-card:nth-child(3n + 2) {
-    background-image:
-      radial-gradient(88% 80% at 112% 116%, #f9f9f7 0%, #d7ff3f 15%, #2c5cf6 40%, transparent 70%),
-      linear-gradient(172deg, #05040c 0%, #0c0828 48%, #1a1460 100%);
+  .mega {
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 0.82;
   }
-  .section-card:nth-child(3n + 3) {
-    background-image:
-      radial-gradient(90% 82% at 102% 118%, #f4f0ff 0%, #e1fc6d 12%, #6318ff 36%, transparent 68%),
-      linear-gradient(158deg, #07060f 0%, #100828 46%, #22145c 100%);
-  }
-  .study-card {
-    background-color: #0a0a0a;
-    background-image:
-      radial-gradient(78% 68% at 104% 108%, rgba(244, 240, 255, 0.72) 0%, rgba(176, 150, 255, 0.42) 14%, rgba(99, 24, 255, 0.32) 30%, rgba(74, 64, 230, 0.16) 48%, rgba(44, 92, 246, 0.06) 66%, rgba(44, 92, 246, 0) 84%),
-      radial-gradient(120% 100% at 100% 100%, rgba(99, 24, 255, 0.1) 0%, rgba(44, 92, 246, 0.04) 42%, rgba(44, 92, 246, 0) 78%),
-      linear-gradient(#0a0a0a, #111111);
-  }
-  .study-card:nth-child(3n + 2) {
-    background-image:
-      radial-gradient(74% 64% at 106% 110%, rgba(236, 240, 255, 0.66) 0%, rgba(140, 160, 255, 0.38) 16%, rgba(44, 92, 246, 0.28) 34%, rgba(44, 92, 246, 0.12) 52%, rgba(44, 92, 246, 0.04) 68%, rgba(44, 92, 246, 0) 86%),
-      radial-gradient(124% 104% at 100% 100%, rgba(44, 92, 246, 0.09) 0%, rgba(44, 92, 246, 0.03) 46%, rgba(44, 92, 246, 0) 80%),
-      linear-gradient(#090909, #121212);
-  }
-  .study-card:nth-child(3n + 3) {
-    background-image:
-      radial-gradient(80% 70% at 102% 106%, rgba(244, 240, 255, 0.7) 0%, rgba(168, 130, 255, 0.4) 15%, rgba(99, 24, 255, 0.26) 32%, rgba(99, 24, 255, 0.1) 52%, rgba(99, 24, 255, 0.03) 70%, rgba(99, 24, 255, 0) 88%),
-      radial-gradient(128% 108% at 100% 100%, rgba(99, 24, 255, 0.08) 0%, rgba(99, 24, 255, 0.025) 48%, rgba(99, 24, 255, 0) 82%),
-      linear-gradient(#0a0a0a, #101010);
+  /* The slab: rounded top-left and bottom-right, like the mark. */
+  .slab {
+    border-radius: var(--slab, 28px) 0 var(--slab, 28px) 0;
   }
   .motion-flow {
-    background-color: #6318ff;
+    background-color: #2c5cf6;
     background-image: url("/motion-flow.svg");
     background-repeat: no-repeat;
     background-size: 200% 240%;
@@ -296,11 +284,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo-intro {
+  .loader {
     display: none;
   }
 }
 
+/* The custom ring replaces the system pointer so its label never collides
+   with the native arrow glyph - one cursor on screen, not two. */
 @media (hover: hover) and (pointer: fine) {
   .studio-cursor {
     display: block;
@@ -308,4 +298,87 @@
   * {
     cursor: none !important;
   }
+}
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+/* WCAG 2.4.7: a focus ring visible on every surface. */
+:focus-visible {
+  outline: 2px solid #1e3fc4;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.bg-ink :focus-visible,
+.bg-cobalt :focus-visible,
+.bg-night :focus-visible {
+  outline-color: #e1fc6d;
+}
+
+@keyframes scroll-cue {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(200%); }
+}
+
+/* Story stops: an empty ring that fills when the travelling dot arrives. */
+.story-stop {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: 0.04em;
+  border-radius: 999px;
+  border: max(2px, 0.03em) solid currentColor;
+  vertical-align: baseline;
+  transition:
+    background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.5s;
+}
+.story-stop.is-lit {
+  background-color: var(--color-lime);
+  border-color: var(--color-ink);
+  transform: scale(1.12);
+}
+.bg-lime .story-stop.is-lit {
+  background-color: var(--color-ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-stop {
+    transition: none;
+  }
+}
+
+/* Service glyphs: the slab and the dot, quietly at work. Paused by the motion switch. */
+@keyframes glyph-bar {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.55); }
+}
+@keyframes glyph-morph {
+  0%, 100% { border-radius: 0; }
+  50% { border-radius: 29% 0 29% 0; }
+}
+@keyframes glyph-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+@keyframes glyph-bounce {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(120%, -160%); }
+  50% { transform: translate(240%, 0); }
+  75% { transform: translate(360%, -160%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes glyph-stack {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-6%, -6%); }
+}
+.glyph-bar { transform-origin: left center; animation: glyph-bar 3.2s ease-in-out infinite; }
+.glyph-morph { animation: glyph-morph 3.6s cubic-bezier(0.76, 0, 0.24, 1) infinite; }
+.glyph-pop { animation: glyph-pop 2.4s ease-in-out infinite; }
+.glyph-bounce { animation: glyph-bounce 3s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.glyph-stack { animation: glyph-stack 3.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .glyph-bar, .glyph-morph, .glyph-pop, .glyph-bounce, .glyph-stack { animation: none; }
 }

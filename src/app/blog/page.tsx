@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { essays } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
   description: "Notes from Cubical Dot on redesign, form, and what an international buyer needs to trust.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (
@@ -16,8 +17,7 @@ export default function BlogPage() {
         label="Blog"
         title="Notes from the studio."
         lede="Short essays on the commercial side of a website. Written the way we talk to a client: specific, and willing to leave something out."
-        variant="eclipse"
-        tone="grove"
+        form="fusion"
       />
       <section className="bg-ivory">
         <div className="shell grid gap-y-5 py-16">
@@ -36,7 +36,7 @@ export default function BlogPage() {
                 </p>
               </div>
               <div className="md:col-span-9">
-                <h2 className="text-3xl font-bold tracking-[-0.045em] transition-transform duration-500 group-hover/button:-translate-y-0.5 md:text-4xl">
+                <h2 className="text-3xl font-bold tracking-[-0.028em] transition-transform duration-500 group-hover/button:-translate-y-0.5 md:text-4xl">
                   {essay.title}
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-charcoal">{essay.dek}</p>

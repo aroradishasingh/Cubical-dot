@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { studio } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Terms of Use",
   description: "The terms that cover using the Cubical Dot website.",
-};
+  path: "/terms",
+});
 
 const sections: { title: string; body: string[] }[] = [
   {

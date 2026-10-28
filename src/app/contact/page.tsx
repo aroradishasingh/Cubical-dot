@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { studio } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
   description: "Start a website design or redesign with Cubical Dot. We reply within two business days.",
-};
+  path: "/contact",
+});
 
 const steps = [
   ["01", "You write", "Market, timeline, and the job the website has to do. A range is enough."],
@@ -23,14 +24,13 @@ export default function ContactPage() {
         label="Contact"
         title="Let's build."
         lede="Tell us the market you are entering and the standard the website has to hold. If we are the right studio, you will hear back within two business days."
-        variant="orbit"
-        tone="dusk"
+        form="dot"
       />
       <section className="bg-ivory">
         <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-16 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-5">
             <p className="eyebrow text-stone">The desk</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-[-0.045em]">What happens after you write.</h2>
+            <h2 className="mt-4 text-3xl font-bold tracking-[-0.028em]">What happens after you write.</h2>
             <ol className="mt-8 space-y-6">
               {steps.map(([index, title, body]) => (
                 <li key={index} className="grid grid-cols-[auto_1fr] gap-4">
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 </li>
               ))}
             </ol>
-            <a href={`mailto:${studio.email}`} className="mt-10 block text-xl font-semibold tracking-[-0.04em] underline decoration-lime decoration-2 underline-offset-4">
+            <a href={`mailto:${studio.email}`} className="mt-10 block text-xl font-semibold tracking-[-0.04em] underline decoration-violet decoration-2 underline-offset-4">
               {studio.email}
             </a>
             <p className="mt-3 max-w-sm text-base leading-relaxed text-charcoal">

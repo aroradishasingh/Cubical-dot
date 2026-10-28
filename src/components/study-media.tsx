@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FieldArt } from "@/components/field-art";
 import type { Study } from "@/lib/content";
 
@@ -19,13 +20,7 @@ export function StudyMedia({
         />
       );
     }
-    return (
-      <img
-        src={study.cover}
-        alt=""
-        className="absolute inset-0 size-full object-cover"
-      />
-    );
+    return <Image src={study.cover} alt="" fill sizes="(min-width: 768px) 60vw, 100vw" className="object-cover" />;
   }
 
   return <FieldArt variant={study.composition} tone={study.tone} motion={motion} />;

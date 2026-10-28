@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import { LogoIntro } from "@/components/home/logo-intro";
 import { MotionRoot } from "@/components/motion-root";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { Loader } from "@/components/world/loader";
 import { studio } from "@/lib/content";
 import "./globals.css";
 
-const inter = localFont({
-  src: [
-    { path: "../fonts/inter-latin-400.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/inter-latin-500.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/inter-latin-600.woff2", weight: "600", style: "normal" },
-    { path: "../fonts/inter-latin-700.woff2", weight: "700", style: "normal" },
-  ],
+// One variable grotesk carries display and reading text; weight contrast is the accent.
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  axes: ["opsz", "wdth"],
+  variable: "--font-bricolage",
+});
+
+// Labels, indexes and meta: a mono keeps the system feeling engineered.
+const mono = IBM_Plex_Mono({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plex-mono",
 });
 
 const poppins = localFont({
@@ -29,16 +35,27 @@ const poppins = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(studio.url),
   title: {
-    default: "Cubical Dot - Ideas in motion",
+    default: "Cubical Dot - Websites that convert",
     template: "%s - Cubical Dot",
   },
   description: studio.description,
+  alternates: { canonical: studio.url },
   openGraph: {
-    title: "Cubical Dot - Ideas in motion",
+    title: "Cubical Dot - Websites that convert",
     description: studio.description,
     url: studio.url,
     siteName: "Cubical Dot",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cubical Dot - Websites that convert",
+    description: studio.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
@@ -59,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${bricolage.variable} ${mono.variable} ${poppins.variable}`}>
       <body>
         <a
           href="#content"
@@ -67,10 +84,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <LogoIntro />
+        <Loader />
         <MotionRoot />
         <SiteHeader />
-        <main id="content">{children}</main>
+        <main id="content" className="relative">
+          {children}
+        </main>
         <SiteFooter />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>

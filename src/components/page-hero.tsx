@@ -1,70 +1,72 @@
 "use client";
 
 import { useRef } from "react";
-import { Chapter } from "@/components/chapter";
-import { FieldArt } from "@/components/field-art";
-import type { Composition, Tone } from "@/lib/content";
+import { GridField } from "@/components/grid-field";
+import type { FormName } from "@/components/world/forms";
+import { world } from "@/components/world/store";
 import { gsap, useGSAP } from "@/lib/gsap";
 
+/**
+ * Inner-page opening: the cobalt field and living grid from the home page,
+ * at a calmer scale. The last word of the title is set light.
+ * (`form` is accepted for parity with the other variations and unused here.)
+ */
 export function PageHero({
   index,
   label,
   title,
   lede,
-  variant = "orbit",
-  tone = "dusk",
   children,
 }: {
   index: string;
   label: string;
   title: string;
   lede: string;
-  variant?: Composition;
-  tone?: Tone;
+  form?: FormName;
   children?: React.ReactNode;
 }) {
   const root = useRef<HTMLElement>(null);
+  const words = title.split(" ");
+  const last = words.pop();
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.from(".page-hero-line", {
-        yPercent: 110,
-        duration: 0.9,
-        stagger: 0.08,
-        ease: "power3.out",
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const play = () => {
+          gsap.from(".ph-word", { yPercent: 110, duration: 1.3, stagger: 0.07, ease: "expo.out", delay: 0.3 });
+          gsap.from(".ph-fade", { autoAlpha: 0, y: 16, duration: 1, stagger: 0.08, delay: 0.6, ease: "expo.out" });
+        };
+        if (world.introDone) play();
+        else window.addEventListener("cubical:intro-done", play, { once: true });
+        return () => window.removeEventListener("cubical:intro-done", play);
       });
-      gsap.from(".page-hero-fade", {
-        autoAlpha: 0,
-        y: 16,
-        duration: 0.7,
-        stagger: 0.06,
-        delay: 0.25,
-        ease: "power2.out",
-      });
-    }, root);
-    return () => mm.revert();
-  }, { scope: root });
+      return () => mm.revert();
+    },
+    { scope: root }
+  );
 
   return (
-    <section ref={root} className="relative overflow-hidden bg-ink text-white">
-      <div className="absolute inset-y-0 right-0 hidden w-[46%] md:block">
-        <FieldArt variant={variant} tone={tone} />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/20 to-transparent" />
-      </div>
-      <div className="shell relative z-10 flex min-h-[78svh] flex-col justify-end pt-32 pb-16 md:pb-20">
-        <div className="page-hero-fade">
-          <Chapter index={index} label={label} tone="light" />
-        </div>
-        <h1 className="display mt-6 max-w-4xl text-[clamp(3rem,7vw,6.2rem)]">
-          <span className="block overflow-hidden pt-[0.02em] pb-[0.12em]">
-            <span className="page-hero-line block">{title}</span>
+    <section ref={root} className="relative overflow-hidden bg-cobalt text-paper">
+      <GridField cell={46} className="absolute inset-0 size-full [mask-image:linear-gradient(to_bottom,black_0%,black_45%,transparent_75%)]" />
+      <div className="shell pointer-events-none relative z-[2] flex min-h-[86svh] flex-col justify-end pt-36 pb-14 md:pb-20">
+        <p className="ph-fade eyebrow text-lime">
+          {index} — {label}
+        </p>
+        <h1 className="mt-6 max-w-[14ch] text-[clamp(3.4rem,9.5vw,10rem)] leading-[0.86] font-extrabold tracking-[-0.03em]">
+          {words.map((word, i) => (
+            <span key={i} className="inline-block overflow-hidden pr-[0.22em] pb-[0.06em] align-bottom">
+              <span className="ph-word inline-block">{word}</span>
+            </span>
+          ))}
+          <span className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+            <span className="ph-word serif-i inline-block pr-[0.04em]">{last}</span>
           </span>
         </h1>
-        <p className="page-hero-fade mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
-          {lede}
-        </p>
-        {children ? <div className="page-hero-fade mt-8">{children}</div> : null}
+        <div className="mt-10 grid gap-8 border-t border-paper/40 pt-6 md:grid-cols-12">
+          <p className="ph-fade text-lg leading-snug md:col-span-6 md:text-xl">{lede}</p>
+          {children ? <div className="ph-fade pointer-events-auto md:col-span-4 md:col-start-9 md:justify-self-end">{children}</div> : null}
+        </div>
       </div>
     </section>
   );
