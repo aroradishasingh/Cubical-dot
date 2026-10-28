@@ -176,7 +176,18 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
       const target = reduced ? total : lengthAtY(penY);
       current = snap ? target : current + (target - current) * 0.18;
       line.style.strokeDashoffset = `${total - current}`;
-      const p = line.getPointAtLength(current);
+
+      // Magnetic snap: within reach of a stop, draw the dot exactly on it
+      // rather than at the fixed viewport line, so "arriving" always reads
+      // as one dot landing on the period, never two circles near each other.
+      let drawLen = current;
+      for (const len of stopLengths) {
+        if (Math.abs(current - len) < 40) {
+          drawLen = len;
+          break;
+        }
+      }
+      const p = line.getPointAtLength(drawLen);
       pen.setAttribute("transform", `translate(${p.x} ${p.y})`);
       pen.style.opacity = current > 1 && current < total - 1 ? "1" : "0";
       stops.forEach((el, i) => el.classList.toggle("is-lit", current >= stopLengths[i] - 2));

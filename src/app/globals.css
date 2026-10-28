@@ -293,7 +293,7 @@
    with the native arrow glyph - one cursor on screen, not two. */
 @media (hover: hover) and (pointer: fine) {
   .studio-cursor {
-    display: block;
+    display: flex;
   }
   * {
     cursor: none !important;

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "cubical-folio-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "/Users/aroradishasingh/cubical-folio/.claude/dev-server.sh",
+      "runtimeArgs": [],
       "port": 4317
     }
   ]
