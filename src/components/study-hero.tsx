@@ -40,10 +40,10 @@ export function StudyHero({ study }: { study: Study }) {
   }, { scope: root });
 
   return (
-    <section ref={root} className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
+    <section ref={root} data-form="3" className="relative min-h-[100svh] overflow-hidden bg-night text-white">
       <div className="study-shift absolute inset-0">
         <StudyMedia study={study} motion="idle" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-night via-night/70 to-night/10" />
       </div>
       <div className="shell relative z-10 flex min-h-[100svh] flex-col justify-end pt-32 pb-14">
         <div className="study-fade">
@@ -55,10 +55,11 @@ export function StudyHero({ study }: { study: Study }) {
             ]}
           />
         </div>
-        <p className="study-fade eyebrow mt-8 text-lime">
-          {study.index} / {study.sector}
+        <p className="study-fade eyebrow mt-8 text-white/60">
+          ({study.index}) — {study.sector}
         </p>
-        <h1 className="display mt-4 max-w-4xl text-[clamp(2.8rem,6vw,5.6rem)]">
+        <p className="study-fade serif-i mt-4 text-[clamp(1.6rem,3vw,2.6rem)] leading-none text-lime">{study.name}</p>
+        <h1 className="mt-4 max-w-5xl text-[clamp(2.8rem,6.6vw,7rem)] leading-[0.9] font-bold tracking-[-0.04em]">
           <span className="block overflow-hidden pt-[0.02em] pb-[0.12em]">
             <span className="study-line block">{study.headline}</span>
           </span>

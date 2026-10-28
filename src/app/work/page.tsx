@@ -16,8 +16,7 @@ export default function WorkPage() {
         label="Work"
         title="Selected studies."
         lede="Research, identity, campaigns, and the sites. Each study is the work as it shipped."
-        variant="cascade"
-        tone="dusk"
+        form="screens"
       />
       <WorkIndex />
     </>

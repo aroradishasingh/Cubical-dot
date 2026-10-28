@@ -18,8 +18,7 @@ export default function ServicesPage() {
         label="Services"
         title="Design beyond boundaries."
         lede="The practice is website design and redesign for premium brands. The surrounding work - systems, brand, motion, product - exists so the site still holds together after launch."
-        variant="stack"
-        tone="violet"
+        form="cube"
       >
         <BrandButton href="/contact" variant="lime">
           Start a project
@@ -43,18 +42,30 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#07060f]">
-        <div className="shell grid gap-4 py-16 md:grid-cols-2 md:py-24 xl:grid-cols-3">
-          {services.map((service) => (
-            <article id={service.id} key={service.id} className="section-card flex min-h-[380px] flex-col justify-center px-8 py-12 text-center text-white md:min-h-[440px] md:px-10">
-              <p className="eyebrow text-white/55">{service.index}</p>
-              <h2 className="mt-4 text-[1.75rem] font-semibold tracking-[-0.045em] text-balance md:text-4xl">{service.title}</h2>
-              <p className="mx-auto mt-4 max-w-sm text-lg leading-snug font-medium tracking-[-0.03em] text-balance text-white/90">
-                <Accent line={service.line} accent={service.accent} />
-              </p>
-              <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-white/65">{service.detail}</p>
-            </article>
-          ))}
+      {/* Each practice is a row with its own rhythm: number, name, promise, detail. */}
+      <section data-form="4" className="relative text-ink">
+        <div className="shell py-24 md:py-36">
+          <p className="eyebrow text-ink/65">Six practices</p>
+          <ul className="mt-10 border-t border-ink/15">
+            {services.map((service) => (
+              <li
+                id={service.id}
+                key={service.id}
+                className="grid gap-x-[var(--grid-gutter)] gap-y-5 border-b border-ink/15 py-12 md:grid-cols-12 md:py-16"
+              >
+                <span className="serif-i text-5xl leading-none text-ink/65 md:col-span-1">{service.index}</span>
+                <h2 className="text-[clamp(2.2rem,4.6vw,4.4rem)] leading-[0.92] font-bold tracking-[-0.035em] md:col-span-5">
+                  {service.title}
+                </h2>
+                <div className="md:col-span-5 md:col-start-8">
+                  <p className="text-xl leading-snug font-medium tracking-[-0.03em] text-ink">
+                    <Accent line={service.line} accent={service.accent} />
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-ink/75">{service.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -62,7 +73,7 @@ export default function ServicesPage() {
         <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 py-20 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow text-stone">Questions</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em]">Before you write.</h2>
+            <h2 className="mt-4 text-4xl font-bold tracking-[-0.028em]">Before you write.</h2>
           </div>
           <div className="lg:col-span-8">
             {faqs.map((faq) => (
@@ -80,7 +91,7 @@ export default function ServicesPage() {
               <BrandButton href="/contact" variant="ink">
                 Start a project
               </BrandButton>
-              <Link href="/work" className="ml-5 text-sm font-medium underline decoration-lime decoration-2 underline-offset-4">
+              <Link href="/work" className="ml-5 text-sm font-medium underline decoration-violet decoration-2 underline-offset-4">
                 See the studies
               </Link>
             </div>
@@ -98,7 +109,7 @@ function Accent({ line, accent }: { line: string; accent: string }) {
   return (
     <>
       {line.slice(0, start)}
-      <span className="text-[#d4c6ff]">{line.slice(start, end)}</span>
+      <span className="serif-i text-violet">{line.slice(start, end)}</span>
       {line.slice(end)}
     </>
   );

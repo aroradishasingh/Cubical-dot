@@ -23,12 +23,12 @@ function LogoRow({ id }: { id: string }) {
             width={Math.round(company.ratio * 100)}
             height={100}
             style={{ "--logo-scale": logoScale(company.ratio) } as CSSProperties}
-            className="block h-[calc(var(--logo-base)*var(--logo-scale))] w-auto shrink-0 select-none"
+            className="block h-[calc(var(--logo-base)*var(--logo-scale))] w-auto shrink-0 opacity-75 brightness-0 select-none"
             draggable={false}
             loading="lazy"
             decoding="async"
           />
-          <span className="size-1.5 shrink-0 rounded-full bg-violet" aria-hidden />
+          <span className="size-1.5 shrink-0 rounded-full bg-cobalt" aria-hidden />
         </li>
       ))}
     </ul>
@@ -38,7 +38,8 @@ function LogoRow({ id }: { id: string }) {
 export function DesignedFor({ className }: { className?: string }) {
   return (
     <section
-      className={cn("bg-ivory py-7 text-ink [--logo-base:40px] md:py-9 md:[--logo-base:46px]", className)}
+      data-tone="paper"
+      className={cn("relative bg-paper py-10 text-ink [--logo-base:36px] md:py-9 md:[--logo-base:42px]", className)}
       aria-labelledby="designed-for"
     >
       <h2 id="designed-for" className="sr-only">
@@ -49,11 +50,11 @@ export function DesignedFor({ className }: { className?: string }) {
           <li key={company.name}>{company.name}</li>
         ))}
       </ul>
-      <p className="shell eyebrow mb-4 text-stone" aria-hidden>
+      <p className="shell eyebrow relative z-[2] mb-6 text-stone" aria-hidden>
         Previously designed for, in earlier roles
       </p>
       <div
-        className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        className="marquee relative z-[2] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
         aria-hidden
       >
         <div className="marquee-track flex w-max items-center">

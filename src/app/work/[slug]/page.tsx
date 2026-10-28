@@ -47,7 +47,7 @@ export default async function StudyPage({
             {study.chapters.map((chapter) => (
               <section key={chapter.kicker}>
                 <p className="eyebrow text-violet">{chapter.kicker}</p>
-                <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
+                <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.028em] md:text-4xl">
                   {chapter.title}
                 </h2>
                 <div className="mt-5 max-w-2xl space-y-4 text-base leading-relaxed text-charcoal">
@@ -65,7 +65,7 @@ export default async function StudyPage({
         <div className="shell grid gap-[var(--grid-gutter)] pb-20 md:grid-cols-3">
           {study.outcomes.map((outcome) => (
             <div key={outcome.label} className="rounded-[8px] bg-ink p-7 text-white">
-              <p className="text-4xl font-bold tracking-[-0.05em] text-lime">{outcome.value}</p>
+              <p className="text-4xl font-bold tracking-[-0.03em] text-lime">{outcome.value}</p>
               <p className="mt-3 text-base leading-relaxed text-white/80">{outcome.label}</p>
             </div>
           ))}
@@ -78,7 +78,7 @@ export default async function StudyPage({
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="shell relative z-10 flex min-h-[420px] flex-col justify-end py-14">
           <p className="eyebrow text-lime">Next study</p>
-          <p className="mt-4 text-4xl font-bold tracking-[-0.05em] md:text-6xl">{next.name}</p>
+          <p className="mt-4 text-4xl font-bold tracking-[-0.03em] md:text-6xl">{next.name}</p>
           <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
             {next.headline}
             <ArrowIcon />
@@ -109,7 +109,7 @@ function Gallery({ study }: { study: Study }) {
         }
       >
       <p className="eyebrow text-violet">The set</p>
-      <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.045em] md:text-4xl">
+      <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.028em] md:text-4xl">
         All {gallery.length} {study.galleryNoun ?? (wide ? "slides" : "pieces")}.
       </h2>
       {groups.map((group) => (

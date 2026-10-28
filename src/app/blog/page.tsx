@@ -16,8 +16,7 @@ export default function BlogPage() {
         label="Blog"
         title="Notes from the studio."
         lede="Short essays on the commercial side of a website. Written the way we talk to a client: specific, and willing to leave something out."
-        variant="eclipse"
-        tone="grove"
+        form="fusion"
       />
       <section className="bg-ivory">
         <div className="shell grid gap-y-5 py-16">
@@ -36,7 +35,7 @@ export default function BlogPage() {
                 </p>
               </div>
               <div className="md:col-span-9">
-                <h2 className="text-3xl font-bold tracking-[-0.045em] transition-transform duration-500 group-hover/button:-translate-y-0.5 md:text-4xl">
+                <h2 className="text-3xl font-bold tracking-[-0.028em] transition-transform duration-500 group-hover/button:-translate-y-0.5 md:text-4xl">
                   {essay.title}
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-charcoal">{essay.dek}</p>

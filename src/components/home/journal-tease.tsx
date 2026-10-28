@@ -1,53 +1,45 @@
 import Link from "next/link";
-import { Chapter } from "@/components/chapter";
+import { ArrowIcon } from "@/components/brand-button";
+import { Stop } from "@/components/story-line";
 import { essays } from "@/lib/content";
 
+/** Chapter 07, notes. A quiet list on a deeper paper tone before the finale. */
 export function JournalTease() {
-  const [feature, ...rest] = essays;
-
   return (
-    <section className="bg-ivory">
-      <div className="shell py-20 lg:py-28">
-        <div className="flex items-end justify-between gap-6">
+    <section data-tone="paper" className="bg-mist text-ink" aria-labelledby="journal-title">
+      <div className="shell relative z-[2] py-28 md:py-36">
+        <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <Chapter index="08" label="Blog" />
-            <h2 className="display section-title mt-6">Notes from the studio.</h2>
+            <p className="eyebrow text-stone">07 — Notes</p>
+            <h2 id="journal-title" className="mt-5 text-[clamp(2.8rem,6vw,6.4rem)] leading-[0.9] font-extrabold tracking-[-0.04em]">
+              From the <span className="serif-i">studio</span>
+              <Stop />
+            </h2>
           </div>
-          <Link href="/blog" className="hidden text-sm font-medium underline decoration-lime decoration-2 underline-offset-4 sm:inline">
+          <Link href="/blog" className="eyebrow text-ink underline decoration-cobalt decoration-2 underline-offset-[6px] hover:text-cobalt-deep">
             All notes
           </Link>
         </div>
-        <div className="mt-12 grid gap-[var(--grid-gutter)] lg:grid-cols-12">
-          <Link
-            href={`/blog/${feature.slug}`}
-            className="group/button flex flex-col justify-between rounded-[8px] bg-ink p-7 text-white lg:col-span-7 lg:min-h-[420px] lg:p-10"
-          >
-            <div>
-              <p className="eyebrow text-lime">{feature.kicker}</p>
-              <h3 className="mt-5 max-w-lg text-4xl font-bold tracking-[-0.045em] transition-transform duration-500 group-hover/button:-translate-y-1 md:text-5xl">
-                {feature.title}
-              </h3>
-            </div>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-white/80">{feature.dek}</p>
-          </Link>
-          <div className="grid gap-[var(--grid-gutter)] lg:col-span-5">
-            {rest.map((essay) => (
+        <ul className="mt-14 border-t border-ink/15">
+          {essays.map((essay) => (
+            <li key={essay.slug} className="border-b border-ink/15">
               <Link
-                key={essay.slug}
                 href={`/blog/${essay.slug}`}
-                className="group/button flex flex-1 flex-col justify-between rounded-[8px] border border-ink/10 bg-white p-7 transition-colors hover:border-ink"
+                data-cursor="Read"
+                className="group/note grid gap-3 py-7 md:grid-cols-12 md:items-baseline md:py-9"
               >
-                <p className="eyebrow text-stone">{essay.kicker}</p>
-                <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] group-hover/button:text-violet">
+                <span className="eyebrow text-stone md:col-span-2">{essay.date}</span>
+                <span className="text-[clamp(1.6rem,2.8vw,2.6rem)] leading-[1.02] font-bold tracking-[-0.028em] transition-colors duration-500 group-hover/note:text-cobalt-deep md:col-span-6">
                   {essay.title}
-                </h3>
-                <p className="mt-4 text-sm text-stone">
-                  {essay.date} · {essay.minutes}
-                </p>
+                </span>
+                <span className="text-base leading-relaxed text-stone md:col-span-3">{essay.dek.split(". ")[0]}.</span>
+                <span className="hidden justify-end md:col-span-1 md:flex">
+                  <ArrowIcon className="size-6 -rotate-45 text-stone transition-colors group-hover/note:text-cobalt-deep" />
+                </span>
               </Link>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

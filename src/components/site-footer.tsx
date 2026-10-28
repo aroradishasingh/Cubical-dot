@@ -2,55 +2,58 @@ import Link from "next/link";
 import { Logo } from "@/components/mark";
 import { nav, studio } from "@/lib/content";
 
+/** The sign-off: ink ground, the mark set large, everything a client needs to start. */
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-white">
-      <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-10 py-12 md:grid-cols-12 md:py-14">
-        <div className="md:col-span-5">
-          <Link href="/" aria-label="Cubical Dot, home" className="inline-flex text-white">
-            <Logo />
-          </Link>
-          <p className="mt-6 max-w-sm text-lg leading-snug font-medium text-white">
-            {studio.line}
+    <footer className="relative overflow-hidden bg-ink text-paper">
+      <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 pt-20 pb-12 md:grid-cols-12 md:pt-28">
+        <div className="md:col-span-6">
+          <p className="eyebrow text-lime">Start a project</p>
+          <a
+            href={`mailto:${studio.email}`}
+            className="mt-4 inline-block text-[clamp(1.6rem,3.2vw,3.1rem)] leading-none break-all sm:break-normal font-bold tracking-[-0.03em] underline decoration-paper/40 decoration-2 underline-offset-[10px] transition-colors hover:text-lime hover:decoration-lime"
+          >
+            {studio.email}
+          </a>
+          <p className="mt-6 max-w-sm text-lg leading-relaxed text-paper/85">
+            India-based independent studio, working with ambitious brands worldwide. We reply within two business days.
           </p>
-          <p className="mt-4 max-w-sm text-base leading-relaxed text-white/75">{studio.lockup}</p>
         </div>
-        <div className="md:col-span-3">
-          <p className="eyebrow text-white/70">Visit</p>
-          <ul className="mt-4 space-y-3">
+        <nav className="md:col-span-3" aria-label="Footer">
+          <p className="eyebrow text-lime">Index</p>
+          <ul className="mt-4 space-y-2">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-base text-white/85 transition-colors hover:text-lime">
+                <Link href={item.href} className="text-lg transition-colors hover:text-lime">
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
-        <div className="md:col-span-4">
-          <p className="eyebrow text-white/70">Start a project</p>
-          <a
-            href={`mailto:${studio.email}`}
-            className="mt-4 block text-2xl font-semibold tracking-[-0.03em] transition-colors hover:text-lime"
-          >
-            {studio.email}
-          </a>
-          <p className="mt-4 text-base leading-relaxed text-white/75">
-            India-based independent studio. Working with ambitious brands worldwide. We reply within two business days.
+        </nav>
+        <div className="md:col-span-3">
+          <p className="eyebrow text-lime">The idea</p>
+          <p className="mt-4 text-lg leading-snug">
+            A cube is structure. <span className="serif-i">A dot is the idea in motion.</span>
           </p>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="shell flex flex-col gap-3 py-5 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Cubical Dot. All rights reserved.</p>
+
+      <div className="shell pb-6" aria-hidden>
+        <Logo className="text-[clamp(3rem,13vw,13.5rem)]! text-paper" />
+      </div>
+
+      <div className="border-t border-paper/15">
+        <div className="shell flex flex-col gap-3 py-5 font-mono text-xs tracking-[0.04em] text-paper/85 uppercase sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Cubical Dot</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/privacy" className="transition-colors hover:text-white">
-              Privacy Policy
+            <Link href="/privacy" className="hover:text-lime">
+              Privacy
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-white">
-              Terms of Use
+            <Link href="/terms" className="hover:text-lime">
+              Terms
             </Link>
-            <span>Independent digital design studio</span>
+            <span>Designed &amp; built in-house</span>
           </div>
         </div>
       </div>
