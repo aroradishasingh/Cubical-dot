@@ -65,8 +65,10 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
       // Every piece keeps y rising, so scroll maps cleanly onto the line.
       const w = box.width;
       const margin = Math.min(80, Math.max(20, w * 0.04));
-      // At least 16px in from the edge so the travelling dot is never clipped.
-      const lane = Math.max(16, margin / 2);
+      // The dot's outer glow has a 16px radius, so the lane needs at least
+      // that much clearance plus a small buffer, or it clips against the
+      // viewport edge on narrow screens.
+      const lane = Math.max(24, margin / 2);
       const gutter = (x: number) => (x > w / 2 ? w - lane : lane);
       const bands = Array.from(container.querySelectorAll<HTMLElement>("[data-tone]")).map((el) => {
         const r = el.getBoundingClientRect();
@@ -232,7 +234,9 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
       </svg>
       <svg ref={dotLayer} className="pointer-events-none absolute inset-x-0 top-0 z-30 w-full" aria-hidden>
         <g ref={dot} style={{ opacity: 0 }}>
-          <circle r="16" fill="#e1fc6d" opacity="0.25" />
+          {/* Glow kept small: on narrow screens body copy runs nearly edge
+              to edge, and a wide halo sat on top of words as the dot passed. */}
+          <circle r="11" fill="#e1fc6d" opacity="0.25" />
           <circle r="8" fill="#e1fc6d" stroke="#101012" strokeWidth="2" />
         </g>
       </svg>

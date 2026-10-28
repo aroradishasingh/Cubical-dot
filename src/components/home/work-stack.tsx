@@ -57,7 +57,32 @@ export function WorkStack() {
           </Link>
         </div>
 
-        <ol className="mt-16">
+        {/* Small screens get a compact 2-up grid instead of five full-height
+            sticky cards stacked end to end, which read as repetitive scroll
+            on a short viewport. The sticky deck is desktop-only (md:+). */}
+        <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-9 md:hidden">
+          {featured.map((study) => (
+            <li key={study.slug}>
+              <Link href={`/work/${study.slug}`} data-cursor="View" className="group/card block">
+                <div className="slab relative aspect-[3/4] overflow-hidden bg-[#18181c] [--slab:18px]">
+                  {study.cover ? (
+                    <Image
+                      src={study.cover}
+                      alt=""
+                      fill
+                      sizes="50vw"
+                      className="object-cover transition-transform duration-700 group-hover/card:scale-[1.04]"
+                    />
+                  ) : null}
+                </div>
+                <p className="eyebrow mt-3 text-lime">{study.sector}</p>
+                <h3 className="mt-1 text-lg leading-tight font-extrabold tracking-[-0.02em]">{study.name}</h3>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <ol className="mt-16 hidden md:block">
           {featured.map((study, index) => (
             <li key={study.slug} className="stack-card md:sticky" style={{ top: `calc(12vh + ${index * 1.25}rem)` }}>
               <Link
