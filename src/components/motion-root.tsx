@@ -66,6 +66,12 @@ export function MotionRoot() {
         const target = event.target as HTMLElement | null;
         const labelled = target?.closest<HTMLElement>("[data-cursor]:not([data-cursor='hot'])");
         const hot = target?.closest("a, button, input, textarea, select, summary, [data-cursor]");
+        // The plain ring is a dark outline by default, which disappears on
+        // an equally dark section (the footer, the 404 page, any ink block
+        // or card). Flip it to a light outline there instead of hardcoding
+        // one color that only works on paper/lime/cobalt backgrounds.
+        const onInk = target?.closest<HTMLElement>('[data-tone="ink"], .bg-ink');
+        const idleBorder = onInk ? "rgba(242,240,233,0.7)" : "rgba(10,10,10,0.3)";
         if (labelled) {
           text.textContent = labelled.dataset.cursor ?? "";
           gsap.to(halo, { width: 96, height: 96, backgroundColor: "#e1fc6d", borderColor: "#101012", duration: 0.45, ease: "expo.out", overwrite: "auto" });
@@ -76,7 +82,7 @@ export function MotionRoot() {
             width: hot ? 64 : 36,
             height: hot ? 64 : 36,
             backgroundColor: "rgba(225,252,109,0)",
-            borderColor: hot ? "rgba(44,92,246,0.95)" : "rgba(10,10,10,0.3)",
+            borderColor: hot ? "rgba(44,92,246,0.95)" : idleBorder,
             duration: 0.45,
             ease: "expo.out",
             overwrite: "auto",
