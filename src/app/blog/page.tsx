@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { essays } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
   description: "Notes from Cubical Dot on redesign, form, and what an international buyer needs to trust.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (

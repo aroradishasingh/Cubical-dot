@@ -35,16 +35,27 @@ const poppins = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(studio.url),
   title: {
-    default: "Cubical Dot - Ideas, given shape",
+    default: "Cubical Dot - Websites that convert",
     template: "%s - Cubical Dot",
   },
   description: studio.description,
+  alternates: { canonical: studio.url },
   openGraph: {
-    title: "Cubical Dot - Ideas, given shape",
+    title: "Cubical Dot - Websites that convert",
     description: studio.description,
     url: studio.url,
     siteName: "Cubical Dot",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cubical Dot - Websites that convert",
+    description: studio.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 

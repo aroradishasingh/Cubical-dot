@@ -86,7 +86,7 @@ export function Services() {
       <div className="shell relative z-[2] pb-28 md:pb-40">
         <div className="flex flex-wrap items-end justify-between gap-6 border-t border-ink/15 pt-10">
           <div>
-            <p className="eyebrow text-stone">03 — What we shape</p>
+            <p className="eyebrow text-stone">03 — What we do</p>
             <h2 id="services-title" className="mt-5 text-[clamp(3rem,7vw,7.5rem)] leading-[0.88] font-extrabold tracking-[-0.04em]">
               Six <span className="serif-i">practices</span>
               <Stop />

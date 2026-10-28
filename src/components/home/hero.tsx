@@ -42,18 +42,19 @@ export function Hero() {
 
         <h1 id="hero-title" className="mt-auto text-[clamp(4.2rem,13.5vw,14.5rem)] leading-[0.84] font-extrabold tracking-[-0.03em]">
           <span className="block overflow-hidden pb-[0.04em]">
-            <span className="hero-line block">Ideas,</span>
+            <span className="hero-line block">Websites</span>
           </span>
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="hero-line block">
-              <span className="serif-i">given</span> shape<Stop />
+              that <span className="serif-i">convert.</span>
+              <Stop />
             </span>
           </span>
         </h1>
 
         <div className="mt-10 grid gap-8 border-t border-paper/40 pt-6 md:grid-cols-12 md:items-end">
           <p className="hero-fade max-w-xl text-lg leading-snug md:col-span-6 md:text-xl">
-            Cubical Dot designs and redesigns websites for premium brands entering their next market. Simple forms. Bigger ideas.
+            Cubical Dot designs and redesigns websites for premium brands entering their next market - faster pages, a clearer path to inquiry, and a site that matches the price you charge.
           </p>
           <div className="hero-fade pointer-events-auto flex flex-wrap gap-3 md:col-span-5 md:col-start-8 md:justify-end">
             <BrandButton href="/contact" variant="lime" size="pillLg" magnetic>

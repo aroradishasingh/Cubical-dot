@@ -43,7 +43,7 @@ export function WorkStack() {
       <div className="shell relative z-[2] py-28 md:py-40">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow text-lime">04 — Shapes we&apos;ve made</p>
+            <p className="eyebrow text-lime">04 — What we&apos;ve shipped</p>
             <h2 id="work-title" className="mt-5 text-[clamp(3rem,7vw,7.5rem)] leading-[0.88] font-extrabold tracking-[-0.04em]">
               Selected <span className="serif-i">work</span>
               <Stop />

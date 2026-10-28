@@ -91,11 +91,11 @@ export function Loader() {
       <div className="flex items-end justify-between gap-6">
         <p className="max-w-md text-[clamp(1.6rem,3.4vw,3rem)] leading-[1] font-bold tracking-[-0.028em]">
           <span className="block overflow-hidden pb-[0.08em]">
-            <span className="loader-line block">Every idea</span>
+            <span className="loader-line block">A website</span>
           </span>
           <span className="block overflow-hidden pb-[0.1em]">
             <span className="loader-line block">
-              starts as a <span className="serif-i">dot.</span>
+              built to <span className="serif-i">convert.</span>
             </span>
           </span>
         </p>

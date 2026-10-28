@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import { cn } from "cn";
 import { designedFor } from "@/lib/content";
@@ -17,7 +18,7 @@ function LogoRow({ id }: { id: string }) {
     <ul className="flex items-center gap-10 pr-10 md:gap-14 md:pr-14">
       {designedFor.map((company) => (
         <li key={`${id}-${company.name}`} className="flex h-6 items-center gap-10 md:h-7 md:gap-14">
-          <img
+          <Image
             src={company.src}
             alt=""
             width={Math.round(company.ratio * 100)}
@@ -26,7 +27,6 @@ function LogoRow({ id }: { id: string }) {
             className="block h-[calc(var(--logo-base)*var(--logo-scale))] w-auto shrink-0 opacity-75 brightness-0 select-none"
             draggable={false}
             loading="lazy"
-            decoding="async"
           />
           <span className="size-1.5 shrink-0 rounded-full bg-cobalt" aria-hidden />
         </li>

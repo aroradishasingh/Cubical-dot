@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Stop } from "@/components/story-line";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-/** Chapter 02, the belief: the brand's own metaphor, said plainly. */
+/** Chapter 02, the belief: what we're actually hired to fix, said plainly. */
 export function Intro() {
   const root = useRef<HTMLElement>(null);
 
@@ -26,16 +26,16 @@ export function Intro() {
   );
 
   const lines = [
-    <>Every brand starts</>,
+    <>Premium brands</>,
     <>
-      as a <span className="serif-i">dot</span>: one idea.
+      hire us when their <span className="serif-i">site</span>
     </>,
+    <>still looks like a stopgap.</>,
+    <>We rebuild it to match</>,
     <>
-      We build the <span className="serif-i">cube</span>
+      the <span className="serif-i">price</span> they charge
     </>,
-    <>around it, the structure</>,
-    <>that carries it into</>,
-    <>a new market.</>,
+    <>and the market they&apos;re entering.</>,
   ];
 
   return (

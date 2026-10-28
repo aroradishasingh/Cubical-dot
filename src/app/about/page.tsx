@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import { BrandButton } from "@/components/brand-button";
 import { DesignedFor } from "@/components/designed-for";
 import { PageHero } from "@/components/page-hero";
 import { principles } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 const swatches = [
   { name: "Cobalt", hex: "#2C5CF6", className: "bg-cobalt text-paper" },
@@ -17,11 +17,12 @@ const ways = [
   ["A month after", "Launch is not the exit. We stay for a refinement window while the first real visitors tell the truth."],
 ];
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description:
     "Cubical Dot is an independent digital design studio. Simple forms. Bigger ideas. Websites for premium brands entering their next market.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -39,7 +40,7 @@ export default function AboutPage() {
           <div className="lg:col-span-6">
             <p className="eyebrow text-ink/65">The studio</p>
             <h2 className="mt-6 text-[clamp(2.6rem,5.4vw,5.6rem)] leading-[0.92] font-bold tracking-[-0.035em]">
-              A cube is structure. A dot is the <span className="serif-i text-violet">idea in motion.</span>
+              Your price says premium. <span className="serif-i text-violet">Your website should too.</span>
             </h2>
           </div>
           <div className="space-y-6 text-lg leading-relaxed text-ink/75 lg:col-span-5 lg:col-start-8 lg:pt-16">

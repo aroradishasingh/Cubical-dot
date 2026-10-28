@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { studio } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
   description: "Start a website design or redesign with Cubical Dot. We reply within two business days.",
-};
+  path: "/contact",
+});
 
 const steps = [
   ["01", "You write", "Market, timeline, and the job the website has to do. A range is enough."],

@@ -32,9 +32,9 @@ export function SiteFooter() {
           </ul>
         </nav>
         <div className="md:col-span-3">
-          <p className="eyebrow text-lime">The idea</p>
+          <p className="eyebrow text-lime">The approach</p>
           <p className="mt-4 text-lg leading-snug">
-            A cube is structure. <span className="serif-i">A dot is the idea in motion.</span>
+            Founder-led, start to finish. <span className="serif-i">Built to convert.</span>
           </p>
         </div>
       </div>

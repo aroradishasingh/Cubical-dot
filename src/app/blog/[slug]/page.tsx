@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { essays, getEssay, nextEssay } from "@/lib/content";
+import { essays, getEssay, nextEssay, studio } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return essays.map((essay) => ({ slug: essay.slug }));
@@ -16,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const essay = getEssay(slug);
   if (!essay) return { title: "Note" };
-  return { title: essay.title, description: essay.dek };
+  return pageMetadata({ title: essay.title, description: essay.dek, path: `/blog/${essay.slug}` });
 }
 
 export default async function EssayPage({
@@ -28,9 +29,22 @@ export default async function EssayPage({
   const essay = getEssay(slug);
   if (!essay) notFound();
   const next = nextEssay(essay.slug);
+  const published = new Date(essay.date).toISOString();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: essay.title,
+    description: essay.dek,
+    datePublished: published,
+    dateModified: published,
+    author: { "@type": "Organization", name: studio.name },
+    publisher: { "@type": "Organization", name: studio.name },
+    mainEntityOfPage: `${studio.url}/blog/${essay.slug}`,
+  };
 
   return (
     <article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="bg-ink text-white">
         <div className="shell pt-32 pb-16 md:pt-40 md:pb-20">
           <div className="mx-auto max-w-3xl">

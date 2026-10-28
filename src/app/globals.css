@@ -289,27 +289,20 @@
   }
 }
 
-/* The follower ring only adds a label; the system cursor always stays visible. */
+/* The custom ring replaces the system pointer so its label never collides
+   with the native arrow glyph - one cursor on screen, not two. */
 @media (hover: hover) and (pointer: fine) {
   .studio-cursor {
     display: block;
   }
+  * {
+    cursor: none !important;
+  }
 }
-
 
 html.is-loading,
 html.is-loading body {
   overflow: hidden;
-}
-
-.studio-cursor {
-  display: none;
-}
-/* The follower only adds a label; the system cursor always stays visible. */
-@media (hover: hover) and (pointer: fine) {
-  .studio-cursor {
-    display: block;
-  }
 }
 
 /* WCAG 2.4.7: a focus ring visible on every surface. */

@@ -210,7 +210,7 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
         cards. The travelling dot is the one thing that must never disappear
         as the eye's anchor, so it lives in its own layer above all section
         content (still safely under the header/cursor/loader, which sit in
-        the z-70+ range) - "a dot is the idea in motion," always visible.
+        the z-70+ range) - the eye's anchor down the page, always visible.
       */}
       <svg ref={svg} className="pointer-events-none absolute inset-x-0 top-0 z-[1] w-full" aria-hidden>
         <defs>

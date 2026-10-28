@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowIcon } from "@/components/brand-button";
 import { StudyMedia } from "@/components/study-media";
 import { StudyHero } from "@/components/study-hero";
 import { getStudy, nextStudy, studies, type Study } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return studies.map((study) => ({ slug: study.slug }));
@@ -18,10 +20,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const study = getStudy(slug);
   if (!study) return { title: "Study" };
-  return {
+  return pageMetadata({
     title: study.name,
     description: study.summary,
-  };
+    path: `/work/${study.slug}`,
+  });
 }
 
 export default async function StudyPage({
@@ -129,12 +132,13 @@ function Gallery({ study }: { study: Study }) {
               shown += 1;
               return (
                 <li key={piece.src} className="overflow-hidden rounded-[8px] bg-ink">
-                  <img
+                  <Image
                     src={piece.src}
                     alt={piece.alt}
                     width={pageWide ? 1400 : wide ? 1500 : 1000}
                     height={pageWide ? 2400 : wide ? 844 : 1000}
                     loading={eager ? "eager" : "lazy"}
+                    sizes={wide ? "(min-width: 768px) 70vw, 100vw" : "(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"}
                     className={wide ? "block h-auto w-full" : "aspect-square w-full object-cover"}
                   />
                 </li>

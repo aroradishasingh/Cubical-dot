@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandButton } from "@/components/brand-button";
 import { PageHero } from "@/components/page-hero";
 import { faqs, method, services } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Services",
   description:
     "Website design, website redesign, design systems, digital brand, motion, and product interfaces for premium international brands.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

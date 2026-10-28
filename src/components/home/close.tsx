@@ -9,9 +9,7 @@ export function Close() {
       <div className="shell relative z-[2] flex min-h-[90svh] flex-col justify-center py-28">
         <p className="eyebrow">08 — Your turn</p>
         <h2 id="close-title" className="mt-6 text-[clamp(3.6rem,11vw,12rem)] leading-[0.84] font-extrabold tracking-[-0.03em]">
-          Got an idea?
-          <br />
-          <span className="serif-i">Let&apos;s give it</span> shape<Stop />
+          <span className="serif-i">Let&apos;s</span> build<Stop />
         </h2>
         <div className="mt-12 grid gap-8 border-t border-ink/25 pt-6 md:grid-cols-12 md:items-end">
           <p className="max-w-lg text-lg leading-snug md:col-span-6 md:text-xl">
