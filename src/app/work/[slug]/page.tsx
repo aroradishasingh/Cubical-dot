@@ -81,7 +81,7 @@ export default async function StudyPage({
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="shell relative z-10 flex min-h-[420px] flex-col justify-end py-14">
           <p className="eyebrow text-lime">Next study</p>
-          <p className="mt-4 text-4xl font-bold tracking-[-0.03em] md:text-6xl">{next.name}</p>
+          <p className="mt-4 text-4xl font-bold tracking-[-0.03em] md:text-6xl">{next.genre}</p>
           <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
             {next.headline}
             <ArrowIcon />

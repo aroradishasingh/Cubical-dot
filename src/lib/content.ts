@@ -160,6 +160,8 @@ export type Study = {
   slug: string;
   index: string;
   name: string;
+  /** The content type shown as the card title, e.g. "Packaging design" - distinct from the client name. */
+  genre: string;
   sector: string;
   year: string;
   markets: string;
@@ -290,6 +292,7 @@ const studyCatalog: Study[] = [
     slug: "mcdonalds",
     index: "01",
     name: "McCampus",
+    genre: "Service design",
     sector: "User research",
     year: "2025",
     markets: "IIT Roorkee",
@@ -345,6 +348,7 @@ const studyCatalog: Study[] = [
     slug: "creatives",
     index: "01",
     name: "Social",
+    genre: "Social campaigns",
     sector: "Social media",
     year: "2021–24",
     markets: "OnePlus · Noise · ASUS · Fire-Boltt · Supr Daily",
@@ -385,6 +389,7 @@ const studyCatalog: Study[] = [
     slug: "presentations",
     index: "01",
     name: "Presentations",
+    genre: "Presentation design",
     sector: "Presentation design",
     year: "2023–25",
     markets: "Art Era · Inshorts · Public",
@@ -424,6 +429,7 @@ const studyCatalog: Study[] = [
     slug: "gen-ai",
     index: "01",
     name: "Gen AI",
+    genre: "Generative imagery",
     sector: "Gen AI",
     year: "Handbag",
     markets: "House of Aroras",
@@ -464,6 +470,7 @@ const studyCatalog: Study[] = [
     slug: "trimble-modus",
     index: "01",
     name: "Modus",
+    genre: "Design system",
     sector: "Design systems",
     year: "2025",
     markets: "Trimble",
@@ -504,6 +511,7 @@ const studyCatalog: Study[] = [
     slug: "magazine",
     index: "01",
     name: "Magazine",
+    genre: "Editorial design",
     sector: "Editorial",
     year: "2023",
     markets: "Inshorts",
@@ -543,6 +551,7 @@ const studyCatalog: Study[] = [
     slug: "breadwala",
     index: "01",
     name: "Breadwala",
+    genre: "Packaging design",
     sector: "Packaging",
     year: "2023",
     markets: "Breadwala",
@@ -581,6 +590,7 @@ const studyCatalog: Study[] = [
     slug: "identity",
     index: "01",
     name: "Identity",
+    genre: "Brand identity",
     sector: "Branding",
     year: "2021–24",
     markets: "Beardo · Lipton",
@@ -619,6 +629,7 @@ const studyCatalog: Study[] = [
     slug: "personal",
     index: "01",
     name: "Personal",
+    genre: "Personal branding",
     sector: "Branding",
     year: "2023",
     markets: "Independent",

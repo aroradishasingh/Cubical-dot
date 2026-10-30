@@ -75,8 +75,8 @@ export function WorkStack() {
                     />
                   ) : null}
                 </div>
-                <p className="eyebrow mt-3 text-lime">{study.sector}</p>
-                <h3 className="mt-1 text-lg leading-tight font-extrabold tracking-[-0.02em]">{study.name}</h3>
+                <p className="eyebrow mt-3 text-lime">{study.name}</p>
+                <h3 className="mt-1 text-lg leading-tight font-extrabold tracking-[-0.02em]">{study.genre}</h3>
               </Link>
             </li>
           ))}
@@ -109,8 +109,8 @@ export function WorkStack() {
                     <span>{study.year}</span>
                   </div>
                   <div>
-                    <p className="eyebrow text-lime">{study.sector}</p>
-                    <h3 className="mt-3 text-[clamp(2.4rem,4.4vw,4.6rem)] leading-[0.9] font-extrabold tracking-[-0.035em]">{study.name}</h3>
+                    <p className="eyebrow text-lime">{study.name}</p>
+                    <h3 className="mt-3 text-[clamp(2.4rem,4.4vw,4.6rem)] leading-[0.9] font-extrabold tracking-[-0.035em]">{study.genre}</h3>
                     <p className="mt-5 max-w-md text-lg leading-relaxed text-paper/85">{study.summary}</p>
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-4 border-t border-paper/15 pt-5">

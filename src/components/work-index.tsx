@@ -87,7 +87,7 @@ export function WorkIndex() {
                     hovered === index && "md:translate-x-4"
                   )}
                 >
-                  {hovered === index ? <span className="serif-i font-normal text-violet">{study.name}</span> : study.name}
+                  {hovered === index ? <span className="serif-i font-normal text-violet">{study.genre}</span> : study.genre}
                 </span>
                 <span className="text-sm leading-relaxed text-ink/65 md:col-span-3">{study.services.slice(0, 3).join(" · ")}</span>
                 <span className="flex items-center justify-between gap-4 md:col-span-2 md:justify-end">
