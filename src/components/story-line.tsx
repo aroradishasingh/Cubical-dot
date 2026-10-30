@@ -111,18 +111,29 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
         // here too, but those wrap whole cards and rows, not lines of text -
         // that punched holes the size of entire cards, which is what made the
         // line vanish across most of a section instead of just under words.
+        //
+        // The hole is traced per rendered text line (via Range.getClientRects),
+        // not the paragraph element's own box: a <p> is a block and lays out
+        // at the full width of its column even when its words don't reach
+        // that edge, so a box-based hole was punching a full-width gap at
+        // every paragraph. On the single-column mobile layout, where almost
+        // every paragraph spans the shell's full width, that gap swallowed
+        // the line's lane for the whole height of nearly every paragraph.
+        const range = document.createRange();
         container.querySelectorAll<HTMLElement>("p, h3").forEach((el) => {
           if (el.querySelector("[data-stop]")) return;
-          const r = el.getBoundingClientRect();
-          if (!r.width || !r.height) return;
-          const hole = document.createElementNS(ns, "rect");
-          hole.setAttribute("x", String(r.left - box.left - 12));
-          hole.setAttribute("y", String(r.top + window.scrollY - top - 8));
-          hole.setAttribute("width", String(r.width + 24));
-          hole.setAttribute("height", String(r.height + 16));
-          hole.setAttribute("rx", "10");
-          hole.setAttribute("fill", "black");
-          mask.appendChild(hole);
+          range.selectNodeContents(el);
+          Array.from(range.getClientRects()).forEach((r) => {
+            if (!r.width || !r.height) return;
+            const hole = document.createElementNS(ns, "rect");
+            hole.setAttribute("x", String(r.left - box.left - 8));
+            hole.setAttribute("y", String(r.top + window.scrollY - top - 6));
+            hole.setAttribute("width", String(r.width + 16));
+            hole.setAttribute("height", String(r.height + 12));
+            hole.setAttribute("rx", "8");
+            hole.setAttribute("fill", "black");
+            mask.appendChild(hole);
+          });
         });
       }
       total = line.getTotalLength();
