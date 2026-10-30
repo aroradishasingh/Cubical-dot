@@ -58,7 +58,7 @@ export function Hero() {
           </p>
           <div className="hero-fade pointer-events-auto flex flex-wrap gap-3 md:col-span-5 md:col-start-8 md:justify-end">
             <BrandButton href="/contact" variant="lime" size="pillLg" magnetic>
-              Start a project
+              Get in touch
             </BrandButton>
             <BrandButton href="/work" variant="ghostLight" size="pillLg" magnetic>
               See the work

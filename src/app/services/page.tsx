@@ -22,7 +22,7 @@ export default function ServicesPage() {
         form="cube"
       >
         <BrandButton href="/contact" variant="lime">
-          Start a project
+          Get in touch
         </BrandButton>
       </PageHero>
 
@@ -90,7 +90,7 @@ export default function ServicesPage() {
             ))}
             <div className="mt-10">
               <BrandButton href="/contact" variant="ink">
-                Start a project
+                Get in touch
               </BrandButton>
               <Link href="/work" className="ml-5 text-sm font-medium underline decoration-violet decoration-2 underline-offset-4">
                 See the studies

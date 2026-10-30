@@ -16,8 +16,8 @@ export default function HomePage() {
       <Hero />
       <Intro />
       <DesignedFor />
-      <Services />
       <WorkStack />
+      <Services />
       <Process />
       <Principles />
       <JournalTease />

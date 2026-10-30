@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="relative overflow-hidden bg-ink text-paper">
       <div className="shell grid gap-x-[var(--grid-gutter)] gap-y-12 pt-20 pb-12 md:grid-cols-12 md:pt-28">
         <div className="md:col-span-6">
-          <p className="eyebrow text-lime">Start a project</p>
+          <p className="eyebrow text-lime">Get in touch</p>
           <a
             href={`mailto:${studio.email}`}
             className="mt-4 inline-block text-[clamp(1.6rem,3.2vw,3.1rem)] leading-none break-all sm:break-normal font-bold tracking-[-0.03em] underline decoration-paper/40 decoration-2 underline-offset-[10px] transition-colors hover:text-lime hover:decoration-lime"
@@ -40,7 +40,7 @@ export function SiteFooter() {
       </div>
 
       <div className="shell pb-6" aria-hidden>
-        <Logo className="text-[clamp(3rem,13vw,13.5rem)]! text-paper" />
+        <Logo className="text-[clamp(2rem,calc(12.5vw_-_2px),13.5rem)]! text-paper" />
       </div>
 
       <div className="border-t border-paper/15">

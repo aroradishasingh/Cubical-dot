@@ -107,7 +107,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-14">
               <BrandButton href="/contact" variant="lime" size="pillLg" magnetic>
-                Start a project
+                Get in touch
               </BrandButton>
             </div>
           </div>

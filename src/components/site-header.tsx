@@ -104,7 +104,7 @@ export function SiteHeader() {
               className="hidden h-10 items-center gap-2 rounded-full bg-ink px-5 text-sm font-semibold text-paper transition-colors hover:bg-cobalt sm:inline-flex md:h-12"
             >
               <span className="size-2 rounded-full bg-lime" aria-hidden />
-              Start a project
+              Get in touch
             </Link>
             <button
               type="button"

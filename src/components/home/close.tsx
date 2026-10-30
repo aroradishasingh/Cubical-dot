@@ -17,7 +17,7 @@ export function Close() {
           </p>
           <div className="flex flex-wrap gap-3 md:col-span-6 md:justify-end">
             <BrandButton href="/contact" variant="ink" size="pillLg" magnetic>
-              Start a project
+              Get in touch
             </BrandButton>
             <BrandButton href={`mailto:${studio.email}`} variant="ghostDark" size="pillLg">
               {studio.email}

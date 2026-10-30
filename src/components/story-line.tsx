@@ -107,7 +107,11 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
         full.setAttribute("height", String(container.scrollHeight));
         full.setAttribute("fill", "white");
         mask.appendChild(full);
-        container.querySelectorAll<HTMLElement>("p, h3, li a").forEach((el) => {
+        // Only real copy gets a hole. Card/row links ("li a") used to match
+        // here too, but those wrap whole cards and rows, not lines of text -
+        // that punched holes the size of entire cards, which is what made the
+        // line vanish across most of a section instead of just under words.
+        container.querySelectorAll<HTMLElement>("p, h3").forEach((el) => {
           if (el.querySelector("[data-stop]")) return;
           const r = el.getBoundingClientRect();
           if (!r.width || !r.height) return;
@@ -218,14 +222,15 @@ export function StoryLine({ children }: { children: React.ReactNode }) {
   return (
     <div ref={root} className="relative">
       {/*
-        Two layers on purpose: the line itself stays at z-[1], under every
-        section's z-[2] content, so it still reads as passing beneath text and
-        cards. The travelling dot is the one thing that must never disappear
-        as the eye's anchor, so it lives in its own layer above all section
-        content (still safely under the header/cursor/loader, which sit in
-        the z-70+ range) - the eye's anchor down the page, always visible.
+        Two layers, both above section content (z-[2]): opaque cards and
+        images used to sit on top of the line at z-[1] and swallow long
+        stretches of it, so both the line and the travelling dot now live
+        above everything a section draws, staying under the header/cursor/
+        loader (z-70+). The mask still cuts holes for paragraphs and
+        headings, so the line reads as passing beneath actual words - it
+        only ever crosses over cards, images and other decoration.
       */}
-      <svg ref={svg} className="pointer-events-none absolute inset-x-0 top-0 z-[1] w-full" aria-hidden>
+      <svg ref={svg} className="pointer-events-none absolute inset-x-0 top-0 z-[20] w-full" aria-hidden>
         <defs>
           <linearGradient id="story-tone" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1" />
           <mask id="story-mask" maskUnits="userSpaceOnUse" />
