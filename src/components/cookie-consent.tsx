@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-export const CONSENT_KEY = "cubicaldot-consent";
+import { CONSENT_KEY } from "@/lib/consent";
 
 type Consent = "all" | "necessary";
 
