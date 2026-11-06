@@ -18,8 +18,17 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "What we collect",
     body: [
-      "The only personal information this site handles is what you choose to type into the contact form: your name, email, company, website (optional), the kind of project, a timeline (optional), and your message.",
-      "We do not use cookies, analytics, or any third-party tracking script. We do not run advertising pixels. We do not build a profile of visitors. If you simply read the site without using the contact form, we collect nothing about you beyond the standard technical logs described below.",
+      "The personal information this site asks you to type in is what the contact form collects: your name, email, company, website (optional), the kind of project, a timeline (optional), and your message.",
+      "If you accept cookies when asked, we also receive aggregate analytics about how people use the site - which pages, roughly which country, and which device - never your name, email, or anything you haven't chosen to share. See “Cookies & analytics” below for exactly what that involves and how to say no.",
+    ],
+  },
+  {
+    title: "Cookies & analytics",
+    body: [
+      "This site uses Google Analytics 4 to understand traffic in aggregate - how many people visit, roughly where from, and which pages work. We do not use advertising cookies, do not build an individual profile of you, and do not sell or share analytics data with anyone beyond Google acting as our processor.",
+      "Nothing analytics-related runs until you click “Accept all” on the cookie banner. If you click “Necessary only”, or simply close the banner without choosing, no analytics cookie is set and no analytics request is sent - the site already works without it. You can change your mind at any time by clearing your browser's site data for cubicaldot.com, which brings the banner back.",
+      "When accepted, Google Analytics typically sets cookies named _ga (expires after 2 years) and _ga_<container-id> (expires after 2 years), used only to distinguish one visit from another. Google's own handling of this data is covered by the Google Privacy Policy (policies.google.com/privacy); you can also opt out globally of Google Analytics via Google's browser add-on (tools.google.com/dlpage/gaoptout).",
+      "“Necessary” cookies - the kind that aren't optional because the site can't function without them - are limited to your saved cookie choice itself, stored only in your own browser, never sent to us or anyone else.",
     ],
   },
   {
@@ -40,8 +49,9 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Your rights",
     body: [
-      "If you're in India, this is handled consistently with the Digital Personal Data Protection Act, 2023: you can ask us what we hold about you (in practice, whatever you wrote in an email to us), ask us to correct or delete it, and withdraw consent for us to hold it.",
-      "If you're in the EU/EEA or UK, the same requests apply under the GDPR: access, correction, erasure, restriction, and objection. You also have the right to lodge a complaint with your local data protection authority.",
+      "If you're in India, this is handled consistently with the Digital Personal Data Protection Act, 2023: you can ask us what we hold about you (in practice, whatever you wrote in an email to us, plus any analytics you consented to), ask us to correct or delete it, and withdraw consent for us to hold it.",
+      "If you're in the EU/EEA or UK, the same requests apply under the GDPR: access, correction, erasure, restriction, and objection. You also have the right to lodge a complaint with your local data protection authority. Withdrawing consent for analytics cookies is always as simple as clearing this site's data in your browser, which brings the cookie banner back.",
+      "If you're in California or another US state with its own privacy law, you have materially the same rights: to know what we hold, to correct or delete it, and to opt out - which, since we don't sell or share data for advertising, you've effectively already done by choosing “Necessary only” on the cookie banner.",
       `To exercise any of these, just email ${studio.email} - the same address the contact form writes to. We'll action it directly since it's a real person reading real email, not a ticketing system.`,
     ],
   },
@@ -54,7 +64,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "Changes to this policy",
     body: [
-      "If what the site does changes - for example, if we ever add analytics - we'll update this page to reflect it rather than leave a policy that no longer describes reality.",
+      "If what the site does changes, we'll update this page to reflect it rather than leave a policy that no longer describes reality.",
     ],
   },
 ];
@@ -68,9 +78,9 @@ export default function PrivacyPage() {
             <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Privacy Policy" }]} />
             <h1 className="display mt-5 text-[clamp(2.6rem,6vw,4.8rem)]">Privacy Policy.</h1>
             <p className="mt-6 text-lg leading-relaxed text-white/70">
-              Short version: we don&apos;t track you, we don&apos;t store what you send us on a server, and we don&apos;t share it with anyone. The long version is below.
+              Short version: we only measure traffic in aggregate, only once you say yes to the cookie banner, we don&apos;t store what you send us on a server, and we don&apos;t sell or share anything with anyone. The long version is below.
             </p>
-            <p className="mt-4 text-sm text-white/50">Last updated 27 October 2026.</p>
+            <p className="mt-4 text-sm text-white/50">Last updated 6 November 2026.</p>
           </div>
         </div>
       </header>

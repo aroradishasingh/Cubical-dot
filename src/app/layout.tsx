@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
 import { MotionRoot } from "@/components/motion-root";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -57,6 +59,17 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  // Verification meta tags are inert (omitted) until the matching env var is
+  // set - each one comes from actually verifying the property in that
+  // engine's own console (Google Search Console / Bing Webmaster Tools).
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 const jsonLd = {
@@ -66,8 +79,18 @@ const jsonLd = {
   description: studio.description,
   url: studio.url,
   email: studio.email,
+  logo: `${studio.url}/icon.svg`,
+  image: `${studio.url}/opengraph-image`,
   areaServed: "Worldwide",
   slogan: studio.lockup,
+  knowsLanguage: "en",
+  serviceType: ["Website design", "Website redesign", "Brand identity", "Design systems", "Motion design"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: studio.email,
+    contactType: "sales",
+    areaServed: "Worldwide",
+  },
 };
 
 export default function RootLayout({
@@ -84,6 +107,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <Analytics />
         <Loader />
         <MotionRoot />
         <SiteHeader />
@@ -91,6 +115,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
+        <CookieConsent />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
