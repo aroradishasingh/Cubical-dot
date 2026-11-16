@@ -45,22 +45,24 @@ export function MotionRoot() {
       };
     });
 
-    // A dot and a trailing ring. Elements with data-cursor="Label" grow the ring and name the action.
-    mm.add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+    // The ring replaces the system pointer (see globals.css), so it must track the mouse 1:1 -
+    // no easing on position, or it lags behind the user's hand. Only size/colour/label animate.
+    // Runs for every fine pointer (not just no-preference motion), otherwise reduced-motion users
+    // get a hidden system cursor and a ring that never moves.
+    mm.add({ fine: "(hover: hover) and (pointer: fine)", reduce: "(prefers-reduced-motion: reduce)" }, (ctx) => {
+      const { fine, reduce } = ctx.conditions as { fine: boolean; reduce: boolean };
+      if (!fine) return;
       const dot = cursor.current;
       const halo = ring.current;
       const text = label.current;
       if (!dot || !halo || !text) return;
+      const speed = reduce ? 0 : 1;
       gsap.set([dot, halo], { xPercent: -50, yPercent: -50, x: -100, y: -100 });
-      const dx = gsap.quickTo(dot, "x", { duration: 0.12, ease: "power3.out" });
-      const dy = gsap.quickTo(dot, "y", { duration: 0.12, ease: "power3.out" });
-      const rx = gsap.quickTo(halo, "x", { duration: 0.55, ease: "power3.out" });
-      const ry = gsap.quickTo(halo, "y", { duration: 0.55, ease: "power3.out" });
-      const move = (event: MouseEvent) => {
-        dx(event.clientX);
-        dy(event.clientY);
-        rx(event.clientX);
-        ry(event.clientY);
+      const setX = gsap.quickSetter([dot, halo], "x", "px") as (value: number) => void;
+      const setY = gsap.quickSetter([dot, halo], "y", "px") as (value: number) => void;
+      const move = (event: PointerEvent) => {
+        setX(event.clientX);
+        setY(event.clientY);
       };
       const over = (event: MouseEvent) => {
         const target = event.target as HTMLElement | null;
@@ -74,27 +76,27 @@ export function MotionRoot() {
         const idleBorder = onInk ? "rgba(242,240,233,0.7)" : "rgba(10,10,10,0.3)";
         if (labelled) {
           text.textContent = labelled.dataset.cursor ?? "";
-          gsap.to(halo, { width: 96, height: 96, backgroundColor: "#e1fc6d", borderColor: "#101012", duration: 0.45, ease: "expo.out", overwrite: "auto" });
-          gsap.to(text, { autoAlpha: 1, duration: 0.25 });
-          gsap.to(dot, { scale: 0, duration: 0.25 });
+          gsap.to(halo, { width: 96, height: 96, backgroundColor: "#e1fc6d", borderColor: "#101012", duration: 0.45 * speed, ease: "expo.out", overwrite: "auto" });
+          gsap.to(text, { autoAlpha: 1, duration: 0.25 * speed });
+          gsap.to(dot, { scale: 0, duration: 0.25 * speed });
         } else {
           gsap.to(halo, {
             width: hot ? 64 : 36,
             height: hot ? 64 : 36,
             backgroundColor: "rgba(225,252,109,0)",
             borderColor: hot ? "rgba(44,92,246,0.95)" : idleBorder,
-            duration: 0.45,
+            duration: 0.45 * speed,
             ease: "expo.out",
             overwrite: "auto",
           });
-          gsap.to(text, { autoAlpha: 0, duration: 0.15 });
-          gsap.to(dot, { scale: 1, duration: 0.25 });
+          gsap.to(text, { autoAlpha: 0, duration: 0.15 * speed });
+          gsap.to(dot, { scale: 1, duration: 0.25 * speed });
         }
       };
-      window.addEventListener("mousemove", move);
+      window.addEventListener("pointermove", move, { passive: true });
       window.addEventListener("mouseover", over);
       return () => {
-        window.removeEventListener("mousemove", move);
+        window.removeEventListener("pointermove", move);
         window.removeEventListener("mouseover", over);
       };
     });
