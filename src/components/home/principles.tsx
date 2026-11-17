@@ -6,7 +6,7 @@ import { principles } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
- * Chapter 06, the principles. Three words set huge; each one gains weight
+ * Chapter 07, the principles. Three words set huge; each one gains weight
  * (the variable font's wght axis) as it reaches the middle of the screen.
  */
 export function Principles() {
@@ -37,7 +37,7 @@ export function Principles() {
     <section ref={root} data-tone="paper" className="bg-paper text-ink" aria-labelledby="principles-title">
       <div className="shell relative z-[2] py-28 md:py-40">
         <p id="principles-title" className="eyebrow text-stone">
-          06 — What we stand on
+          07 — What we stand on
         </p>
         <ul className="mt-10">
           {principles.map((principle, index) => (

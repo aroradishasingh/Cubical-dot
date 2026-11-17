@@ -3,14 +3,14 @@ import { ArrowIcon } from "@/components/brand-button";
 import { Stop } from "@/components/story-line";
 import { essays } from "@/lib/content";
 
-/** Chapter 07, notes. A quiet list on a deeper paper tone before the finale. */
+/** Chapter 08, notes. A quiet list on a deeper paper tone before the finale. */
 export function JournalTease() {
   return (
     <section data-tone="paper" className="bg-mist text-ink" aria-labelledby="journal-title">
       <div className="shell relative z-[2] py-28 md:py-36">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="eyebrow text-stone">07 — Notes</p>
+            <p className="eyebrow text-stone">08 — Notes</p>
             <h2 id="journal-title" className="mt-5 text-[clamp(2.8rem,6vw,6.4rem)] leading-[0.9] font-extrabold tracking-[-0.04em]">
               From the <span className="serif-i">studio</span>
               <Stop />

@@ -1,5 +1,6 @@
 import { BrandButton } from "@/components/brand-button";
 import { DesignedFor } from "@/components/designed-for";
+import { Founders } from "@/components/founders";
 import { PageHero } from "@/components/page-hero";
 import { principles } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
@@ -56,6 +57,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Founders variant="long" eyebrow="The founders" />
 
       <DesignedFor />
 

@@ -6,7 +6,7 @@ import { method } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 /**
- * Chapter 05, from brief to launch. Five movements on the cobalt field; a lime
+ * Chapter 06, from brief to launch. Five movements on the cobalt field; a lime
  * rail fills as you read across them. All copy on cobalt is full paper or
  * lime, both above 4.5:1.
  */
@@ -41,7 +41,7 @@ export function Process() {
       <div className="shell relative z-[2] py-28 md:py-40">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
-            <p className="eyebrow text-lime">05 — The method</p>
+            <p className="eyebrow text-lime">06 — The method</p>
             <h2 id="process-title" className="mt-5 text-[clamp(3rem,7vw,7.5rem)] leading-[0.88] font-extrabold tracking-[-0.04em]">
               From brief <span className="serif-i">to launch.</span>
               <Stop />

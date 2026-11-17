@@ -43,7 +43,7 @@ export function DesignedFor({ className }: { className?: string }) {
       aria-labelledby="designed-for"
     >
       <h2 id="designed-for" className="sr-only">
-        Brands the founder has designed for in previous roles
+        Brands the founders have designed for in previous roles
       </h2>
       <ul className="sr-only">
         {designedFor.map((company) => (

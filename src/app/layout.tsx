@@ -7,7 +7,7 @@ import { MotionRoot } from "@/components/motion-root";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Loader } from "@/components/world/loader";
-import { studio } from "@/lib/content";
+import { founders, studio } from "@/lib/content";
 import "./globals.css";
 
 // One variable grotesk carries display and reading text; weight contrast is the accent.
@@ -84,6 +84,7 @@ const jsonLd = {
   areaServed: "Worldwide",
   slogan: studio.lockup,
   knowsLanguage: "en",
+  founder: founders.map((founder) => ({ "@type": "Person", name: founder.name, jobTitle: "Co-founder" })),
   serviceType: ["Website design", "Website redesign", "Brand identity", "Design systems", "Motion design"],
   contactPoint: {
     "@type": "ContactPoint",

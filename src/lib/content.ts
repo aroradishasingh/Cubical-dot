@@ -141,6 +141,48 @@ export const method = [
   },
 ];
 
+export type Founder = {
+  name: string;
+  /** Square portrait in /public/team. */
+  photo: string;
+  role: string;
+  /** Short credential chips, shown above the bio. */
+  credentials: string[];
+  /** One or two sentences for the home page. */
+  short: string;
+  /** The fuller version for the About page. */
+  long: string[];
+};
+
+export const founders: Founder[] = [
+  {
+    name: "Disha Singh Arora",
+    photo: "/team/disha-singh-arora.jpg",
+    role: "Co-founder · Product & UX design",
+    credentials: ["M.Des, IIT Roorkee", "Trimble", "Inshorts", "Bizom"],
+    short:
+      "Product designer with an M.Des from IIT Roorkee. At Trimble, Disha redesigned an enterprise warranty-claim flow and cut completion time by more than half; at Inshorts, three years of interactive stories and ad experiences for millions of monthly readers.",
+    long: [
+      "Product designer with 4+ years across enterprise UX and large-scale consumer products, and a Master of Design from IIT Roorkee.",
+      "At Trimble, Disha redesigned the dealer warranty-claim experience end to end, from research to usability testing, taking a 20-minute form down to 8-10 minutes, and contributed to the Trimble Modus design system. Three years at Inshorts went into interactive stories, data visualisations and rich-media ads for brands like Amazon, Flipkart and Hyundai, seen by millions of readers a month.",
+      "Today Disha is Senior Visual Designer at Bizom, leading the website redesign and the design system behind it.",
+    ],
+  },
+  {
+    name: "Mayank Soni",
+    photo: "/team/mayank-soni.jpg",
+    role: "Co-founder · Visual design & creative operations",
+    credentials: ["Amazon", "Prime Video", "NVIDIA", "8+ years"],
+    short:
+      "Visual designer at Amazon Prime Video, leading a design team that delivers campaigns like Prime Day and Black Friday across Europe. Before that, brand work for OnePlus, vivo and Noise, and three years at NVIDIA on self-driving data.",
+    long: [
+      "Visual designer with 8+ years across digital and print, campaign delivery and design operations.",
+      "At Amazon Prime Video, Mayank leads a team of visual designers and owns European creative delivery for campaigns like Prime Day, Digital Deals and Black Friday, and has automated production workflows to cut manual effort by up to 80%.",
+      "Earlier: three years of independent brand and social work for OnePlus, vivo, Noise, Fire-Boltt and ASUS; print and brand design for Vistaprint clients at AffinityX; and more than three years at NVIDIA preparing the image data that trains self-driving systems.",
+    ],
+  },
+];
+
 export const principles = [
   {
     title: "Bold.",
