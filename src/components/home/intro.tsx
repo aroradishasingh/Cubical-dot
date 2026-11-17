@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Stop } from "@/components/story-line";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-/** Chapter 02, the belief: what we're actually hired to fix, said plainly. */
+/** The belief: the problem we solve and why a brand should come to us. */
 export function Intro() {
   const root = useRef<HTMLElement>(null);
 
@@ -26,26 +26,20 @@ export function Intro() {
   );
 
   const lines = [
-    <>Premium brands</>,
+    <>Your product is premium.</>,
     <>
-      hire us when their <span className="serif-i">site</span>
+      Your <span className="serif-i">website</span>
     </>,
-    <>still looks like a stopgap.</>,
-    <>We rebuild it to match</>,
     <>
-      the <span className="serif-i">price</span> they charge
+      should look it
+      <Stop />
     </>,
-    <>and the market they&apos;re entering.</>,
   ];
 
   return (
     <section ref={root} data-tone="paper" className="bg-paper text-ink" aria-labelledby="intro-title">
       <div className="shell relative z-[2] grid gap-x-[var(--grid-gutter)] gap-y-12 py-28 md:py-40 lg:grid-cols-12">
-        <p className="eyebrow flex items-center gap-3 text-stone lg:col-span-3">
-          <Stop className="text-[2.2rem]" />
-          <span>02 — The belief</span>
-        </p>
-        <div className="lg:col-span-9">
+        <div className="lg:col-span-10">
           <h2 id="intro-title" className="text-[clamp(2.4rem,5.6vw,6rem)] leading-[0.95] font-bold tracking-[-0.03em]">
             {lines.map((line, index) => (
               <span key={index} className="block overflow-hidden pb-[0.05em]">
@@ -55,10 +49,10 @@ export function Intro() {
           </h2>
           <div className="mt-14 grid gap-8 border-t border-ink/15 pt-6 sm:grid-cols-2">
             <p className="text-lg leading-relaxed text-stone">
-              We are hired by founders and brand leads whose price already says premium, and whose website still says otherwise.
+              Most growing brands outgrow their website without noticing. It looks generic, it doesn&apos;t match what they charge, and visitors decide in seconds whether to trust it.
             </p>
             <p className="text-lg leading-relaxed text-stone">
-              Founder-led design, with specialist collaborators named before they join. You keep the same direction from first call to launch.
+              We design websites and brand identities that look as premium as what you sell, so the right customers take you seriously from the first screen.
             </p>
           </div>
         </div>

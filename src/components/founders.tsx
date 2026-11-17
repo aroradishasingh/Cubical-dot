@@ -7,22 +7,15 @@ import { founders } from "@/lib/content";
  * after the work ("who made this?") with the short bios; the About page uses
  * the full version.
  */
-export function Founders({ variant = "short", eyebrow }: { variant?: "short" | "long"; eyebrow: string }) {
+export function Founders({ variant = "short", eyebrow }: { variant?: "short" | "long"; eyebrow?: string }) {
   return (
     <section data-tone="paper" className="bg-paper text-ink" aria-labelledby="founders-title">
       <div className="shell relative z-[2] py-28 md:py-40">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p className="eyebrow text-stone">{eyebrow}</p>
-            <h2 id="founders-title" className="mt-5 text-[clamp(2.8rem,6.4vw,6.8rem)] leading-[0.9] font-extrabold tracking-[-0.04em]">
-              Two founders. <span className="serif-i text-violet">On every project</span>
-              <Stop />
-            </h2>
-          </div>
-          <p className="max-w-sm text-lg leading-relaxed text-stone">
-            The people on your first call are the people who design your site. No hand-off to a junior team after the proposal.
-          </p>
-        </div>
+        {eyebrow ? <p className="eyebrow text-stone">{eyebrow}</p> : null}
+        <h2 id="founders-title" className={`${eyebrow ? "mt-5 " : ""}text-[clamp(2.8rem,6.4vw,6.8rem)] leading-[0.9] font-extrabold tracking-[-0.04em]`}>
+          Two founders. <span className="serif-i text-violet">On every project</span>
+          <Stop />
+        </h2>
 
         <ul className="mt-16 grid gap-3 md:grid-cols-2">
           {founders.map((founder) => (

@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Services",
   description:
-    "Website design, website redesign, design systems, digital brand, motion, and product interfaces for premium international brands.",
+    "Website design and redesign, brand identity design, design systems, and product interfaces for premium brands.",
   path: "/services",
 });
 
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       {/* Each practice is a row with its own rhythm: number, name, promise, detail. */}
       <section data-form="4" className="relative text-ink">
         <div className="shell py-24 md:py-36">
-          <p className="eyebrow text-ink/65">Six practices</p>
+          <p className="eyebrow text-ink/65">Four practices</p>
           <ul className="mt-10 border-t border-ink/15">
             {services.map((service) => (
               <li

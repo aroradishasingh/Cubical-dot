@@ -1,11 +1,12 @@
 export const studio = {
   name: "Cubical Dot",
   email: "mayank@cubicaldot.com",
-  url: "https://cubicaldot.com",
+  // The domain redirects to www on Vercel, so www is the canonical address.
+  url: "https://www.cubicaldot.com",
   line: "A design studio for what's next.",
   lockup: "Ideas in motion. Design in every detail.",
   description:
-    "Cubical Dot is an independent digital design studio. We design and redesign websites for premium brands that sell across borders.",
+    "Cubical Dot is an independent design studio that specializes in websites for brands: website design and redesign, brand identity, and design systems that make a brand look as premium as what it sells.",
 };
 
 export const designedFor = [
@@ -48,24 +49,24 @@ export const services: Service[] = [
   {
     id: "website-design",
     index: "01",
-    title: "Website design",
-    line: "A digital flagship for a brand ready to be seen at the price it charges.",
-    accent: "flagship",
+    title: "Website design & redesign",
+    line: "A new site, or the honest edit of the one you have, built to look as premium as what you sell.",
+    accent: "premium",
     detail:
-      "A new site built from scratch: sitemap and page-by-page UX, a visual and motion system, copy direction, and a production-ready front end your team can maintain. Typically 6-12 pages, delivered in 8-14 weeks.",
+      "New builds start from scratch: sitemap and page-by-page UX, a visual and motion system, copy direction, and a production-ready front end your team can maintain. Redesigns start with an audit of the current site: we keep the pages and SEO that already earn trust, then rebuild the structure, UI and front end around the path to a serious inquiry. Typically 6-12 pages, delivered in 8-14 weeks.",
     composition: "orbit",
     tone: "dusk",
   },
   {
-    id: "website-redesign",
+    id: "brand-identity",
     index: "02",
-    title: "Website redesign",
-    line: "The commercial edit. What stays, what goes, what the next buyer needs first.",
-    accent: "commercial",
+    title: "Brand identity design",
+    line: "A logo, type and colour system that holds up on every screen, not just on a business card.",
+    accent: "every screen",
     detail:
-      "Starts with an audit of the current site against the sale you actually want. We keep the pages and SEO equity that earn trust, then rebuild the information architecture, UI, and front end around the path to a serious inquiry.",
-    composition: "eclipse",
-    tone: "violet",
+      "Logo, typography, colour and a clear usage guide, designed for screens first. Your website, social channels and product all read as one brand, and your team knows how to keep it that way.",
+    composition: "split",
+    tone: "grove",
   },
   {
     id: "design-systems",
@@ -79,30 +80,8 @@ export const services: Service[] = [
     tone: "ink",
   },
   {
-    id: "digital-brand",
-    index: "04",
-    title: "Digital brand",
-    line: "Identity, translated for screens. Not a logo pasted onto a template.",
-    accent: "screens",
-    detail:
-      "A digital-specific style guide - voice and tone, screen color and type, photo and motion direction - so marketing, product, and sales all use the same brand on screen, not just on the logo.",
-    composition: "split",
-    tone: "grove",
-  },
-  {
-    id: "motion",
-    index: "05",
-    title: "Motion",
-    line: "Movement with a job. Emphasis, sequence, and the feeling of a thing well made.",
-    accent: "job",
-    detail:
-      "Production-ready motion specs and code (GSAP and CSS) for the scroll, hover, and transition moments that matter - something your developers can ship, not a mood video that gets reinterpreted later.",
-    composition: "cascade",
-    tone: "dusk",
-  },
-  {
     id: "product-interfaces",
-    index: "06",
+    index: "04",
     title: "Product interfaces",
     line: "Marketing sites and product surfaces that share one visual language.",
     accent: "one visual language",
@@ -330,6 +309,53 @@ function boards(folder: string, count: number, deck: string, alt: string) {
 }
 
 const studyCatalog: Study[] = [
+  {
+    slug: "cubical-dot",
+    index: "01",
+    name: "Cubical Dot",
+    genre: "Website design",
+    sector: "Website design",
+    year: "2026",
+    markets: "Cubical Dot",
+    services: ["Website design", "Front-end development", "Motion"],
+    summary:
+      "Our own studio site: a cobalt field, one lime dot, and a single line that draws through every section as you scroll.",
+    headline: "One dot. One line.",
+    composition: "split",
+    tone: "violet",
+    cover: "/cubical-dot/01.jpg",
+    gallery: [
+      { src: "/cubical-dot/01.jpg", alt: "Cubical Dot home page hero: Websites that convert", deck: "Website" },
+      { src: "/cubical-dot/02.jpg", alt: "Cubical Dot home page: the belief section and client logos", deck: "Website" },
+      { src: "/cubical-dot/03.jpg", alt: "Cubical Dot home page: selected works list", deck: "Website" },
+      { src: "/cubical-dot/04.jpg", alt: "Cubical Dot home page: the two founders", deck: "Website" },
+      { src: "/cubical-dot/05.jpg", alt: "Cubical Dot home page: four practices", deck: "Website" },
+      { src: "/cubical-dot/06.jpg", alt: "Cubical Dot home page: closing call to action", deck: "Website" },
+    ],
+    galleryNoun: "screens",
+    chapters: [
+      {
+        kicker: "The brief",
+        title: "A studio site that had to prove the work before anyone read a word.",
+        body: [
+          "The website is the first piece of work a client sees from a design studio, so it had to carry the standard we promise: premium at first glance, clear about what we do, and quick to get in touch.",
+        ],
+      },
+      {
+        kicker: "The move",
+        title: "Reduce the brand to a slab and a dot, then let the dot lead the way.",
+        body: [
+          "Four colours and the mark's two shapes used everywhere from the service icons to the cursor. A single line runs down the home page and lights each section's full stop as the visitor scrolls past it.",
+          "Designed and built in-house on Next.js, with motion written in GSAP and hosted on Vercel.",
+        ],
+      },
+    ],
+    outcomes: [
+      { value: "4", label: "Colours in the palette" },
+      { value: "1", label: "Line through every section" },
+      { value: "2026", label: "Launched" },
+    ],
+  },
   {
     slug: "mcdonalds",
     index: "01",
@@ -709,6 +735,7 @@ const studyCatalog: Study[] = [
 ];
 
 const studyOrder = [
+  "cubical-dot",
   "mcdonalds",
   "trimble-modus",
   "magazine",

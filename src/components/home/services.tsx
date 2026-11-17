@@ -5,7 +5,7 @@ import { services } from "@/lib/content";
 import { cn } from "cn";
 
 /**
- * Chapter 03, what we shape. A bento of six practices, each with a small
+ * What we do. A bento of four practices, each with a small
  * glyph built only from the mark's parts: the slab and the dot.
  */
 
@@ -27,12 +27,6 @@ function Glyph({ kind }: { kind: string }) {
           </div>
         </div>
       );
-    case "website-redesign":
-      return (
-        <div className={cn(base, "grid place-items-center")}>
-          <span className="glyph-morph block size-[58%] bg-current" />
-        </div>
-      );
     case "design-systems":
       return (
         <div className={cn(base, "grid grid-cols-2 gap-[8%] p-[16%]")}>
@@ -42,18 +36,11 @@ function Glyph({ kind }: { kind: string }) {
           <span className="glyph-pop m-auto size-[70%] rounded-full bg-lime ring-2 ring-ink" />
         </div>
       );
-    case "digital-brand":
+    case "brand-identity":
       return (
         <div className={cn(base, "flex items-end justify-center gap-[6%] p-[18%]")}>
           <span className="slab block aspect-square w-[58%] bg-current [--slab:20px]" />
           <span className="glyph-pop block aspect-square w-[28%] rounded-full bg-lime ring-2 ring-ink" />
-        </div>
-      );
-    case "motion":
-      return (
-        <div className={cn(base, "p-[14%]")}>
-          <span className="absolute inset-x-[14%] bottom-[22%] h-0.5 bg-current" />
-          <span className="glyph-bounce absolute bottom-[22%] left-[14%] size-[18%] rounded-full bg-lime ring-2 ring-ink" />
         </div>
       );
     default:
@@ -71,30 +58,20 @@ function Glyph({ kind }: { kind: string }) {
   }
 }
 
-const spans = [
-  "lg:col-span-2 lg:row-span-2",
-  "lg:col-span-2",
-  "lg:col-span-1",
-  "lg:col-span-1",
-  "lg:col-span-2",
-  "lg:col-span-2",
-];
+// Four cells fill a 4 x 2 grid exactly: the flagship takes a 2 x 2 block.
+const spans = ["lg:col-span-2 lg:row-span-2", "lg:col-span-2", "lg:col-span-1", "lg:col-span-1"];
 
 export function Services() {
   return (
     <section data-tone="paper" className="bg-paper text-ink" aria-labelledby="services-title">
       <div className="shell relative z-[2] pb-28 md:pb-40">
-        <div className="flex flex-wrap items-end justify-between gap-6 border-t border-ink/15 pt-10">
+        <div className="border-t border-ink/15 pt-10">
           <div>
-            <p className="eyebrow text-stone">05 — What we do</p>
-            <h2 id="services-title" className="mt-5 text-[clamp(3rem,7vw,7.5rem)] leading-[0.88] font-extrabold tracking-[-0.04em]">
-              Six <span className="serif-i">practices</span>
+            <h2 id="services-title" className="text-[clamp(3rem,7vw,7.5rem)] leading-[0.88] font-extrabold tracking-[-0.04em]">
+              Four <span className="serif-i">practices</span>
               <Stop />
             </h2>
           </div>
-          <p className="max-w-sm text-lg leading-relaxed text-stone">
-            One standard across all of them: a site a buyer in another timezone understands in ten seconds, without a call.
-          </p>
         </div>
 
         <ul className="mt-14 grid auto-rows-[minmax(15rem,auto)] gap-3 sm:grid-cols-2 lg:grid-cols-4">

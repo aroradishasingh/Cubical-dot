@@ -3,14 +3,15 @@ import { Founders } from "@/components/founders";
 import { Close } from "@/components/home/close";
 import { Hero } from "@/components/home/hero";
 import { Intro } from "@/components/home/intro";
-import { JournalTease } from "@/components/home/journal-tease";
 import { Principles } from "@/components/home/principles";
-import { Process } from "@/components/home/process";
 import { Services } from "@/components/home/services";
 import { WorkStack } from "@/components/home/work-stack";
 import { StoryLine } from "@/components/story-line";
 
-// One story, nine chapters. The lime dot draws a line through every chapter's stop.
+// One story; the lime dot draws a line through every section's stop.
+// `Process` (the method) and `JournalTease` (notes) are kept in
+// components/home but no longer shown here: the method is on /services and
+// the notes are on /blog, both visible and indexed there.
 export default function HomePage() {
   return (
     <StoryLine>
@@ -18,11 +19,9 @@ export default function HomePage() {
       <Intro />
       <DesignedFor />
       <WorkStack />
-      <Founders eyebrow="04 — Who you work with" />
+      <Founders />
       <Services />
-      <Process />
       <Principles />
-      <JournalTease />
       <Close />
     </StoryLine>
   );

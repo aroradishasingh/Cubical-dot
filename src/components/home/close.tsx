@@ -2,13 +2,12 @@ import { BrandButton } from "@/components/brand-button";
 import { Stop } from "@/components/story-line";
 import { studio } from "@/lib/content";
 
-/** Chapter 09, the invitation. The line ends here, on the period of the last sentence. */
+/** The invitation. The line ends here, on the period of the last sentence. */
 export function Close() {
   return (
     <section data-tone="lime" className="bg-lime text-ink" aria-labelledby="close-title">
       <div className="shell relative z-[2] flex min-h-[90svh] flex-col justify-center py-28">
-        <p className="eyebrow">09 — Your turn</p>
-        <h2 id="close-title" className="mt-6 text-[clamp(3.6rem,11vw,12rem)] leading-[0.84] font-extrabold tracking-[-0.03em]">
+        <h2 id="close-title" className="text-[clamp(3.6rem,11vw,12rem)] leading-[0.84] font-extrabold tracking-[-0.03em]">
           <span className="serif-i">Let&apos;s</span> build<Stop />
         </h2>
         <div className="mt-12 grid gap-8 border-t border-ink/25 pt-6 md:grid-cols-12 md:items-end">

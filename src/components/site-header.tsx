@@ -8,24 +8,11 @@ import { Logo } from "@/components/mark";
 import { nav, studio } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-function useStudioTime() {
-  const [time, setTime] = useState("");
-  useEffect(() => {
-    const format = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Kolkata" });
-    const tick = () => setTime(format.format(new Date()));
-    tick();
-    const id = window.setInterval(tick, 15000);
-    return () => window.clearInterval(id);
-  }, []);
-  return time;
-}
-
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const menu = useRef<HTMLDivElement>(null);
-  const time = useStudioTime();
 
   useEffect(() => {
     let last = window.scrollY;
@@ -72,11 +59,12 @@ export function SiteHeader() {
     >
       {/* A floating island: its own paper surface keeps it legible over every section. */}
       <div className="shell relative z-[76]">
-        <div className="flex h-14 items-center justify-between gap-4 rounded-full border border-ink/10 bg-paper/90 pr-3 pl-5 text-ink shadow-[0_12px_40px_-18px_rgba(16,16,18,0.45)] backdrop-blur-xl md:h-16 md:pr-3.5 md:pl-6">
+        <div className="relative flex h-14 items-center justify-between gap-4 rounded-full border border-ink/10 bg-paper/90 pr-3 pl-5 text-ink shadow-[0_12px_40px_-18px_rgba(16,16,18,0.45)] backdrop-blur-xl md:h-16 md:pr-3.5 md:pl-6">
           <Link href="/" data-site-logo aria-label="Cubical Dot, home" className="inline-flex shrink-0">
             <Logo className="text-[1.3rem] sm:text-[1.45rem]" />
           </Link>
-          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+          {/* Centred on the bar itself, not on the space left between logo and button. */}
+          <nav aria-label="Primary" className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex">
             {nav.map((item) => {
               const active = pathname.startsWith(item.href);
               return (
@@ -95,10 +83,6 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="flex items-center gap-2.5">
-            <span className="hidden items-center gap-2 px-3 font-mono text-xs tracking-[0.04em] text-ink uppercase xl:flex">
-              <span className="size-2 rounded-full bg-lime ring-1 ring-ink/40" aria-hidden />
-              {time ? `India ${time}` : "India"}
-            </span>
             <Link
               href="/contact"
               className="hidden h-10 items-center gap-2 rounded-full bg-ink px-5 text-sm font-semibold text-paper transition-colors hover:bg-cobalt sm:inline-flex md:h-12"

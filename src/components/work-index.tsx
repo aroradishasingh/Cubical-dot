@@ -9,11 +9,13 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { cn } from "cn";
 
 /**
- * The full index as an editorial list over the wave floor. On a mouse, a
- * preview of the hovered study follows the cursor; on touch, each row carries
- * its own cover.
+ * The full index as an editorial list. On a mouse, a preview of the hovered
+ * study follows the cursor; on touch, each row carries its own cover.
+ *
+ * `/work` shows it over the wave floor; the home page shows the same list on
+ * the ink field (`dark`) under its own heading, so every study is one click away.
  */
-export function WorkIndex() {
+export function WorkIndex({ dark = false, heading }: { dark?: boolean; heading?: React.ReactNode }) {
   const root = useRef<HTMLElement>(null);
   const preview = useRef<HTMLDivElement>(null);
   const sectors = useMemo(() => ["All", ...Array.from(new Set(studies.map((study) => study.sector)))], []);
@@ -47,8 +49,13 @@ export function WorkIndex() {
   );
 
   return (
-    <section ref={root} data-form="3" className="relative text-ink">
-      <div className="shell pb-28">
+    <section
+      ref={root}
+      {...(dark ? { "data-tone": "ink", "aria-labelledby": "work-title" } : { "data-form": "3" })}
+      className={cn("relative", dark ? "bg-ink text-paper" : "text-ink")}
+    >
+      <div className={cn("shell", dark ? "relative z-[2] py-28 md:py-40" : "pb-28")}>
+        {heading}
         <div className="flex gap-2 overflow-x-auto pb-2" role="tablist" aria-label="Filter studies by sector">
           {sectors.map((item) => {
             const selected = item === sector;
@@ -61,7 +68,7 @@ export function WorkIndex() {
                 onClick={() => setSector(item)}
                 className={cn(
                   "h-10 shrink-0 rounded-full border px-5 text-sm font-medium transition-colors duration-300",
-                  selected ? "border-lime bg-lime text-ink" : "border-ink/15 text-ink/75 hover:border-ink/15"
+                  selected ? "border-lime bg-lime text-ink" : dark ? "border-paper/20 text-paper/75 hover:border-paper/40" : "border-ink/15 text-ink/75 hover:border-ink/15"
                 )}
               >
                 {item}
@@ -70,29 +77,35 @@ export function WorkIndex() {
           })}
         </div>
 
-        <ul className="mt-10 border-t border-ink/15" onMouseLeave={() => setHovered(null)}>
+        <ul className={cn("mt-10 border-t", dark ? "border-paper/15" : "border-ink/15")} onMouseLeave={() => setHovered(null)}>
           {visible.map((study, index) => (
-            <li key={study.slug} className="border-b border-ink/15">
+            <li key={study.slug} className={cn("border-b", dark ? "border-paper/15" : "border-ink/15")}>
               <Link
                 href={`/work/${study.slug}`}
                 data-cursor="View"
                 onMouseEnter={() => setHovered(index)}
-                className="group/row grid items-baseline gap-x-6 gap-y-4 py-7 md:grid-cols-12 md:py-10"
+                className={cn("group/row grid items-baseline gap-x-6 gap-y-4 md:grid-cols-12", dark ? "py-5 md:py-6" : "py-7 md:py-10")}
               >
-                <span className="eyebrow text-ink/65 tabular-nums md:col-span-1">{study.index}</span>
+                <span className={cn("eyebrow tabular-nums md:col-span-1", dark ? "text-paper/65" : "text-ink/65")}>{study.index}</span>
                 <span
                   className={cn(
-                    "text-[clamp(2.4rem,6vw,6rem)] leading-[0.9] font-bold tracking-[-0.04em] transition-[color,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:col-span-6",
-                    hovered !== null && hovered !== index ? "text-ink/65" : "text-ink",
+                    "leading-[0.9] font-bold tracking-[-0.04em] transition-[color,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:col-span-6",
+                    dark ? "text-[clamp(1.9rem,3.6vw,3.6rem)]" : "text-[clamp(2.4rem,6vw,6rem)]",
+                    hovered !== null && hovered !== index ? (dark ? "text-paper/55" : "text-ink/65") : dark ? "text-paper" : "text-ink",
                     hovered === index && "md:translate-x-4"
                   )}
                 >
-                  {hovered === index ? <span className="serif-i font-normal text-violet">{study.genre}</span> : study.genre}
+                  {hovered === index ? <span className={cn("serif-i font-normal", dark ? "text-lime" : "text-violet")}>{study.genre}</span> : study.genre}
                 </span>
-                <span className="text-sm leading-relaxed text-ink/65 md:col-span-3">{study.services.slice(0, 3).join(" · ")}</span>
+                <span className={cn("text-sm leading-relaxed md:col-span-3", dark ? "text-paper/65" : "text-ink/65")}>{study.services.slice(0, 3).join(" · ")}</span>
                 <span className="flex items-center justify-between gap-4 md:col-span-2 md:justify-end">
-                  <span className="eyebrow text-ink/65">{study.year}</span>
-                  <ArrowIcon className="size-6 -rotate-45 text-ink/65 transition-colors group-hover/row:text-violet" />
+                  <span className={cn("eyebrow", dark ? "text-paper/65" : "text-ink/65")}>{study.year}</span>
+                  <ArrowIcon
+                    className={cn(
+                      "size-6 -rotate-45 transition-colors",
+                      dark ? "text-paper/65 group-hover/row:text-lime" : "text-ink/65 group-hover/row:text-violet"
+                    )}
+                  />
                 </span>
                 {study.cover ? (
                   <span className="relative block aspect-[16/10] overflow-hidden rounded-tl-[22px] rounded-br-[22px] md:hidden">
@@ -103,7 +116,7 @@ export function WorkIndex() {
             </li>
           ))}
         </ul>
-        {visible.length === 0 ? <p className="mt-10 text-ink/65">No studies in this sector yet.</p> : null}
+        {visible.length === 0 ? <p className={cn("mt-10", dark ? "text-paper/65" : "text-ink/65")}>No studies in this sector yet.</p> : null}
       </div>
 
       <div

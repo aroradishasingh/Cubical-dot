@@ -7,7 +7,7 @@ import { Stop } from "@/components/story-line";
 import { world } from "@/components/world/store";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-/** Chapter 01, the idea. Cobalt field, living grid, the first stop of the line. */
+/** The idea. Cobalt field, living grid, the first stop of the line. */
 export function Hero() {
   const root = useRef<HTMLElement>(null);
 
@@ -36,8 +36,8 @@ export function Hero() {
       <GridField className="absolute inset-0 size-full [mask-image:linear-gradient(to_bottom,black_0%,black_58%,transparent_82%)]" />
       <div className="shell pointer-events-none relative z-[2] flex min-h-[100svh] flex-col pt-28 pb-8 md:pt-32 md:pb-10">
         <div className="hero-fade flex flex-wrap items-center justify-between gap-4 eyebrow text-paper">
-          <span>Independent design studio · India</span>
-          <span className="hidden sm:inline">Websites for brands crossing borders</span>
+          <span>Independent design studio</span>
+          <span className="hidden sm:inline">Specializes in websites for brands</span>
         </div>
 
         <h1 id="hero-title" className="mt-auto text-[clamp(4.2rem,13.5vw,14.5rem)] leading-[0.84] font-extrabold tracking-[-0.03em]">
